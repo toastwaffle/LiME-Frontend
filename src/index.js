@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LiME from './LiME';
-import './index.css';
 
-ReactDOM.render(
-  <LiME />,
-  document.getElementById('root')
-);
+import Root from './components/Root';
+
+ReactDOM.render(<Root />, document.getElementById('root'));
