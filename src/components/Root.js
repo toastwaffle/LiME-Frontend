@@ -7,8 +7,7 @@ import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
 import {loginUserSuccess} from '../actions/auth';
 import App from '../components/App';
 import Layout from '../components/Layout';
-import LoginPage from '../components/LoginPage';
-import RegisterPage from '../components/RegisterPage';
+import HomePage from '../components/HomePage';
 import reducers from '../reducers';
 import requireAuth from '../utils/requireAuth';
 
@@ -34,8 +33,7 @@ export default class Root extends React.Component {
         <Router history={this.history}>
           <Route path='/' component={Layout}>
             <IndexRoute component={requireAuth(App)}/>
-            <Route path="login" component={LoginPage}/>
-            <Route path="register" component={RegisterPage}/>
+            <Route path="home" component={HomePage}/>
           </Route>
         </Router>
       </Provider>

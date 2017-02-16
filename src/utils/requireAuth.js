@@ -15,7 +15,7 @@ export default function requireAuth(Component) {
     checkAuth (isAuthenticated) {
       if (!isAuthenticated) {
         let redirectAfterLogin = this.props.location.pathname;
-        this.props.dispatch(push(`/login?next=${redirectAfterLogin}`));
+        this.props.dispatch(push(`/home?next=${redirectAfterLogin}`));
       }
     }
 

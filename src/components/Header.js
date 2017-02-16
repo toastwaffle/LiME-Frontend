@@ -24,4 +24,4 @@ function mapState(state) {
   };
 }
 
-export default Header = connect(mapState)(Header);
+export default connect(mapState)(Header);
