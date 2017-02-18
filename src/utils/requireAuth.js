@@ -21,10 +21,17 @@ export default function requireAuth(Component) {
 
     render () {
       if (this.props.isAuthenticated === true)
-        return <Component {...this.props}/>
-      return null
+        return <Component {...this.props}/>;
+      return null;
     }
   }
+  AuthenticatedComponent.propTypes = {
+    location: React.PropTypes.shape({
+      pathname: React.PropTypes.string.isRequired
+    }).isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+    isAuthenticated: React.PropTypes.bool.isRequired
+  };
 
   function mapState(state) {
     return {

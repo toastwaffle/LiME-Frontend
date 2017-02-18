@@ -15,3 +15,6 @@ export default class Layout extends React.Component {
     );
   }
 }
+Layout.propTypes = {
+  children: React.PropTypes.node.isRequired
+};

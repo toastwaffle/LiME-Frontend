@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
   }
 
   handleChange(field) {
-    return function(event) { this.setState({[field]: event.target.value}) }
+    return function(event) { this.setState({[field]: event.target.value}); };
   }
 
   render () {
@@ -37,18 +37,24 @@ class LoginForm extends React.Component {
     );
   }
 }
+LoginForm.propTypes = {
+  actions: React.PropTypes.object.isRequired,
+  statusText: React.PropTypes.string.isRequired,
+  next: React.PropTypes.string.isRequired,
+  isAuthenticating: React.PropTypes.bool.isRequired
+};
 
 function mapStateToProps(state) {
   return {
     isAuthenticating   : state.auth.isAuthenticating,
     statusText         : state.auth.statusText
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions : bindActionCreators(AuthActionCreators, dispatch)
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

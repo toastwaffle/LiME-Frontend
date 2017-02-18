@@ -6,7 +6,7 @@ import RegisterForm from '../components/RegisterForm';
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.next = this.props.location.query.next || "/";
+    this.next = this.props.location.query.next || '/';
   }
 
   render () {
@@ -18,3 +18,10 @@ export default class HomePage extends React.Component {
     );
   }
 }
+HomePage.propTypes = {
+  location: React.PropTypes.shape({
+    query: React.PropTypes.shape({
+      next: React.PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
+};

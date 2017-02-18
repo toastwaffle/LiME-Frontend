@@ -8,14 +8,13 @@ export const AuthActions = createConstants(
 );
 
 export const AuthActionCreators = {
-  loginUser: function(email, password, redirect="/") {
-    console.log(email);
+  loginUser: function(email, password, redirect='/') {
     return {
       type: AuthActions.LOGIN_USER_FAILURE,
       payload: {
-        status: ":(",
-        statusText: "I haven't implemented this bit yet!"
+        status: ':(',
+        statusText: 'I haven\'t implemented this bit yet! redirect=' + redirect
       }
-    }
+    };
   },
-}
+};

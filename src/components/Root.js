@@ -19,7 +19,7 @@ export default class Root extends React.Component {
       reducers,
       applyMiddleware(routerMiddleware(browserHistory))
     );
-    this.history = syncHistoryWithStore(browserHistory, this.store)
+    this.history = syncHistoryWithStore(browserHistory, this.store);
 
     let token = localStorage.getItem('token');
     if (token !== null) {

@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default createReducer(initialState, {
-  [AuthActions.LOGIN_USER_REQUEST]: (state, payload) => {
+  [AuthActions.LOGIN_USER_REQUEST]: (state) => {
     return Object.assign({}, state, {
       'isAuthenticating': true,
       'statusText': null
@@ -28,7 +28,7 @@ export default createReducer(initialState, {
       'statusText': `Authentication Error: ${payload.status} ${payload.statusText}`
     });
   },
-  [AuthActions.LOGOUT_USER]: (state, payload) => {
+  [AuthActions.LOGOUT_USER]: (state) => {
     return Object.assign({}, state, {
       'isAuthenticated': false,
       'token': null,
