@@ -35,8 +35,7 @@ export default function requireAuth(Component) {
 
   function mapState(state) {
     return {
-      token: state.auth.token,
-      isAuthenticated: state.auth.token !== null
+      isAuthenticated: state.auth.backend.isAuthenticated()
     };
   }
 

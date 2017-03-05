@@ -3,8 +3,9 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
+import thunk from 'redux-thunk';
 
-import {loginUserSuccess} from '../actions/auth';
+import {AuthActionCreators} from '../actions/auth';
 import App from '../components/App';
 import Layout from '../components/Layout';
 import HomePage from '../components/HomePage';
@@ -17,13 +18,13 @@ export default class Root extends React.Component {
 
     this.store = createStore(
       reducers,
-      applyMiddleware(routerMiddleware(browserHistory))
+      applyMiddleware(thunk, routerMiddleware(browserHistory))
     );
     this.history = syncHistoryWithStore(browserHistory, this.store);
 
     let token = localStorage.getItem('token');
     if (token !== null) {
-      this.store.dispatch(loginUserSuccess(token));
+      this.store.dispatch(AuthActionCreators.loginSuccess(token));
     }
   }
 

@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
 
   login(e) {
     e.preventDefault();
-    this.props.actions.loginUser(
+    this.props.actions.login(
       this.state.email, this.state.password, this.props.next);
   }
 
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
 }
 LoginForm.propTypes = {
   actions: React.PropTypes.object.isRequired,
-  statusText: React.PropTypes.string.isRequired,
+  statusText: React.PropTypes.string,
   next: React.PropTypes.string.isRequired,
   isAuthenticating: React.PropTypes.bool.isRequired
 };
