@@ -2,9 +2,10 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
+import FormBase from './FormBase';
 import {AuthActionCreators} from '../actions/auth';
 
-class LoginForm extends React.Component {
+class LoginForm extends FormBase {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,10 +18,6 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.actions.login(
       this.state.email, this.state.password, this.props.next);
-  }
-
-  handleChange(field) {
-    return function(event) { this.setState({[field]: event.target.value}); };
   }
 
   render () {
@@ -47,7 +44,7 @@ LoginForm.propTypes = {
 function mapStateToProps(state) {
   return {
     isAuthenticating   : state.auth.isAuthenticating,
-    statusText         : state.auth.statusText
+    statusText         : state.auth.loginStatusText
   };
 }
 
