@@ -50,9 +50,7 @@ export default createReducer(initialState, {
   },
   [AuthActions.LOGOUT]: (state) => {
     return Object.assign({}, state, {
-      'isAuthenticated': false,
-      'backend': unauthenticatedBackend,
-      'statusText': 'You have been successfully logged out.'
+      'backend': unauthenticatedBackend
     });
   }
 });

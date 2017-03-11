@@ -1,11 +1,19 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
+
+import {AuthActionCreators} from '../actions/auth';
 
 import logo from '../resources/logo.svg';
 import '../styles/Header.css';
 
 class Header extends React.Component {
+  logout(e) {
+    e.preventDefault();
+    this.props.actions.logout()
+  }
+
   render() {
     return (
       <header className="Header">
@@ -13,15 +21,26 @@ class Header extends React.Component {
           <img src={logo} className="Header-logo" alt="logo" />
           <h2>LiME</h2>
         </Link>
+        {
+          this.props.isAuthenticated ?
+          <button onClick={this.logout.bind(this)}>Log out</button> :
+          null
+        }
       </header>
     );
   }
 }
 
-function mapState(state) {
+function mapStateToProps(state) {
   return {
-    isAuthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.backend.isAuthenticated()
   };
 }
 
-export default connect(mapState)(Header);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions : bindActionCreators(AuthActionCreators, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

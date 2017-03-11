@@ -74,5 +74,8 @@ export const AuthActionCreators = {
       type: AuthActions.REGISTER_FAILURE,
       payload: {response: error.response}
     };
+  },
+  logout: function() {
+    return {type: AuthActions.LOGOUT};
   }
 };
