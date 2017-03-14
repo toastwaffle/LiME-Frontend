@@ -38,7 +38,7 @@ export default class Root extends React.Component {
         <Router history={this.history}>
           <Route path='/' component={Layout}>
             <IndexRoute component={requireAuth(App)}/>
-            <Route path="home" component={HomePage}/>
+            <Route path='home' component={HomePage}/>
           </Route>
         </Router>
       </Provider>

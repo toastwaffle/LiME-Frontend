@@ -23,7 +23,7 @@ class RegisterForm extends FormBase{
 
   render () {
     return (
-      <div className="RegisterForm">
+      <div className='RegisterForm'>
         <h3>Log in...</h3>
         {this.props.statusText ? <div className=''>{this.props.statusText}</div> : ''}
         <form role='form'>
@@ -45,14 +45,14 @@ RegisterForm.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticating   : state.auth.isAuthenticating,
-    statusText         : state.auth.registerStatusText
+    isAuthenticating: state.auth.isAuthenticating,
+    statusText: state.auth.registerStatusText
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions : bindActionCreators(AuthActionCreators, dispatch)
+    actions: bindActionCreators(AuthActionCreators, dispatch)
   };
 }
 

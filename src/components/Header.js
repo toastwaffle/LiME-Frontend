@@ -11,14 +11,14 @@ import '../styles/Header.css';
 class Header extends React.Component {
   logout(e) {
     e.preventDefault();
-    this.props.actions.logout()
+    this.props.actions.logout();
   }
 
   render() {
     return (
-      <header className="Header">
-        <Link to="/">
-          <img src={logo} className="Header-logo" alt="logo" />
+      <header className='Header'>
+        <Link to='/'>
+          <img src={logo} className='Header-logo' alt='logo' />
           <h2>LiME</h2>
         </Link>
         {
@@ -30,6 +30,10 @@ class Header extends React.Component {
     );
   }
 }
+Header.propTypes = {
+  actions: React.PropTypes.object.isRequired,
+  isAuthenticated: React.PropTypes.bool.isRequired
+};
 
 function mapStateToProps(state) {
   return {
@@ -39,7 +43,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions : bindActionCreators(AuthActionCreators, dispatch)
+    actions: bindActionCreators(AuthActionCreators, dispatch)
   };
 }
 
