@@ -24,7 +24,11 @@ export default class Root extends React.Component {
 
     let token = localStorage.getItem('token');
     if (token !== null) {
-      this.store.dispatch(AuthActionCreators.loginSuccess(token));
+      try {
+        this.store.dispatch(AuthActionCreators.loginSuccess(JSON.parse(token)));
+      } catch (e) {
+        localStorage.clear('token');
+      }
     }
   }
 

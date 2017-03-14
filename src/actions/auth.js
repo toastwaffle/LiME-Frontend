@@ -32,14 +32,13 @@ export const AuthActionCreators = {
     return {type: AuthActions.LOGIN_REQUEST};
   },
   loginSuccess: function(token) {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', JSON.stringify(token));
     return {
       type: AuthActions.LOGIN_SUCCESS,
       payload: {token: token}
     };
   },
   loginFailure: function(error) {
-    localStorage.removeItem('token');
     return {
       type: AuthActions.LOGIN_FAILURE,
       payload: {response: error.response}
@@ -63,14 +62,13 @@ export const AuthActionCreators = {
     return {type: AuthActions.REGISTER_REQUEST};
   },
   registerSuccess: function(token) {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', JSON.stringify(token));
     return {
       type: AuthActions.REGISTER_SUCCESS,
       payload: {token: token}
     };
   },
   registerFailure: function(error) {
-    localStorage.removeItem('token');
     return {
       type: AuthActions.REGISTER_FAILURE,
       payload: {response: error.response}
