@@ -1,5 +1,6 @@
 import {push} from 'react-router-redux';
 
+import {AppActions} from './app';
 import {createConstants} from '../utils';
 
 export const AuthActions = createConstants(
@@ -76,6 +77,10 @@ export const AuthActionCreators = {
     };
   },
   logout: function() {
-    return {type: AuthActions.LOGOUT};
+    return function(dispatch) {
+      localStorage.clear('token');
+      dispatch({type: AuthActions.LOGOUT});
+      dispatch({type: AppActions.LOGOUT});
+    };
   }
 };
