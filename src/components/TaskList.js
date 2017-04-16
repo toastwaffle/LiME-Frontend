@@ -6,6 +6,8 @@ import {TaskActionCreators} from '../actions/tasks';
 import Task from '../components/Task';
 import NewTaskForm from '../components/NewTaskForm';
 
+import '../styles/TaskList.css';
+
 class TaskList extends React.Component {
   componentDidMount() {
     if (this.props.taskIDs === undefined) {
@@ -22,19 +24,19 @@ class TaskList extends React.Component {
       } else {
         tasks = (
           <div className='noTasks'>
-            <p>No tasks here yet. Add one below...</p>
+            No tasks here yet. Add one below...
           </div>
         );
       }
     } else {
       tasks = (
         <div className='tasksLoading'>
-          <p>Loading...</p>
+          Loading...
         </div>
       );
     }
     return (
-      <div className='TaskList'>
+      <div className={this.props.alternateDepth ? 'TaskList alternateDepth' : 'TaskList'}>
         <div className='tasks'>
           {tasks}
         </div>
