@@ -26,3 +26,11 @@ export function createUuid4() {
     fourHexits() + fourHexits() + fourHexits()
   );
 }
+
+export function filterObject(obj, ...keysToRemove) {
+  var copy = Object.assign({}, obj);
+  for (var i = keysToRemove.length - 1; i >= 0; i--) {
+    delete copy[keysToRemove[i]];
+  }
+  return copy;
+}
