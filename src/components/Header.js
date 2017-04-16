@@ -19,8 +19,8 @@ class Header extends React.Component {
       <header className='Header'>
         <Link to='/'>
           <img src={logo} className='Header-logo' alt='logo' />
-          <h2>LiME</h2>
         </Link>
+        <h2><Link to='/'>LiME</Link></h2>
         {
           this.props.isAuthenticated ?
           <button onClick={this.logout.bind(this)}>Log out</button> :

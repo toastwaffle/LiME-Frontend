@@ -1,16 +1,46 @@
 .Header {
   background-color: #222;
-  height: 220px;
-  padding: 10px;
+  height: 60px;
   color: white;
+  position: relative;
 }
 
 .Header-logo {
   animation: Header-logo-spin infinite 20s linear;
-  height: 150px;
+  height: 50px;
+  margin: 5px;
 }
 
 @keyframes Header-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.Header h2 {
+  margin: 0;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  left: 60px;
+  top: 0;
+}
+
+.Header button {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 60px;
+  border: none;
+  border-left: 1px solid #fff;
+  color: #fff;
+  background: #335;
+  background: linear-gradient(to bottom, #222 0%, #335 100%);
+}
+
+.Header button:hover,
+.Header button:active {
+  background: #d22;
+  background: linear-gradient(to bottom, #d22 0%, #a22 100%);
 }
