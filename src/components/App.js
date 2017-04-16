@@ -5,7 +5,7 @@ import TaskList from '../components/TaskList';
 export default class App extends React.Component {
   render () {
     return (
-      <TaskList />
+      <TaskList parentID={null} alternateDepth={true} />
     );
   }
 }

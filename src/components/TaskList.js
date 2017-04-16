@@ -10,17 +10,17 @@ import '../styles/TaskList.css';
 
 class TaskList extends React.Component {
   componentDidMount() {
-    if (this.props.taskIDs === undefined) {
-      this.props.actions.getTasks()
+    if (!this.props.childrenLoaded) {
+      this.props.actions.getTasks(this.props.parentID);
     }
   }
 
   render () {
     var tasks;
-    if (this.props.taskIDs !== undefined) {
-      if (this.props.taskIDs.length > 0) {
-        tasks = this.props.taskIDs.map(
-            taskID => <Task id={taskID} key={taskID} />);
+    if (this.props.childrenLoaded) {
+      if (this.props.tasks.length > 0) {
+        tasks = this.props.tasks.map(
+            task => <Task task={task} key={task.object_id} alternateDepth={!this.props.alternateDepth} />);
       } else {
         tasks = (
           <div className='noTasks'>
@@ -40,18 +40,26 @@ class TaskList extends React.Component {
         <div className='tasks'>
           {tasks}
         </div>
-        <NewTaskForm />
+        <NewTaskForm parentID={this.props.parentID} />
       </div>
     );
   }
 }
 TaskList.propTypes = {
-  taskIDs: React.PropTypes.array
+  // parentID can be null, so can't set isRequired
+  parentID: React.PropTypes.number,
+  alternateDepth: React.PropTypes.bool.isRequired,
+  tasks: React.PropTypes.array.isRequired,
+  childrenLoaded: React.PropTypes.bool.isRequired,
+  actions: React.PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
-    taskIDs: state.tasks.taskIDs
+    tasks: Object.values(state.tasks.byID).filter((task) => {
+      return task.parent_id === props.parentID;
+    }),
+    childrenLoaded: state.tasks.childrenLoaded[props.parentID] !== undefined
   };
 }
 

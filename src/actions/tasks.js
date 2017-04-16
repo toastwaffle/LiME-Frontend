@@ -1,65 +1,67 @@
 import {AppActionCreators} from './app';
 import {createConstants} from '../utils';
+import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
 export const TaskActions = createConstants(
   'GOT_TASKS',
-  'TASK_ADDED',
+  'TASK_UPDATED',
   'TASK_DELETED',
   'LOGOUT'
 );
 
 export const TaskActionCreators = {
-  getTasks: function() {
+  getTasks: function(parent_id) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'get_tasks', {},
+        'get_tasks', {parent_id: parent_id},
         function(tasks) {
-          dispatch(TaskActionCreators.gotTasks(tasks));
+          dispatch(TaskActionCreators.gotTasks(parent_id, tasks));
         },
         function(error) {
           dispatch(AppActionCreators.addMessageFromRequestError(error));
         });
     };
   },
-  gotTasks: function(tasks) {
+  gotTasks: function(parent_id, tasks) {
     return {
       type: TaskActions.GOT_TASKS,
-      payload: {tasks: tasks}
+      payload: {parent_id: parent_id, tasks: tasks}
     };
   },
-  addTask: function(title) {
+  addTask: function(parent_id, title, clearForm) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'add_task', {title: title},
+        'add_task', {parent_id: parent_id, title: title},
         function(task) {
-          dispatch(TaskActionCreators.taskAdded(task));
+          dispatch(TaskActionCreators.taskUpdated(task));
+          clearForm();
         },
         function(error) {
           dispatch(AppActionCreators.addMessageFromRequestError(error));
         });
-    };
-  },
-  taskAdded: function(task) {
-    return {
-      type: TaskActions.TASK_ADDED,
-      payload: {task: task}
     };
   },
   deleteTask: function(task) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'delete_task', {task_id: task.data.object_id},
+        'delete_task', {task_id: task.object_id},
         function() {
-          dispatch(TaskActionCreators.taskDeleted(task));
+          dispatch(TaskActionCreators.taskDeleted(task.object_id));
         },
         function(error) {
           dispatch(AppActionCreators.addMessageFromRequestError(error));
         });
     };
   },
-  taskDeleted: function(task) {
+  taskDeleted: function(task_id) {
     return {
       type: TaskActions.TASK_DELETED,
+      payload: {task_id: task_id}
+    };
+  },
+  taskUpdated: function(task) {
+    return {
+      type: TaskActions.TASK_UPDATED,
       payload: {task: task}
     };
   }

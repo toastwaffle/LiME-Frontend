@@ -15,10 +15,14 @@ class NewTaskForm extends FormBase {
     };
   }
 
+  clearForm() {
+    this.setState({title: ''});
+  }
+
   maybeSubmit(e) {
     if (e && e.key === 'Enter') {
       e.preventDefault();
-      this.props.actions.addTask(this.state.title);
+      this.props.actions.addTask(this.props.parentID, this.state.title, this.clearForm.bind(this));
     }
   }
 
@@ -33,7 +37,9 @@ class NewTaskForm extends FormBase {
     );
   }
 }
-NewTaskForm.propTypes = {};
+NewTaskForm.propTypes = {
+  parentID: React.PropTypes.number
+};
 
 function mapDispatchToProps(dispatch) {
   return {

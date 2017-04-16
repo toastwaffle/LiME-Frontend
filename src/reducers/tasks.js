@@ -1,41 +1,39 @@
 import {TaskActions} from '../actions/tasks';
-import {createReducer} from '../utils';
+import {createReducer, filterObject} from '../utils';
 
 const initialState = {
-  'taskIDs': undefined,
-  'tasksByID': {}
+  'byID': {},
+  'childrenLoaded': {}
 };
 
 export default createReducer(initialState, {
   [TaskActions.GOT_TASKS]: (state, payload) => {
-    var tasksByID = {};
-    payload.tasks.forEach(task => {tasksByID[task.object_id] = task;});
-    return Object.assign({}, state, {
-      'taskIDs': payload.tasks.map(task => task.object_id),
-      'tasksByID': Object.assign({}, state.tasksByID, tasksByID)
-    });
+    return Object.assign(
+      {}, state, {
+        'byID': Object.assign(
+          {}, state.byID, payload.tasks.reduce((acc, val) => {
+            acc[val.object_id] = val;
+            return acc;
+          }, {})),
+        'childrenLoaded': Object.assign(
+          {}, state.childrenLoaded, {[payload.parent_id]: true})
+      });
   },
-  [TaskActions.TASK_ADDED]: (state, payload) => {
-    return Object.assign({}, state, {
-      'taskIDs': state.taskIDs.concat([payload.task.object_id]),
-      'tasksByID': Object.assign({}, state.tasksByID, {
-        [payload.task.object_id]: payload.task
-      })
+  [TaskActions.TASK_UPDATED]: (state, payload) => {
+    return Object.assign(
+      {}, state, {
+        'byID': Object.assign(
+          {}, state.byID, {[payload.task.object_id]: payload.task})
     });
   },
   [TaskActions.TASK_DELETED]: (state, payload) => {
-    return Object.assign({}, state, {
-      'taskIDs': state.taskIDs.filter(
-        task => task.object_id !== payload.task.object_id),
-      'tasksByID': state.tasksByID.values().reduce((acc, val) => {
-        if (val.object_id !== payload.task.object_id) {
-          acc[val.object_id] = val;
-        }
-        return acc;
-      }, {})
-    });
+    return Object.assign(
+      {}, state, {
+        'byID': filterObject(state.byID, payload.task_id),
+        'childrenLoaded': filterObject(state.childrenLoaded, payload.task_id)
+      });
   },
-  [TaskActions.LOGOUT]: (state, payload) => {
+  [TaskActions.LOGOUT]: () => {
     return initialState;
   }
 });
