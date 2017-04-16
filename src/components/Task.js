@@ -17,6 +17,10 @@ class Task extends React.Component {
     };
   }
 
+  deleteTask () {
+    this.props.actions.deleteTask(this.props.task);
+  }
+
   markAsCompleted () {
     this.props.actions.setTaskCompletedState(this.props.task.object_id, true);
   }
@@ -42,6 +46,7 @@ class Task extends React.Component {
           }
           <span className='title'>{this.props.task.title}</span>
           <MdList className='expandChildren' onClick={this.toggleExpandChildren.bind(this)} />
+          <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
         </div>
         {
           this.state.expandChildren ?
