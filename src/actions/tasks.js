@@ -1,4 +1,3 @@
-import {AppActionCreators} from './app';
 import {createConstants} from '../utils';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
@@ -17,9 +16,7 @@ export const TaskActionCreators = {
         function(tasks) {
           dispatch(TaskActionCreators.gotTasks(parent_id, tasks));
         },
-        function(error) {
-          dispatch(AppActionCreators.addMessageFromRequestError(error));
-        });
+        defaultBackendErrorHandler(dispatch));
     };
   },
   gotTasks: function(parent_id, tasks) {
@@ -36,9 +33,7 @@ export const TaskActionCreators = {
           dispatch(TaskActionCreators.taskUpdated(task));
           clearForm();
         },
-        function(error) {
-          dispatch(AppActionCreators.addMessageFromRequestError(error));
-        });
+        defaultBackendErrorHandler(dispatch));
     };
   },
   deleteTask: function(task) {
@@ -48,9 +43,7 @@ export const TaskActionCreators = {
         function() {
           dispatch(TaskActionCreators.taskDeleted(task.object_id));
         },
-        function(error) {
-          dispatch(AppActionCreators.addMessageFromRequestError(error));
-        });
+        defaultBackendErrorHandler(dispatch));
     };
   },
   taskDeleted: function(task_id) {
