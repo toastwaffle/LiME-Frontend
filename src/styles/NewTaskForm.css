@@ -1,0 +1,29 @@
+.NewTaskForm {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #999;
+  padding-left: 40px;
+  background: #112;
+  background: linear-gradient(to bottom, #112 0%, #113 100%);
+}
+
+.NewTaskForm input {
+  background-color: transparent;
+  border: none;
+  color: #666;
+  width: 100%;
+}
+
+.NewTaskForm input:focus {
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+.NewTaskForm input::placeholder {
+  color: #666;
+}
+
+.NewTaskForm input:focus::placeholder {
+  color: #999;
+}

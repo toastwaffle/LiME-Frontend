@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import FormBase from './FormBase';
 import {TaskActionCreators} from '../actions/tasks';
 
+import '../styles/NewTaskForm.css';
+
 class NewTaskForm extends FormBase {
   constructor(props) {
     super(props);
