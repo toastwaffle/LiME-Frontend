@@ -20,7 +20,7 @@ export default createReducer(initialState, {
       'messages': state.messages.filter(message => message.id !== payload.id)
     });
   },
-  [AppActions.LOGOUT]: (state, payload) => {
+  [AppActions.LOGOUT]: () => {
     return initialState;
   }
 });
