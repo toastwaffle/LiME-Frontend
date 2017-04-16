@@ -17,6 +17,14 @@ class Task extends React.Component {
     };
   }
 
+  markAsCompleted () {
+    this.props.actions.setTaskCompletedState(this.props.task.object_id, true);
+  }
+
+  markAsUncompleted () {
+    this.props.actions.setTaskCompletedState(this.props.task.object_id, false);
+  }
+
   toggleExpandChildren () {
     this.setState({
       expandChildren: !this.state.expandChildren
@@ -25,8 +33,13 @@ class Task extends React.Component {
 
   render () {
     return (
-      <div className='Task'>
+      <div className={this.props.task.completed ? 'Task completed' : 'Task'}>
         <div className="mainInfo">
+          {
+            this.props.task.completed ?
+            <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' /> :
+            <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
+          }
           <span className='title'>{this.props.task.title}</span>
           <MdList className='expandChildren' onClick={this.toggleExpandChildren.bind(this)} />
         </div>

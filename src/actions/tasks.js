@@ -52,6 +52,16 @@ export const TaskActionCreators = {
       payload: {task_id: task_id}
     };
   },
+  setTaskCompletedState: function(task_id, completed) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'set_completed_state', {task_id: task_id, completed: completed},
+        function(task) {
+          dispatch(TaskActionCreators.taskUpdated(task));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
   taskUpdated: function(task) {
     return {
       type: TaskActions.TASK_UPDATED,
