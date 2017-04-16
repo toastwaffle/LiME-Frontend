@@ -1,0 +1,54 @@
+.Task {
+  border-bottom: 1px solid #999;
+}
+
+.Task .mainInfo {
+  height: 40px;
+  line-height: 40px;
+  background: #112;
+  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  position: relative;
+  padding-left: 40px;
+}
+
+.Task .deleteTask,
+.Task .expandChildren {
+  color: #aaa;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+}
+
+.Task .deleteTask {
+  right: 5px;
+}
+
+.Task .deleteTask:hover {
+  color: #f00;
+}
+
+.Task .expandChildren {
+  right: 45px;
+}
+
+.Task .expandChildren:hover {
+  color: #fff;
+}
+
+.Task .taskCompleted {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.Task .taskCompleted:hover {
+  color: #bbb;
+}
+
+.Task.completed .title {
+  text-decoration: line-through;
+  color: #aaa;
+}

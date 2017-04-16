@@ -9,6 +9,8 @@ import MdList from 'react-icons/lib/md/list';
 import {TaskActionCreators} from '../actions/tasks';
 import TaskList from './TaskList';
 
+import '../styles/Task.css';
+
 class Task extends React.Component {
   constructor(props) {
     super(props);
