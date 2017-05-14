@@ -5,6 +5,7 @@ export const TaskActions = createConstants(
   'GOT_TASKS',
   'TASK_UPDATED',
   'TASK_DELETED',
+  'CHILD_MODIFIED',
   'LOGOUT'
 );
 
@@ -31,6 +32,7 @@ export const TaskActionCreators = {
         'add_task', {parent_id: parent_id, title: title},
         function(task) {
           dispatch(TaskActionCreators.taskUpdated(task));
+          dispatch(TaskActionCreators.childModified(parent_id));
           clearForm();
         },
         defaultBackendErrorHandler(dispatch));
@@ -42,6 +44,7 @@ export const TaskActionCreators = {
         'delete_task', {task_id: task.object_id},
         function() {
           dispatch(TaskActionCreators.taskDeleted(task.object_id));
+          dispatch(TaskActionCreators.childModified(task.parent_id));
         },
         defaultBackendErrorHandler(dispatch));
     };
@@ -66,6 +69,12 @@ export const TaskActionCreators = {
     return {
       type: TaskActions.TASK_UPDATED,
       payload: {task: task}
+    };
+  },
+  childModified: function(parent_id) {
+    return {
+      type: TaskActions.CHILD_MODIFIED,
+      payload: {parent_id: parent_id}
     };
   }
 };

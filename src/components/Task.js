@@ -47,7 +47,7 @@ class Task extends React.Component {
             <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
           }
           <span className='title'>{this.props.task.title}</span>
-          <MdList className='expandChildren' onClick={this.toggleExpandChildren.bind(this)} />
+          <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
           <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
         </div>
         {

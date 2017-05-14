@@ -32,6 +32,10 @@
   right: 45px;
 }
 
+.Task .expandChildren.hasChildren {
+  color: #aaf;
+}
+
 .Task .expandChildren:hover {
   color: #fff;
 }
