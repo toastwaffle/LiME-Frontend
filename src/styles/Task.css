@@ -12,7 +12,8 @@
 }
 
 .Task .deleteTask,
-.Task .expandChildren {
+.Task .expandChildren,
+.Task .rootTree {
   color: #aaa;
   height: 30px;
   width: 30px;
@@ -36,8 +37,13 @@
   color: #aaf;
 }
 
-.Task .expandChildren:hover {
+.Task .expandChildren:hover,
+.Task .rootTree:hover {
   color: #fff;
+}
+
+.Task .rootTree {
+  right: 85px;
 }
 
 .Task .taskCompleted {
