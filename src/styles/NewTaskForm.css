@@ -5,6 +5,16 @@
   padding-left: 40px;
   background: #112;
   background: linear-gradient(to bottom, #112 0%, #113 100%);
+  position: relative;
+}
+
+.NewTaskForm .addTaskIcon {
+  color: #fff;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
 }
 
 .NewTaskForm input {

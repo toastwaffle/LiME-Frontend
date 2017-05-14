@@ -1,6 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import MdAddBox from 'react-icons/lib/md/add-box';
 
 import FormBase from './FormBase';
 import {TaskActionCreators} from '../actions/tasks';
@@ -26,11 +27,17 @@ class NewTaskForm extends FormBase {
     }
   }
 
+  focusInput() {
+    this.taskInput.focus();
+  }
+
   render () {
     return (
       <div className='NewTaskForm'>
+        <MdAddBox className='addTaskIcon' onClick={this.focusInput.bind(this)} />
         <form role='form'>
           <input type='text' placeholder='New Task...' value={this.state.title}
+              ref={(input) => { this.taskInput = input; }}
               onChange={this.handleChange('title').bind(this)} onKeyPress={this.maybeSubmit.bind(this)} />
         </form>
       </div>
