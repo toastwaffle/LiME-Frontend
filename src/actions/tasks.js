@@ -26,6 +26,16 @@ export const TaskActionCreators = {
       payload: {parent_id: parent_id, tasks: tasks}
     };
   },
+  getTask: function(task_id) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'get_task', {task_id: task_id},
+        function(task) {
+          dispatch(TaskActionCreators.taskUpdated(task));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
   addTask: function(parent_id, title, clearForm) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
