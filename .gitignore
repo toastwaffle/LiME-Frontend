@@ -4,5 +4,6 @@ build
 .DS_Store
 .env
 npm-debug.log
+build.tgz
 
 # Don't add yarn.lock here - see http://stackoverflow.com/q/39990017
