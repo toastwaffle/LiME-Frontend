@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
 
@@ -26,11 +27,11 @@ export default function requireAuth(Component) {
     }
   }
   AuthenticatedComponent.propTypes = {
-    location: React.PropTypes.shape({
-      pathname: React.PropTypes.string.isRequired
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
     }).isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-    isAuthenticated: React.PropTypes.bool.isRequired
+    dispatch: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
   };
 
   function mapState(state) {

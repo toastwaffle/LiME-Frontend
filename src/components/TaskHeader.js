@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import MdFileUpload from 'react-icons/lib/md/file-upload';
 
 import {TaskActionCreators} from '../actions/tasks';
@@ -34,7 +35,7 @@ class TaskHeader extends React.Component {
   }
 }
 TaskHeader.propTypes = {
-  taskID: React.PropTypes.number.isRequired,
+  taskID: PropTypes.number.isRequired,
 };
 
 function mapStateToProps(state, props) {

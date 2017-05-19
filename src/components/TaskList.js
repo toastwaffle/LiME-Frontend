@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -53,11 +54,11 @@ class TaskList extends React.Component {
 }
 TaskList.propTypes = {
   // parentID can be null, so can't set isRequired
-  parentID: React.PropTypes.number,
-  alternateDepth: React.PropTypes.bool.isRequired,
-  tasks: React.PropTypes.array.isRequired,
-  childrenLoaded: React.PropTypes.bool.isRequired,
-  actions: React.PropTypes.object.isRequired
+  parentID: PropTypes.number,
+  alternateDepth: PropTypes.bool.isRequired,
+  tasks: PropTypes.array.isRequired,
+  childrenLoaded: PropTypes.bool.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, props) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -25,7 +26,7 @@ class LoginForm extends FormBase {
       <div className='LoginForm'>
         <h3>Log in...</h3>
         {this.props.statusText ? <div className=''>{this.props.statusText}</div> : ''}
-        <form role='form'>
+        <form>
           <input type='email' placeholder='Email' value={this.state.email} onChange={this.handleChange('email').bind(this)} />
           <input type='password' placeholder='Password' value={this.state.password} onChange={this.handleChange('password').bind(this)} />
           <button type='submit' disabled={this.props.isAuthenticating} onClick={this.login.bind(this)}>Log in</button>
@@ -35,10 +36,10 @@ class LoginForm extends FormBase {
   }
 }
 LoginForm.propTypes = {
-  actions: React.PropTypes.object.isRequired,
-  statusText: React.PropTypes.string,
-  next: React.PropTypes.string.isRequired,
-  isAuthenticating: React.PropTypes.bool.isRequired
+  actions: PropTypes.object.isRequired,
+  statusText: PropTypes.string,
+  next: PropTypes.string.isRequired,
+  isAuthenticating: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {

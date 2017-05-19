@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MdAddBox from 'react-icons/lib/md/add-box';
@@ -35,7 +36,7 @@ class NewTaskForm extends FormBase {
     return (
       <div className='NewTaskForm'>
         <MdAddBox className='addTaskIcon' onClick={this.focusInput.bind(this)} />
-        <form role='form'>
+        <form>
           <input type='text' placeholder='New Task...' value={this.state.title}
               ref={(input) => { this.taskInput = input; }}
               onChange={this.handleChange('title').bind(this)} onKeyPress={this.maybeSubmit.bind(this)} />
@@ -45,7 +46,7 @@ class NewTaskForm extends FormBase {
   }
 }
 NewTaskForm.propTypes = {
-  parentID: React.PropTypes.number
+  parentID: PropTypes.number
 };
 
 function mapDispatchToProps(dispatch) {

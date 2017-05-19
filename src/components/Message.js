@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -19,10 +20,10 @@ class Message extends React.Component {
   }
 }
 Message.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  level: React.PropTypes.string.isRequired,
-  message: React.PropTypes.string.isRequired,
-  actions: React.PropTypes.object.isRequired
+  id: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

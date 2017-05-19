@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Message from './Message';
@@ -16,7 +17,7 @@ class Messages extends React.Component {
     }
   }
 }
-Messages.propTypes = {messages: React.PropTypes.array.isRequired};
+Messages.propTypes = {messages: PropTypes.array.isRequired};
 
 function mapStateToProps(state) {
   return {

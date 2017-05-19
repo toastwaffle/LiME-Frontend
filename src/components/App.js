@@ -5,7 +5,7 @@ import TaskHeader from '../components/TaskHeader';
 
 export default class App extends React.Component {
   parentID() {
-    return parseInt(this.props.params.parentID, 10) || null;
+    return parseInt(this.props.match.params.parentID, 10) || null;
   }
 
   render () {

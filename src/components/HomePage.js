@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import queryString from 'query-string';
 
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
@@ -6,7 +8,7 @@ import RegisterForm from '../components/RegisterForm';
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.next = this.props.location.query.next || '/';
+    this.next = queryString.parse(this.props.location.search).next || '/';
   }
 
   render () {
@@ -19,9 +21,7 @@ export default class HomePage extends React.Component {
   }
 }
 HomePage.propTypes = {
-  location: React.PropTypes.shape({
-    query: React.PropTypes.shape({
-      next: React.PropTypes.string.isRequired
-    }).isRequired
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired
   }).isRequired
 };

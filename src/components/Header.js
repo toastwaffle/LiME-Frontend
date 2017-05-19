@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {AuthActionCreators} from '../actions/auth';
@@ -31,8 +32,8 @@ class Header extends React.Component {
   }
 }
 Header.propTypes = {
-  actions: React.PropTypes.object.isRequired,
-  isAuthenticated: React.PropTypes.bool.isRequired
+  actions: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdClose from 'react-icons/lib/md/close';
@@ -66,9 +67,9 @@ class Task extends React.Component {
   }
 }
 Task.propTypes = {
-  task: React.PropTypes.object.isRequired,
-  actions: React.PropTypes.object.isRequired,
-  alternateDepth: React.PropTypes.bool.isRequired
+  task: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+  alternateDepth: PropTypes.bool.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Header from '../components/Header';
 import Messages from '../components/Messages';
@@ -19,5 +20,5 @@ export default class Layout extends React.Component {
   }
 }
 Layout.propTypes = {
-  children: React.PropTypes.node.isRequired
+  children: PropTypes.node.isRequired
 };

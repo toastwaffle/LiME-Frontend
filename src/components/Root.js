@@ -1,8 +1,9 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
+import {Route} from 'react-router-dom';
+import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 
 import {AuthActionCreators} from '../actions/auth';
@@ -16,11 +17,11 @@ export default class Root extends React.Component {
   constructor(props) {
     super(props);
 
+    this.history = createHistory();
     this.store = createStore(
       reducers,
-      applyMiddleware(thunk, routerMiddleware(browserHistory))
+      applyMiddleware(thunk, routerMiddleware(this.history))
     );
-    this.history = syncHistoryWithStore(browserHistory, this.store);
 
     let token = localStorage.getItem('token');
     if (token !== null) {
@@ -35,13 +36,13 @@ export default class Root extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <Router history={this.history}>
-          <Route path='/' component={Layout}>
-            <IndexRoute component={requireAuth(App)}/>
-            <Route path='parent/:parentID' component={requireAuth(App)}/>
-            <Route path='home' component={HomePage}/>
-          </Route>
-        </Router>
+        <ConnectedRouter history={this.history}>
+          <Layout>
+            <Route exact path="/" component={requireAuth(App)}/>
+            <Route exact path='/parent/:parentID' component={requireAuth(App)}/>
+            <Route exact path='/home' component={HomePage}/>
+          </Layout>
+        </ConnectedRouter>
       </Provider>
     );
   }
