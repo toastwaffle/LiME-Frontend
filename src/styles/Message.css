@@ -3,12 +3,14 @@
     max-width: 90%;
     margin: 10px auto 0;
     padding: 10px;
+    padding-left: 40px;
     border: 2px solid #000;
     border-radius: 10px;
     background-color: #fff;
     color: #000;
     z-index: 10;
     pointer-events: visible;
+    position: relative;
 }
 
 .Message.error {
@@ -33,4 +35,13 @@
     border-color: #0a0;
     color: #0a0;
     background-color: #dfd;
+}
+
+.messageIcon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
 }

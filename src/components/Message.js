@@ -2,11 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import MdError from 'react-icons/lib/md/error';
+import MdWarning from 'react-icons/lib/md/warning';
+import MdInfo from 'react-icons/lib/md/info';
+import MdDone from 'react-icons/lib/md/done';
 
 import {AppActionCreators} from '../actions/app';
 import Config from '../Config';
 
 import '../styles/Message.css';
+
+const icons = {
+  'error': <MdError className='messageIcon' />,
+  'warning': <MdWarning className='messageIcon' />,
+  'info': <MdInfo className='messageIcon' />,
+  'success': <MdDone className='messageIcon' />,
+};
 
 class Message extends React.Component {
   componentWillMount () {
@@ -22,6 +33,7 @@ class Message extends React.Component {
   render () {
     return (
       <div className={'Message ' + this.props.level} onClick={this.disappear.bind(this)}>
+        {icons[this.props.level]}
         {this.props.message}
       </div>
     );
