@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 
 import {AppActionCreators} from '../actions/app';
 
+import '../styles/Message.css';
+
 class Message extends React.Component {
   disappear(e) {
     e.preventDefault();

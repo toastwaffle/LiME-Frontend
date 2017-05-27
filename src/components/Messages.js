@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import Message from './Message';
 
+import '../styles/Messages.css';
+
 class Messages extends React.Component {
   render() {
     if (this.props.messages.length > 0) {

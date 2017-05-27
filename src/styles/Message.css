@@ -1,0 +1,34 @@
+.Message {
+    width: 800px;
+    max-width: 90%;
+    margin: 10px auto 0;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+.Message.error {
+    border-color: #f00;
+    color: #f00;
+    background-color: #fcc;
+}
+
+.Message.warning {
+    border-color: #f60;
+    color: #f60;
+    background-color: #fe9;
+}
+
+.Message.info {
+    border-color: #00f;
+    color: #00f;
+    background-color: #ccf;
+}
+
+.Message.success {
+    border-color: #0a0;
+    color: #0a0;
+    background-color: #dfd;
+}
