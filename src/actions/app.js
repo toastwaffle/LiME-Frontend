@@ -12,13 +12,7 @@ export const AppActionCreators = {
     if (error.response.error !== undefined) {
       message += ': ' + error.response.error;
     }
-    return {
-      type: 'ADD_MESSAGE',
-      payload: {
-        level: 'error',
-        message: message
-      }
-    };
+    return AppActionCreators.addMessage('error', message);
   },
   addMessage: function(level, message) {
     return {
