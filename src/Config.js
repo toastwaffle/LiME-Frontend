@@ -1,6 +1,8 @@
 // Config values for the app.
 
-var Config = {};
+var Config = {
+  messageTimeout: 5000,
+};
 
 /* global process */
 /* eslint no-process-env: "off" */

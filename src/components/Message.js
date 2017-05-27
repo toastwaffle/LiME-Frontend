@@ -4,10 +4,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {AppActionCreators} from '../actions/app';
+import Config from '../Config';
 
 import '../styles/Message.css';
 
 class Message extends React.Component {
+  componentWillMount () {
+    setTimeout(() => this.props.actions.clearMessage(this.props.id),
+               Config.messageTimeout);
+  }
+
   disappear(e) {
     e.preventDefault();
     this.props.actions.clearMessage(this.props.id);
