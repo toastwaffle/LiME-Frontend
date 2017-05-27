@@ -3,14 +3,14 @@ import {push} from 'react-router-redux';
 import {AppActions} from './app';
 import {TaskActions} from './tasks';
 import {createConstants} from '../utils';
+import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
 export const AuthActions = createConstants(
-  'LOGIN_FAILURE',
   'LOGIN_REQUEST',
   'LOGIN_SUCCESS',
-  'REGISTER_FAILURE',
   'REGISTER_REQUEST',
   'REGISTER_SUCCESS',
+  'AUTH_FAILURE',
   'LOGOUT'
 );
 
@@ -24,9 +24,8 @@ export const AuthActionCreators = {
           dispatch(AuthActionCreators.loginSuccess(token));
           dispatch(push(redirect));
         },
-        function(error) {
-          dispatch(AuthActionCreators.loginFailure(error));
-        });
+        defaultBackendErrorHandler(dispatch, AuthActionCreators.authFailure())
+      );
     };
   },
   loginRequest: function() {
@@ -39,12 +38,6 @@ export const AuthActionCreators = {
       payload: {token: token}
     };
   },
-  loginFailure: function(error) {
-    return {
-      type: AuthActions.LOGIN_FAILURE,
-      payload: {response: error.response}
-    };
-  },
   register: function(email, password, name, redirect='/') {
     return function(dispatch, getState) {
       dispatch(AuthActionCreators.registerRequest());
@@ -54,9 +47,8 @@ export const AuthActionCreators = {
           dispatch(AuthActionCreators.registerSuccess(token));
           dispatch(push(redirect));
         },
-        function(error) {
-          dispatch(AuthActionCreators.registerFailure(error));
-        });
+        defaultBackendErrorHandler(dispatch, AuthActionCreators.authFailure())
+      );
     };
   },
   registerRequest: function() {
@@ -69,10 +61,9 @@ export const AuthActionCreators = {
       payload: {token: token}
     };
   },
-  registerFailure: function(error) {
+  authFailure: function() {
     return {
-      type: AuthActions.REGISTER_FAILURE,
-      payload: {response: error.response}
+      type: AuthActions.AUTH_FAILURE
     };
   },
   logout: function() {

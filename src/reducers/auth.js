@@ -6,16 +6,13 @@ const unauthenticatedBackend = new Backend(null);
 
 const initialState = {
   backend: unauthenticatedBackend,
-  isAuthenticating: false,
-  loginStatusText: null,
-  registerStatusText: null
+  isAuthenticating: false
 };
 
 export default createReducer(initialState, {
   [AuthActions.LOGIN_REQUEST]: (state) => {
     return Object.assign({}, state, {
-      'isAuthenticating': true,
-      'loginStatusText': null
+      'isAuthenticating': true
     });
   },
   [AuthActions.LOGIN_SUCCESS]: (state, payload) => {
@@ -24,16 +21,9 @@ export default createReducer(initialState, {
       'backend': new Backend(payload.token)
     });
   },
-  [AuthActions.LOGIN_FAILURE]: (state, payload) => {
-    return Object.assign({}, state, {
-      'isAuthenticating': false,
-      'loginStatusText': `Authentication Error: ${payload.response.error}`
-    });
-  },
   [AuthActions.REGISTER_REQUEST]: (state) => {
     return Object.assign({}, state, {
-      'isAuthenticating': true,
-      'registerStatusText': null
+      'isAuthenticating': true
     });
   },
   [AuthActions.REGISTER_SUCCESS]: (state, payload) => {
@@ -42,10 +32,9 @@ export default createReducer(initialState, {
       'backend': new Backend(payload.token)
     });
   },
-  [AuthActions.REGISTER_FAILURE]: (state, payload) => {
+  [AuthActions.AUTH_FAILURE]: (state, payload) => {
     return Object.assign({}, state, {
-      'isAuthenticating': false,
-      'registerStatusText': `Registration Error: ${payload.response.error}`
+      'isAuthenticating': false
     });
   },
   [AuthActions.LOGOUT]: (state) => {
