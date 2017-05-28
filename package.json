@@ -21,6 +21,7 @@
     "react-router-dom": "",
     "react-router-redux": "next",
     "react-svg": "",
+    "react-transition-group": "",
     "redux": "",
     "redux-thunk": ""
   },
