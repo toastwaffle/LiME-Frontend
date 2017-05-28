@@ -8,7 +8,10 @@ export const AppActions = createConstants(
 
 export const AppActionCreators = {
   addMessageFromRequestError: function(error) {
-    var message = error.statusCode + ' - ' + error.message;
+    var message = error.message;
+    if (error.statusCode !== null) {
+      message = error.statusCode + ' - ' + message
+    }
     if (error.response.error !== undefined) {
       message += ': ' + error.response.error;
     }
