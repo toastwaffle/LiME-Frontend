@@ -46,3 +46,22 @@
     height: 30px;
     margin-top: -15px;
 }
+
+.messages-enter {
+    opacity: 0;
+}
+
+.messages-enter-active {
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+}
+
+.messages-leave {
+    opacity: 1;
+    transform-origin: top;
+}
+
+.messages-leave-active {
+    opacity: 0;
+    transition: opacity 250ms ease-out;
+}
