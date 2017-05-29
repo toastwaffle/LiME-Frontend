@@ -7,3 +7,11 @@ body {
 .Layout {
   position: relative;
 }
+
+.Layout.modalOpen {
+    overflow: hidden;
+}
+
+.Layout.modalOpen .content {
+    filter: blur(3px);
+}
