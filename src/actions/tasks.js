@@ -48,10 +48,10 @@ export const TaskActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
-  deleteTask: function(task) {
+  deleteTask: function(task, cascade=false) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'delete_task', {task_id: task.object_id},
+        'delete_task', {task_id: task.object_id, cascade: cascade},
         function() {
           dispatch(TaskActionCreators.taskDeleted(task.object_id));
           dispatch(TaskActionCreators.childModified(task.parent_id));
