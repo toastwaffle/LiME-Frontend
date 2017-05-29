@@ -9,8 +9,10 @@ import MdClose from 'react-icons/lib/md/close';
 import MdList from 'react-icons/lib/md/list';
 import ReactSVG from 'react-svg'
 
+import {ModalActionCreators} from '../actions/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import TaskList from './TaskList';
+import {Modals} from '../utils/modals';
 
 import rootTree from '../resources/root-tree.svg';
 import '../styles/Task.css';
@@ -23,16 +25,22 @@ class Task extends React.Component {
     };
   }
 
-  deleteTask () {
-    this.props.actions.deleteTask(this.props.task);
+  deleteTask (e) {
+    if (!this.props.task.has_children || e.ctrlKey) {
+      this.props.taskActions.deleteTask(this.props.task, false);
+    } else if (e.shiftKey) {
+      this.props.taskActions.deleteTask(this.props.task, true);
+    } else {
+      this.props.modalActions.showModal(Modals.DELETE_TASK, {task: this.props.task});
+    }
   }
 
   markAsCompleted () {
-    this.props.actions.setTaskCompletedState(this.props.task.object_id, true);
+    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, true);
   }
 
   markAsUncompleted () {
-    this.props.actions.setTaskCompletedState(this.props.task.object_id, false);
+    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, false);
   }
 
   toggleExpandChildren () {
@@ -68,13 +76,15 @@ class Task extends React.Component {
 }
 Task.propTypes = {
   task: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
+  modalActions: PropTypes.object.isRequired,
+  taskActions: PropTypes.object.isRequired,
   alternateDepth: PropTypes.bool.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TaskActionCreators, dispatch)
+    taskActions: bindActionCreators(TaskActionCreators, dispatch),
+    modalActions: bindActionCreators(ModalActionCreators, dispatch)
   };
 }
 
