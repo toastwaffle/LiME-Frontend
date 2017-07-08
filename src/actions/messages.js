@@ -1,12 +1,12 @@
 import {createConstants} from '../utils';
 
-export const AppActions = createConstants(
+export const MessageActions = createConstants(
   'ADD_MESSAGE',
   'CLEAR_MESSAGE',
   'LOGOUT'
 );
 
-export const AppActionCreators = {
+export const MessageActionCreators = {
   addMessageFromRequestError: function(error) {
     var message = error.message;
     if (error.statusCode !== null) {
@@ -15,11 +15,11 @@ export const AppActionCreators = {
     if (error.response.error !== undefined) {
       message += ': ' + error.response.error;
     }
-    return AppActionCreators.addMessage('error', message);
+    return MessageActionCreators.addMessage('error', message);
   },
   addMessage: function(level, message) {
     return {
-      type: 'ADD_MESSAGE',
+      type: MessageActions.ADD_MESSAGE,
       payload: {
         level: level,
         message: message
@@ -28,7 +28,7 @@ export const AppActionCreators = {
   },
   clearMessage: function(id) {
     return {
-      type: 'CLEAR_MESSAGE',
+      type: MessageActions.CLEAR_MESSAGE,
       payload: {id: id}
     };
   }

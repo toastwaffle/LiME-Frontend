@@ -7,8 +7,8 @@ import MdWarning from 'react-icons/lib/md/warning';
 import MdInfo from 'react-icons/lib/md/info';
 import MdDone from 'react-icons/lib/md/done';
 
-import {AppActionCreators} from '../actions/app';
 import Config from '../Config';
+import {MessageActionCreators} from '../actions/messages';
 
 import '../styles/Message.css';
 
@@ -49,7 +49,7 @@ Message.propTypes = {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(AppActionCreators, dispatch)
+    actions: bindActionCreators(MessageActionCreators, dispatch)
   };
 }
 

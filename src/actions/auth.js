@@ -1,6 +1,6 @@
 import {push} from 'react-router-redux';
 
-import {AppActions} from './app';
+import {MessageActions} from './messages';
 import {TaskActions} from './tasks';
 import {createConstants} from '../utils';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
@@ -70,7 +70,7 @@ export const AuthActionCreators = {
     return function(dispatch) {
       localStorage.clear('token');
       dispatch({type: AuthActions.LOGOUT});
-      dispatch({type: AppActions.LOGOUT});
+      dispatch({type: MessageActions.LOGOUT});
       dispatch({type: TaskActions.LOGOUT});
     };
   }

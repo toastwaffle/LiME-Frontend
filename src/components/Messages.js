@@ -27,7 +27,7 @@ Messages.propTypes = {messages: PropTypes.array.isRequired};
 
 function mapStateToProps(state) {
   return {
-    messages: state.app.messages
+    messages: state.messages
   };
 }
 
