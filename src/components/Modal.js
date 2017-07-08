@@ -23,8 +23,10 @@ class Modal extends React.Component {
   }
 }
 Modal.propTypes = {
-  id: PropTypes.string.isRequired,
+  actions: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {

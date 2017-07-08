@@ -27,7 +27,7 @@ class TaskList extends React.Component {
     if (this.props.childrenLoaded) {
       if (this.props.tasks.length > 0) {
         tasks = this.props.tasks.map(
-            task => <Task task={task} key={task.object_id} alternateDepth={!this.props.alternateDepth} />);
+          task => <Task task={task} key={task.object_id} alternateDepth={!this.props.alternateDepth} />);
       } else {
         tasks = (
           <div className='noTasks'>

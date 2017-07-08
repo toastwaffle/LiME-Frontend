@@ -41,7 +41,9 @@ class DeleteTaskModal extends React.Component {
 }
 DeleteTaskModal.propTypes = {
   id: PropTypes.string.isRequired,
+  modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
+  taskActions: PropTypes.object.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {

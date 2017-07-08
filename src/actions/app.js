@@ -10,7 +10,7 @@ export const AppActionCreators = {
   addMessageFromRequestError: function(error) {
     var message = error.message;
     if (error.statusCode !== null) {
-      message = error.statusCode + ' - ' + message
+      message = error.statusCode + ' - ' + message;
     }
     if (error.response.error !== undefined) {
       message += ': ' + error.response.error;

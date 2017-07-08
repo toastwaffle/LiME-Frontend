@@ -3,7 +3,7 @@ import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
 export const SettingActions = createConstants(
   'GOT_SETTINGS',
-  'SET_SETTING',
+  'SET_SETTING'
 );
 
 export const SettingActionCreators = {

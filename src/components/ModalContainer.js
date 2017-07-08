@@ -16,12 +16,12 @@ class ModalContainer extends React.Component {
         <TransitionGroup>
           {
             this.props.modal !== null ?
-            <CSSTransition classNames='modal' timeout={250} in={this.props.modal !== null}>
-              <div className='modalOverlay' onClick={this.props.actions.closeTopModal}>
-                {this.props.modal.component}
-              </div>
-            </CSSTransition> :
-            null
+              <CSSTransition classNames='modal' timeout={250} in={this.props.modal !== null}>
+                <div className='modalOverlay' onClick={this.props.actions.closeTopModal}>
+                  {this.props.modal.component}
+                </div>
+              </CSSTransition> :
+              null
           }
         </TransitionGroup>
       </div>
@@ -29,7 +29,8 @@ class ModalContainer extends React.Component {
   }
 }
 ModalContainer.propTypes = {
-  modal: PropTypes.object
+  actions: PropTypes.object.isRequired,
+  modal: PropTypes.object,
 };
 
 function mapStateToProps(state) {

@@ -39,7 +39,7 @@ export default class Root extends React.Component {
       <Provider store={this.store}>
         <ConnectedRouter history={this.history}>
           <Layout>
-            <Route exact path="/" component={requireAuth(App)}/>
+            <Route exact path='/' component={requireAuth(App)}/>
             <Route exact path='/parent/:parentID' component={requireAuth(App)}/>
             <Route exact path='/home' component={HomePage}/>
           </Layout>

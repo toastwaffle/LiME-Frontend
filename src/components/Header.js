@@ -24,8 +24,8 @@ class Header extends React.Component {
         <h2><Link to='/'>LiME</Link></h2>
         {
           this.props.isAuthenticated ?
-          <button onClick={this.logout.bind(this)}>Log out</button> :
-          null
+            <button onClick={this.logout.bind(this)}>Log out</button> :
+            null
         }
       </header>
     );

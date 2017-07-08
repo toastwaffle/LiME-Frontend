@@ -24,7 +24,7 @@ export default createReducer(initialState, {
       {}, state, {
         'byID': Object.assign(
           {}, state.byID, {[payload.task.object_id]: payload.task})
-    });
+      });
   },
   [TaskActions.TASK_DELETED]: (state, payload) => {
     if (payload.cascade) {
@@ -44,13 +44,13 @@ export default createReducer(initialState, {
   },
   [TaskActions.CHILD_MODIFIED]: (state, payload) => {
     if (payload.parent_id === null) {
-      return state
+      return state;
     }
     var hasChildren = Object.values(state.byID).filter(
       task => task.parent_id === payload.parent_id
-    ).length > 0
+    ).length > 0;
     if (state.byID[payload.parent_id].has_children === hasChildren) {
-      return state
+      return state;
     }
     return Object.assign(
       {}, state, {

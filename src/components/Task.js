@@ -7,7 +7,7 @@ import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdClose from 'react-icons/lib/md/close';
 import MdList from 'react-icons/lib/md/list';
-import ReactSVG from 'react-svg'
+import ReactSVG from 'react-svg';
 
 import {ModalActionCreators} from '../actions/modals';
 import {TaskActionCreators} from '../actions/tasks';
@@ -55,8 +55,8 @@ class Task extends React.Component {
         <div className="mainInfo">
           {
             this.props.task.completed ?
-            <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' /> :
-            <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
+              <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' /> :
+              <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
           }
           <span className='title'>{this.props.task.title}</span>
           <Link to={'/parent/' + this.props.task.object_id}>
@@ -67,18 +67,18 @@ class Task extends React.Component {
         </div>
         {
           this.state.expandChildren ?
-          <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} /> :
-          null
+            <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} /> :
+            null
         }
       </div>
     );
   }
 }
 Task.propTypes = {
-  task: PropTypes.object.isRequired,
+  alternateDepth: PropTypes.bool.isRequired,
   modalActions: PropTypes.object.isRequired,
+  task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
-  alternateDepth: PropTypes.bool.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

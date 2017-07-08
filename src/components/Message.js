@@ -21,8 +21,9 @@ const icons = {
 
 class Message extends React.Component {
   componentWillMount () {
-    setTimeout(() => this.props.actions.clearMessage(this.props.id),
-               Config.messageTimeout);
+    setTimeout(
+      () => this.props.actions.clearMessage(this.props.id),
+      Config.messageTimeout);
   }
 
   disappear(e) {
@@ -40,10 +41,10 @@ class Message extends React.Component {
   }
 }
 Message.propTypes = {
+  actions: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

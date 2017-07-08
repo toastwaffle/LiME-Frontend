@@ -32,8 +32,7 @@ export default class Backend {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
-    })
-    .then(response => {
+    }).then(response => {
       if (response.status >= 200 && response.status < 300) {
         return response.json();
       } else {
@@ -41,8 +40,7 @@ export default class Backend {
         err.response = response;
         throw err;
       }
-    })
-    .then(onSuccess, e => {
+    }).then(onSuccess, e => {
       if (e instanceof TypeError) {
         // Network error
         var err = new Error('Network failure');

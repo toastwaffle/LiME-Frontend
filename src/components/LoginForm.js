@@ -37,9 +37,9 @@ class LoginForm extends FormBase {
 }
 LoginForm.propTypes = {
   actions: PropTypes.object.isRequired,
-  statusText: PropTypes.string,
+  isAuthenticating: PropTypes.bool.isRequired,
   next: PropTypes.string.isRequired,
-  isAuthenticating: PropTypes.bool.isRequired
+  statusText: PropTypes.string,
 };
 
 function mapStateToProps(state) {

@@ -32,7 +32,7 @@ export default createReducer(initialState, {
       'backend': new Backend(payload.token)
     });
   },
-  [AuthActions.AUTH_FAILURE]: (state, payload) => {
+  [AuthActions.AUTH_FAILURE]: (state) => {
     return Object.assign({}, state, {
       'isAuthenticating': false
     });

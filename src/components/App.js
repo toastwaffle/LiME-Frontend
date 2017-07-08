@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -24,6 +25,10 @@ class App extends React.Component {
     );
   }
 }
+App.propTypes = {
+  actions: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+};
 
 function mapDispatchToProps(dispatch) {
   return {

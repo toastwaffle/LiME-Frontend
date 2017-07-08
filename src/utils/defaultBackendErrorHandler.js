@@ -8,5 +8,5 @@ export default function defaultBackendErrorHandler(dispatch, ...extraActions) {
       dispatch(AuthActionCreators.logout());
     }
     extraActions.map((action) => dispatch(action));
-  }
+  };
 }

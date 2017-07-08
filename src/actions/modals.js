@@ -2,7 +2,7 @@ import {createConstants} from '../utils';
 
 export const ModalActions = createConstants(
   'SHOW_MODAL',
-  'CLOSE_MODAL',
+  'CLOSE_MODAL'
 );
 
 export const ModalActionCreators = {
