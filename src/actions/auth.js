@@ -19,7 +19,7 @@ export const AuthActionCreators = {
     return function(dispatch, getState) {
       dispatch(AuthActionCreators.loginRequest());
       return getState().auth.backend.requestNoAuth(
-        'login', {email: email, password: password},
+        'login', {email, password},
         function(token) {
           dispatch(AuthActionCreators.loginSuccess(token));
           dispatch(push(redirect));
@@ -35,14 +35,14 @@ export const AuthActionCreators = {
     localStorage.setItem('token', JSON.stringify(token));
     return {
       type: AuthActions.LOGIN_SUCCESS,
-      payload: {token: token}
+      payload: {token}
     };
   },
   register: function(email, password, name, redirect='/') {
     return function(dispatch, getState) {
       dispatch(AuthActionCreators.registerRequest());
       return getState().auth.backend.requestNoAuth(
-        'register', {email: email, password: password, name: name},
+        'register', {email, password, name},
         function(token) {
           dispatch(AuthActionCreators.registerSuccess(token));
           dispatch(push(redirect));
@@ -58,7 +58,7 @@ export const AuthActionCreators = {
     localStorage.setItem('token', JSON.stringify(token));
     return {
       type: AuthActions.REGISTER_SUCCESS,
-      payload: {token: token}
+      payload: {token}
     };
   },
   authFailure: function() {

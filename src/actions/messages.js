@@ -20,16 +20,13 @@ export const MessageActionCreators = {
   addMessage: function(level, message) {
     return {
       type: MessageActions.ADD_MESSAGE,
-      payload: {
-        level: level,
-        message: message
-      }
+      payload: {level, message}
     };
   },
   clearMessage: function(id) {
     return {
       type: MessageActions.CLEAR_MESSAGE,
-      payload: {id: id}
+      payload: {id}
     };
   }
 };

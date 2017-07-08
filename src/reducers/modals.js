@@ -9,8 +9,8 @@ export default createReducer(initialState, {
     var id = createUuid4();
     return state.concat([
       {
-        id: id,
-        component: createModal(payload.modal, Object.assign(payload.props, {id: id})),
+        id,
+        component: createModal(payload.modal, Object.assign(payload.props, {id})),
       }
     ]);
   },
