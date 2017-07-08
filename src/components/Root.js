@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import {Route} from 'react-router-dom';
 import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
@@ -20,7 +21,7 @@ export default class Root extends React.Component {
     this.history = createHistory();
     this.store = createStore(
       reducers,
-      applyMiddleware(thunk, routerMiddleware(this.history))
+      composeWithDevTools(applyMiddleware(thunk, routerMiddleware(this.history)))
     );
 
     let token = localStorage.getItem('token');

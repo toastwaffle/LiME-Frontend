@@ -23,6 +23,7 @@
     "react-svg": "",
     "react-transition-group": "",
     "redux": "",
+    "redux-devtools-extension": "",
     "redux-thunk": ""
   },
   "scripts": {
