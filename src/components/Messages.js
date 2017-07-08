@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
+import CSSTransition from 'react-transition-group/CSSTransition'
 
 import Message from './Message';
 
@@ -10,9 +11,15 @@ import '../styles/Messages.css';
 class Messages extends React.Component {
   render() {
     return (
-      <CSSTransitionGroup component='div' className='Messages' transitionName="messages" transitionEnterTimeout={250} transitionLeaveTimeout={250}>
-        {this.props.messages.map(message => <Message key={message.id} {...message} />)}
-      </CSSTransitionGroup>
+      <div className='Messages'>
+        <TransitionGroup>
+          {this.props.messages.map(message => (
+            <CSSTransition key={message.id} classNames='message' timeout={250}>
+              <Message {...message} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </div>
     );
   }
 }
