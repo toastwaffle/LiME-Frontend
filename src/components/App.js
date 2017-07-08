@@ -1,11 +1,18 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
+import {SettingActionCreators} from '../actions/settings';
 import TaskList from '../components/TaskList';
 import TaskHeader from '../components/TaskHeader';
 
-export default class App extends React.Component {
+class App extends React.Component {
   parentID() {
     return parseInt(this.props.match.params.parentID, 10) || null;
+  }
+
+  componentDidMount() {
+    this.props.actions.getSettings();
   }
 
   render () {
@@ -17,3 +24,11 @@ export default class App extends React.Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(SettingActionCreators, dispatch)
+  };
+}
+
+export default connect(null, mapDispatchToProps)(App);
