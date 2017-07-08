@@ -23,9 +23,9 @@ class TaskHeader extends React.Component {
     return (
       <div className='TaskHeader'>
         <Link to={
-          this.props.task.parent_id === null ?
-            '/' :
-            '/parent/' + this.props.task.parent_id
+          this.props.task.parent_id === null
+            ? '/'
+            : '/parent/' + this.props.task.parent_id
         }>
           <MdFileUpload className="goUp" />
         </Link>

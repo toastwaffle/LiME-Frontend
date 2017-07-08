@@ -15,13 +15,15 @@ class ModalContainer extends React.Component {
       <div className='ModalContainer'>
         <TransitionGroup>
           {
-            this.props.modal !== null ?
-              <CSSTransition classNames='modal' timeout={250} in={this.props.modal !== null}>
-                <div className='modalOverlay' onClick={this.props.actions.closeTopModal}>
-                  {this.props.modal.component}
-                </div>
-              </CSSTransition> :
-              null
+            /* eslint-disable indent */
+            this.props.modal !== null
+              ? <CSSTransition classNames='modal' timeout={250} in={this.props.modal !== null}>
+                  <div className='modalOverlay' onClick={this.props.actions.closeTopModal}>
+                    {this.props.modal.component}
+                  </div>
+                </CSSTransition>
+              : null
+            /* eslint-enable indent */
           }
         </TransitionGroup>
       </div>

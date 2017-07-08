@@ -54,9 +54,9 @@ class Task extends React.Component {
       <div className={this.props.task.completed ? 'Task completed' : 'Task'}>
         <div className="mainInfo">
           {
-            this.props.task.completed ?
-              <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' /> :
-              <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
+            this.props.task.completed
+              ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
+              : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
           }
           <span className='title'>{this.props.task.title}</span>
           <Link to={'/parent/' + this.props.task.object_id}>
@@ -66,9 +66,9 @@ class Task extends React.Component {
           <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
         </div>
         {
-          this.state.expandChildren ?
-            <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} /> :
-            null
+          this.state.expandChildren
+            ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />
+            : null
         }
       </div>
     );
