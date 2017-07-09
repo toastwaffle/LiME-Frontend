@@ -26,9 +26,9 @@ class Task extends React.Component {
   }
 
   deleteTask (e) {
-    if (!this.props.task.has_children || e.ctrlKey) {
+    if (!this.props.task.has_children || e.ctrlKey || this.props.deletionBehaviour === 'REPARENT') {
       this.props.taskActions.deleteTask(this.props.task, false);
-    } else if (e.shiftKey) {
+    } else if (e.shiftKey || this.props.deletionBehaviour === 'CASCADE') {
       this.props.taskActions.deleteTask(this.props.task, true);
     } else {
       this.props.modalActions.showModal(Modals.DELETE_TASK, {task: this.props.task});
@@ -76,10 +76,17 @@ class Task extends React.Component {
 }
 Task.propTypes = {
   alternateDepth: PropTypes.bool.isRequired,
+  deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    deletionBehaviour: state.settings.deletion_behaviour,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -88,4 +95,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(Task);
