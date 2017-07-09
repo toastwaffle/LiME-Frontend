@@ -9,13 +9,17 @@ import {ModalActionCreators} from '../actions/modals';
 import '../styles/Modal.css';
 
 class Modal extends React.Component {
+  dontClose(e) {
+    e.stopPropagation();
+  }
+
   close () {
     this.props.actions.closeModal(this.props.id);
   }
 
   render () {
     return (
-      <div className={this.props.className !== undefined ? 'Modal ' + this.props.className : 'Modal'}>
+      <div className={this.props.className !== undefined ? 'Modal ' + this.props.className : 'Modal'} onClick={this.dontClose}>
         <MdClose className="closeModal" onClick={this.close.bind(this)} />
         {this.props.children}
       </div>
