@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import FormBase from './FormBase';
+import {FormBase} from './hoc/forms';
 import {AuthActionCreators} from '../actions/auth';
 
 class LoginForm extends FormBase {

@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MdAddBox from 'react-icons/lib/md/add-box';
 
-import FormBase from './FormBase';
+import {FormBase} from './hoc/forms';
 import {TaskActionCreators} from '../actions/tasks';
 
 import '../styles/NewTaskForm.css';
