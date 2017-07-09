@@ -23,12 +23,13 @@ export const SettingActionCreators = {
       payload: {settings}
     };
   },
-  setSetting: function(key, value) {
+  setSetting: function(key, value, markSaved) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
         'set_setting', {key, value},
         function() {
           dispatch(SettingActionCreators.setSetting_(key, value));
+          markSaved();
         },
         defaultBackendErrorHandler(dispatch));
     };
