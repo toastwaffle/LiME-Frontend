@@ -1,0 +1,20 @@
+.SettingWrapper {
+  margin-bottom: 1em;
+}
+
+.SettingWrapper label {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.SettingWrapper input,
+.SettingWrapper select {
+  display: block;
+  padding: 0.5em;
+  width: 100%
+}
+
+.SettingWrapper .saved {
+  float: right;
+  color: #afa;
+}
