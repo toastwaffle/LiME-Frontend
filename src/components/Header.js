@@ -1,20 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 
-import {AuthActionCreators} from '../actions/auth';
-
+import UserHeader from './UserHeader';
 import logo from '../resources/logo.svg';
 import '../styles/Header.css';
 
-class Header extends React.Component {
-  logout(e) {
-    e.preventDefault();
-    this.props.actions.logout();
-  }
-
+export default class Header extends React.Component {
   render() {
     return (
       <header className='Header'>
@@ -22,30 +13,8 @@ class Header extends React.Component {
           <img src={logo} className='Header-logo' alt='logo' />
         </Link>
         <h2><Link to='/'>LiME</Link></h2>
-        {
-          this.props.isAuthenticated
-            ? <button onClick={this.logout.bind(this)}>Log out</button>
-            : null
-        }
+        <UserHeader />
       </header>
     );
   }
 }
-Header.propTypes = {
-  actions: PropTypes.object.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
-};
-
-function mapStateToProps(state) {
-  return {
-    isAuthenticated: state.auth.backend.isAuthenticated()
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(AuthActionCreators, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
