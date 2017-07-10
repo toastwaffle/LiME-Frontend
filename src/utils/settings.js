@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DropdownSetting from '../components/DropdownSetting';
+import i18n from '../i18n';
 import TextSetting from '../components/TextSetting';
 import {createConstants} from '../utils';
 
@@ -42,6 +43,15 @@ export const Settings = [
       {value: 'CASCADE', label: 'Delete children recursively'},
       {value: 'REPARENT', label: 'Move children to parent task'},
     ]
+  },
+  {
+    setting: 'language',
+    label: 'Language',
+    type: SettingTypes.DROPDOWN,
+    options: Object.entries(i18n).map(([lang, strings]) => ({
+      value: lang,
+      label: strings['_LANGUAGE']
+    }))
   },
 ];
 
