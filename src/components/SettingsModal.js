@@ -6,7 +6,7 @@ import {Settings, createSetting} from '../utils/settings';
 import Modal from './Modal';
 
 export default class SettingsModal extends React.Component {
-  render () {
+  render() {
     return (
       <Modal className='SettingsModal' id={this.props.id}>
         <h3>Settings</h3>

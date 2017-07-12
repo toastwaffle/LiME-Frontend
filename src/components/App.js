@@ -16,7 +16,7 @@ class App extends React.Component {
     this.props.actions.getSettings();
   }
 
-  render () {
+  render() {
     return (
       <div className="App">
         {this.parentID() !== null ? <TaskHeader taskID={this.parentID()} /> : null}

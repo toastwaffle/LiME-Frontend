@@ -35,21 +35,21 @@ class Task extends React.Component {
     }
   }
 
-  markAsCompleted () {
+  markAsCompleted() {
     this.props.taskActions.setTaskCompletedState(this.props.task.object_id, true);
   }
 
-  markAsUncompleted () {
+  markAsUncompleted() {
     this.props.taskActions.setTaskCompletedState(this.props.task.object_id, false);
   }
 
-  toggleExpandChildren () {
+  toggleExpandChildren() {
     this.setState({
       expandChildren: !this.state.expandChildren
     });
   }
 
-  render () {
+  render() {
     return (
       <div className={this.props.task.completed ? 'Task completed' : 'Task'}>
         <div className="mainInfo">

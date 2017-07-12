@@ -22,7 +22,7 @@ class TaskList extends React.Component {
     }
   }
 
-  render () {
+  render() {
     var tasks;
     if (this.props.childrenLoaded) {
       if (this.props.tasks.length > 0) {

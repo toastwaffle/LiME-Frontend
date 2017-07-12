@@ -20,7 +20,7 @@ const icons = {
 };
 
 class Message extends React.Component {
-  componentWillMount () {
+  componentWillMount() {
     setTimeout(
       () => this.props.actions.clearMessage(this.props.id),
       Config.messageTimeout);
@@ -31,7 +31,7 @@ class Message extends React.Component {
     this.props.actions.clearMessage(this.props.id);
   }
 
-  render () {
+  render() {
     return (
       <div className={'Message ' + this.props.level} onClick={this.disappear.bind(this)} title='Click to dismiss...'>
         {icons[this.props.level]}

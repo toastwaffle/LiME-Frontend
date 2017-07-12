@@ -7,7 +7,7 @@ export default class Backend {
     this.token = token;
   }
 
-  isAuthenticated () {
+  isAuthenticated() {
     return this.token !== null;
   }
 

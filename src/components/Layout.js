@@ -10,7 +10,7 @@ import Messages from './Messages';
 import '../styles/Layout.css';
 
 class Layout extends React.Component {
-  render () {
+  render() {
     return (
       <div className={this.props.modalOpen ? 'Layout modalOpen' : 'Layout'}>
         <ModalContainer />

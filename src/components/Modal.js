@@ -13,11 +13,11 @@ class Modal extends React.Component {
     e.stopPropagation();
   }
 
-  close () {
+  close() {
     this.props.actions.closeModal(this.props.id);
   }
 
-  render () {
+  render() {
     return (
       <div className={this.props.className !== undefined ? 'Modal ' + this.props.className : 'Modal'} onClick={this.dontClose}>
         <MdClose className="closeModal" onClick={this.close.bind(this)} />

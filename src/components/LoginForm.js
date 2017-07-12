@@ -21,7 +21,7 @@ class LoginForm extends FormBase {
       this.state.email, this.state.password, this.props.next);
   }
 
-  render () {
+  render() {
     return (
       <div className='LoginForm'>
         <h3>Log in...</h3>

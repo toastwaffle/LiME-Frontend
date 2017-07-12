@@ -10,7 +10,7 @@ import {ModalActionCreators} from '../actions/modals';
 import '../styles/ModalContainer.css';
 
 class ModalContainer extends React.Component {
-  render () {
+  render() {
     return (
       <div className='ModalContainer'>
         <TransitionGroup>

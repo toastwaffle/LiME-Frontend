@@ -22,7 +22,7 @@ class RegisterForm extends FormBase{
       this.state.email, this.state.password, this.state.name, this.props.next);
   }
 
-  render () {
+  render() {
     return (
       <div className='RegisterForm'>
         <h3>Log in...</h3>

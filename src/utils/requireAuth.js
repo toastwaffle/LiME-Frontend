@@ -5,7 +5,7 @@ import {push} from 'react-router-redux';
 
 export default function requireAuth(Component) {
   class AuthenticatedComponent extends React.Component {
-    componentWillMount () {
+    componentWillMount() {
       this.checkAuth(this.props.isAuthenticated);
     }
 
@@ -20,7 +20,7 @@ export default function requireAuth(Component) {
       }
     }
 
-    render () {
+    render() {
       if (this.props.isAuthenticated === true)
         return <Component {...this.props}/>;
       return null;

@@ -11,7 +11,7 @@ export default class HomePage extends React.Component {
     this.next = queryString.parse(this.props.location.search).next || '/';
   }
 
-  render () {
+  render() {
     return (
       <div className='HomePage'>
         <LoginForm next={this.next} />

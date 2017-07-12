@@ -32,7 +32,7 @@ class NewTaskForm extends FormBase {
     this.taskInput.focus();
   }
 
-  render () {
+  render() {
     return (
       <div className='NewTaskForm'>
         <MdAddBox className='addTaskIcon' onClick={this.focusInput.bind(this)} />

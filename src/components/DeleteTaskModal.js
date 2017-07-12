@@ -21,7 +21,7 @@ class DeleteTaskModal extends React.Component {
     this.props.modalActions.closeModal(this.props.id);
   }
 
-  render () {
+  render() {
     return (
       <Modal className='DeleteTaskModal' id={this.props.id}>
         <p>
