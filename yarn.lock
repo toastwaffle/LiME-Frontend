@@ -2201,6 +2201,12 @@ eslint-plugin-react@, eslint-plugin-react@7.1.0:
     has "^1.0.1"
     jsx-ast-utils "^1.4.1"
 
+eslint-plugin-sort-imports-es6-autofix@:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-imports-es6-autofix/-/eslint-plugin-sort-imports-es6-autofix-0.1.1.tgz#7b73969f2557b0c6c6259e6c6e8c26761e29d52e"
+  dependencies:
+    eslint "^3.15.0"
+
 eslint-plugin-standard@:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-3.0.1.tgz#34d0c915b45edc6f010393c7eef3823b08565cf2"
@@ -2250,7 +2256,7 @@ eslint@:
     table "^4.0.1"
     text-table "~0.2.0"
 
-eslint@3.19.0:
+eslint@3.19.0, eslint@^3.15.0:
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.19.0.tgz#c8fc6201c7f40dd08941b87c085767386a679acc"
   dependencies:

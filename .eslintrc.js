@@ -13,7 +13,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "sort-imports-es6-autofix"
     ],
     "rules": {
         "indent": [
@@ -34,6 +35,14 @@ module.exports = {
         ],
         "no-process-env": [
             "error"
+        ],
+        "sort-imports-es6-autofix/sort-imports-es6": [
+            "error",
+            {
+                "ignoreCase": false,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+            }
         ]
     }
 };
