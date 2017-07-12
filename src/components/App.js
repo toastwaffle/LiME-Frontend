@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import {SettingActionCreators} from '../actions/settings';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
-import {SettingActionCreators} from '../actions/settings';
-import TaskList from './TaskList';
+import PropTypes from 'prop-types';
+import React from 'react';
 import TaskHeader from './TaskHeader';
+import TaskList from './TaskList';
 
 class App extends React.Component {
   parentID() {

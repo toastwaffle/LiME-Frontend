@@ -1,12 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
-import CSSTransition from 'react-transition-group/CSSTransition';
-
-import Message from './Message';
-
 import '../styles/Messages.css';
+import {connect} from 'react-redux';
+import CSSTransition from 'react-transition-group/CSSTransition';
+import Message from './Message';
+import PropTypes from 'prop-types';
+import React from 'react';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 class Messages extends React.Component {
   render() {

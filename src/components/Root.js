@@ -1,18 +1,17 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import {Route} from 'react-router-dom';
-import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import thunk from 'redux-thunk';
-
 import {AuthActionCreators} from '../actions/auth';
+import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
+import {Provider} from 'react-redux';
+import {Route} from 'react-router-dom';
+import {applyMiddleware, createStore} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import App from './App';
-import Layout from './Layout';
 import HomePage from './HomePage';
+import Layout from './Layout';
+import React from 'react';
+import createHistory from 'history/createBrowserHistory';
 import reducers from '../reducers';
 import requireAuth from '../utils/requireAuth';
+import thunk from 'redux-thunk';
 
 export default class Root extends React.Component {
   constructor(props) {

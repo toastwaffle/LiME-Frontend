@@ -1,8 +1,7 @@
-import React from 'react';
-
-import DeleteTaskModal from '../components/DeleteTaskModal';
-import SettingsModal from '../components/SettingsModal';
 import {createConstants} from '../utils';
+import DeleteTaskModal from '../components/DeleteTaskModal';
+import React from 'react';
+import SettingsModal from '../components/SettingsModal';
 
 export const Modals = createConstants(
   'DELETE_TASK',

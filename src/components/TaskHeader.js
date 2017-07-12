@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/TaskHeader.css';
+import {Link} from 'react-router-dom';
+import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import MdFileUpload from 'react-icons/lib/md/file-upload';
-
-import {TaskActionCreators} from '../actions/tasks';
-
-import '../styles/TaskHeader.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class TaskHeader extends React.Component {
   componentDidMount() {

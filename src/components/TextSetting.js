@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import {Setting, connectSetting} from './hoc/settings';
+import PropTypes from 'prop-types';
+import React from 'react';
 import SettingWrapper from './SettingWrapper';
 
 class TextSetting extends Setting {

@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-
+import '../styles/DeleteTaskModal.css';
 import {ModalActionCreators} from '../actions/modals';
 import {TaskActionCreators} from '../actions/tasks';
-
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import Modal from './Modal';
-
-import '../styles/DeleteTaskModal.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class DeleteTaskModal extends React.Component {
   deleteChildren() {

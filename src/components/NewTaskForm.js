@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/NewTaskForm.css';
+import {FormBase} from './hoc/forms';
+import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MdAddBox from 'react-icons/lib/md/add-box';
-
-import {FormBase} from './hoc/forms';
-import {TaskActionCreators} from '../actions/tasks';
-
-import '../styles/NewTaskForm.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class NewTaskForm extends FormBase {
   constructor(props) {

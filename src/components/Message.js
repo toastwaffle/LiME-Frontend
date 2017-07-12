@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/Message.css';
+import {MessageActionCreators} from '../actions/messages';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import MdError from 'react-icons/lib/md/error';
-import MdWarning from 'react-icons/lib/md/warning';
-import MdInfo from 'react-icons/lib/md/info';
-import MdDone from 'react-icons/lib/md/done';
-
 import Config from '../Config';
-import {MessageActionCreators} from '../actions/messages';
-
-import '../styles/Message.css';
+import MdDone from 'react-icons/lib/md/done';
+import MdError from 'react-icons/lib/md/error';
+import MdInfo from 'react-icons/lib/md/info';
+import MdWarning from 'react-icons/lib/md/warning';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const icons = {
   'error': <MdError className='messageIcon' />,

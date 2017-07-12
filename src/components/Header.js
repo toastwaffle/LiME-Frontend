@@ -1,9 +1,8 @@
-import React from 'react';
+import '../styles/Header.css';
 import {Link} from 'react-router-dom';
-
+import React from 'react';
 import UserHeader from './UserHeader';
 import logo from '../resources/logo.svg';
-import '../styles/Header.css';
 
 export default class Header extends React.Component {
   render() {

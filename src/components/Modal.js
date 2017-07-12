@@ -1,12 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/Modal.css';
+import {ModalActionCreators} from '../actions/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MdClose from 'react-icons/lib/md/close';
-
-import {ModalActionCreators} from '../actions/modals';
-
-import '../styles/Modal.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class Modal extends React.Component {
   dontClose(e) {

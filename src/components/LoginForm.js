@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import {AuthActionCreators} from '../actions/auth';
+import {FormBase} from './hoc/forms';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
-import {FormBase} from './hoc/forms';
-import {AuthActionCreators} from '../actions/auth';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class LoginForm extends FormBase {
   constructor(props) {

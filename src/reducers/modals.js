@@ -1,6 +1,6 @@
 import {ModalActions} from '../actions/modals';
-import {createReducer,createUuid4} from '../utils';
 import {createModal} from '../utils/modals';
+import {createReducer,createUuid4} from '../utils';
 
 const initialState = [];
 

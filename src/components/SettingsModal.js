@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import {Settings, createSetting} from '../utils/settings';
-
 import Modal from './Modal';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default class SettingsModal extends React.Component {
   render() {

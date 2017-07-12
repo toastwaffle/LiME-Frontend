@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/TaskList.css';
+import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
-import {TaskActionCreators} from '../actions/tasks';
-import Task from './Task';
 import NewTaskForm from './NewTaskForm';
-
-import '../styles/TaskList.css';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Task from './Task';
 
 class TaskList extends React.Component {
   componentDidMount() {

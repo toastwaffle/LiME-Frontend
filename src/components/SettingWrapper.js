@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import '../styles/SettingWrapper.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default class SettingWrapper extends React.Component {
   render() {

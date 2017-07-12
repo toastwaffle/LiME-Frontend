@@ -1,5 +1,4 @@
 // Helpers for talking to the backend.
-
 import Config from '../Config';
 
 export default class Backend {

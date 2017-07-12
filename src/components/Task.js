@@ -1,21 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/Task.css';
+import {Link} from 'react-router-dom';
+import {ModalActionCreators} from '../actions/modals';
+import {Modals} from '../utils/modals';
+import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdCheckBox from 'react-icons/lib/md/check-box';
+import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
 import MdList from 'react-icons/lib/md/list';
+import PropTypes from 'prop-types';
+import React from 'react';
 import ReactSVG from 'react-svg';
-
-import {ModalActionCreators} from '../actions/modals';
-import {TaskActionCreators} from '../actions/tasks';
 import TaskList from './TaskList';
-import {Modals} from '../utils/modals';
-
 import rootTree from '../resources/root-tree.svg';
-import '../styles/Task.css';
 
 class Task extends React.Component {
   constructor(props) {

@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/Layout.css';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-
 import Header from './Header';
-import ModalContainer from './ModalContainer';
 import Messages from './Messages';
-
-import '../styles/Layout.css';
+import ModalContainer from './ModalContainer';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class Layout extends React.Component {
   render() {

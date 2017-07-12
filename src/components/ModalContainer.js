@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '../styles/ModalContainer.css';
+import {ModalActionCreators} from '../actions/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import CSSTransition from 'react-transition-group/CSSTransition';
+import PropTypes from 'prop-types';
+import React from 'react';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
-
-import {ModalActionCreators} from '../actions/modals';
-
-import '../styles/ModalContainer.css';
 
 class ModalContainer extends React.Component {
   render() {

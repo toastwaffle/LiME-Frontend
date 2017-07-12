@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function requireAuth(Component) {
   class AuthenticatedComponent extends React.Component {

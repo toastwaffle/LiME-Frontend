@@ -1,8 +1,7 @@
-import {push} from 'react-router-redux';
-
 import {MessageActions} from './messages';
 import {TaskActions} from './tasks';
 import {createConstants} from '../utils';
+import {push} from 'react-router-redux';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
 export const AuthActions = createConstants(

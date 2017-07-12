@@ -1,14 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import MdSettings from 'react-icons/lib/md/settings';
-
+import '../styles/UserHeader.css';
 import {AuthActionCreators} from '../actions/auth';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
-
-import '../styles/UserHeader.css';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import MdSettings from 'react-icons/lib/md/settings';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class UserHeader extends React.Component {
   logout(e) {

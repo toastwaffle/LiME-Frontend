@@ -1,6 +1,6 @@
-import Backend from '../utils/Backend';
-import {createReducer} from '../utils';
 import {AuthActions} from '../actions/auth';
+import {createReducer} from '../utils';
+import Backend from '../utils/Backend';
 
 const unauthenticatedBackend = new Backend(null);
 

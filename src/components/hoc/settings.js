@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import {SettingActionCreators} from '../../actions/settings';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
-import {SettingActionCreators} from '../../actions/settings';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export class Setting extends React.Component {
   constructor(props) {
