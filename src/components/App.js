@@ -4,8 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {SettingActionCreators} from '../actions/settings';
-import TaskList from '../components/TaskList';
-import TaskHeader from '../components/TaskHeader';
+import TaskList from './TaskList';
+import TaskHeader from './TaskHeader';
 
 class App extends React.Component {
   parentID() {

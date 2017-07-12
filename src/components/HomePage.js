@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
-import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 export default class HomePage extends React.Component {
   constructor(props) {

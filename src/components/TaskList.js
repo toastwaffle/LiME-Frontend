@@ -4,8 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {TaskActionCreators} from '../actions/tasks';
-import Task from '../components/Task';
-import NewTaskForm from '../components/NewTaskForm';
+import Task from './Task';
+import NewTaskForm from './NewTaskForm';
 
 import '../styles/TaskList.css';
 

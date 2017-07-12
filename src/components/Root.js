@@ -8,9 +8,9 @@ import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 
 import {AuthActionCreators} from '../actions/auth';
-import App from '../components/App';
-import Layout from '../components/Layout';
-import HomePage from '../components/HomePage';
+import App from './App';
+import Layout from './Layout';
+import HomePage from './HomePage';
 import reducers from '../reducers';
 import requireAuth from '../utils/requireAuth';
 
