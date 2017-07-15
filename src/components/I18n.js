@@ -19,7 +19,7 @@ function maybeReplaceProp(language, props, propName) {
 
 class I18n extends React.Component {
   render() {
-    const {component: Component, language: language, ...props} = this.props;
+    const {component: Component, language, ...props} = this.props;
 
     maybeReplaceProp(language, props, 'children');
     maybeReplaceProp(language, props, 'placeholder');
