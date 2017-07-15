@@ -7,21 +7,23 @@ function isString(thing) {
   return (typeof thing === 'string' || thing instanceof String);
 }
 
-function replace(language, key) {
-  return (i18n[language || 'en_gb'] || {})[key] || key;
-}
-
-function maybeReplaceProp(language, props, propName) {
+function maybeReplaceProp(language, props, propName, argsPropName) {
+  argsPropName = argsPropName || propName + 'I18nArgs';
   if (isString(props[propName])) {
-    props[propName] = replace(language, props[propName]);
+    props[propName] = i18n(
+      language,
+      props[propName],
+      props[argsPropName] || {}
+    );
   }
+  delete props[argsPropName];
 }
 
 class I18n extends React.Component {
   render() {
     const {component: Component, language, ...props} = this.props;
 
-    maybeReplaceProp(language, props, 'children');
+    maybeReplaceProp(language, props, 'children', 'contentI18nArgs');
     maybeReplaceProp(language, props, 'placeholder');
     maybeReplaceProp(language, props, 'title');
 

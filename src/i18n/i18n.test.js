@@ -1,5 +1,5 @@
+import {languages} from '.';
 import keys from './keys';
-import languages from '.';
 
 function languageTest(lang) {
   test(lang + ' exists', () => {
