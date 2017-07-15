@@ -24,7 +24,6 @@ class LoginForm extends FormBase {
     return (
       <div className='LoginForm'>
         <h3>Log in...</h3>
-        {this.props.statusText ? <div className=''>{this.props.statusText}</div> : ''}
         <form>
           <input type='email' placeholder='Email' value={this.state.email} onChange={this.handleChange('email').bind(this)} />
           <input type='password' placeholder='Password' value={this.state.password} onChange={this.handleChange('password').bind(this)} />
@@ -38,13 +37,11 @@ LoginForm.propTypes = {
   actions: PropTypes.object.isRequired,
   isAuthenticating: PropTypes.bool.isRequired,
   next: PropTypes.string.isRequired,
-  statusText: PropTypes.string,
 };
 
 function mapStateToProps(state) {
   return {
     isAuthenticating: state.auth.isAuthenticating,
-    statusText: state.auth.loginStatusText
   };
 }
 
