@@ -21,8 +21,9 @@ class I18n extends React.Component {
   render() {
     const {component: Component, language: language, ...props} = this.props;
 
-    maybeReplaceProp(language, props, 'title');
     maybeReplaceProp(language, props, 'children');
+    maybeReplaceProp(language, props, 'placeholder');
+    maybeReplaceProp(language, props, 'title');
 
     return (
       <Component {...props} />
