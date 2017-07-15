@@ -2,6 +2,7 @@ import {AuthActionCreators} from '../actions/auth';
 import {FormBase} from './hoc/forms';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import I18n from './I18n';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -23,11 +24,11 @@ class LoginForm extends FormBase {
   render() {
     return (
       <div className='LoginForm'>
-        <h3>Log in...</h3>
+        <I18n component='h3'>LOG_IN_HEADER</I18n>
         <form>
-          <input type='email' placeholder='Email' value={this.state.email} onChange={this.handleChange('email').bind(this)} />
-          <input type='password' placeholder='Password' value={this.state.password} onChange={this.handleChange('password').bind(this)} />
-          <button type='submit' disabled={this.props.isAuthenticating} onClick={this.login.bind(this)}>Log in</button>
+          <I18n component='input' type='email' placeholder='EMAIL' value={this.state.email} onChange={this.handleChange('email').bind(this)} />
+          <I18n component='input' type='password' placeholder='PASSWORD' value={this.state.password} onChange={this.handleChange('password').bind(this)} />
+          <I18n component='button' type='submit' disabled={this.props.isAuthenticating} onClick={this.login.bind(this)}>LOG_IN_BUTTON</I18n>
         </form>
       </div>
     );

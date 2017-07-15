@@ -3,6 +3,7 @@ import {MessageActionCreators} from '../actions/messages';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Config from '../Config';
+import I18n from './I18n';
 import MdDone from 'react-icons/lib/md/done';
 import MdError from 'react-icons/lib/md/error';
 import MdInfo from 'react-icons/lib/md/info';
@@ -31,10 +32,10 @@ class Message extends React.Component {
 
   render() {
     return (
-      <div className={'Message ' + this.props.level} onClick={this.disappear.bind(this)} title='Click to dismiss...'>
+      <I18n component='div' className={'Message ' + this.props.level} onClick={this.disappear.bind(this)} title='CLICK_TO_DISMISS'>
         {icons[this.props.level]}
         {this.props.message}
-      </div>
+      </I18n>
     );
   }
 }

@@ -3,6 +3,7 @@ import {ModalActionCreators} from '../actions/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import I18n from './I18n';
 import Modal from './Modal';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -21,17 +22,10 @@ class DeleteTaskModal extends React.Component {
   render() {
     return (
       <Modal className='DeleteTaskModal' id={this.props.id}>
-        <p>
-          You are trying to delete a task which has children. You can either move
-          the children to the parent task, or delete all of the children as well.
-        </p>
-        <button className='reparentChildren' onClick={this.reparentChildren.bind(this)}>Move Children</button>
-        <button className='deleteChildren' onClick={this.deleteChildren.bind(this)}>Delete Children</button>
-        <p className='small'>
-          P.S. To skip this dialog in future, hold ctrl while pressing the delete
-          button to move the children to the parent, or hold shift to delete the
-          children.
-        </p>
+        <I18n component='p'>DELETE_MODAL</I18n>
+        <I18n component='button' className='reparentChildren' onClick={this.reparentChildren.bind(this)}>MOVE_CHILDREN</I18n>
+        <I18n component='button' className='deleteChildren' onClick={this.deleteChildren.bind(this)}>DELETE_CHILDREN</I18n>
+        <I18n component='p' className='small'>DELETE_MODAL_SHORTCUT_HINT</I18n>
       </Modal>
     );
   }

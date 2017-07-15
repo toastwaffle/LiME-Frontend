@@ -2,6 +2,7 @@ import '../styles/TaskList.css';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import I18n from './I18n';
 import NewTaskForm from './NewTaskForm';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,18 +28,10 @@ class TaskList extends React.Component {
         tasks = this.props.tasks.map(
           task => <Task task={task} key={task.object_id} alternateDepth={!this.props.alternateDepth} />);
       } else {
-        tasks = (
-          <div className='noTasks'>
-            No tasks here yet. Add one below...
-          </div>
-        );
+        tasks = <I18n component='div' className='noTasks'>NO_TASKS_YET</I18n>;
       }
     } else {
-      tasks = (
-        <div className='tasksLoading'>
-          Loading...
-        </div>
-      );
+      tasks = <I18n component='div' className='tasksLoading'>LOADING</I18n>;
     }
     return (
       <div className={this.props.alternateDepth ? 'TaskList alternateDepth' : 'TaskList'}>

@@ -4,6 +4,7 @@ import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import I18n from './I18n';
 import MdSettings from 'react-icons/lib/md/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -30,7 +31,7 @@ class UserHeader extends React.Component {
         </div>
         {
           this.props.name
-            ? <p>Hello, {this.props.name}</p>
+            ? <I18n component='p' contentI18nArgs={{name: this.props.name}}>HELLO_USER</I18n>
             : null
         }
       </div>

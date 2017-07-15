@@ -1,4 +1,5 @@
 import '../styles/SettingWrapper.css';
+import I18n from './I18n';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,7 +11,7 @@ export default class SettingWrapper extends React.Component {
           {this.props.label}
           {
             this.props.saved
-              ? <span className='saved'>✓ Saved!</span>
+              ? <I18n className='saved'>SETTING_SAVED</I18n>
               : null
           }
         </label>
