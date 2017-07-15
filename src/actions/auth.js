@@ -66,11 +66,15 @@ export const AuthActionCreators = {
     };
   },
   logout: function() {
-    return function(dispatch) {
+    return function(dispatch, getState) {
       localStorage.clear('token');
+
       dispatch({type: AuthActions.LOGOUT});
-      dispatch({type: MessageActions.LOGOUT});
       dispatch({type: TaskActions.LOGOUT});
+
+      if (getState().auth.backend.isAuthenticated()) {
+        dispatch({type: MessageActions.LOGOUT});
+      }
     };
   }
 };
