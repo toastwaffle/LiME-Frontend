@@ -34,3 +34,10 @@ export function filterObject(obj, ...keysToRemove) {
   }
   return copy;
 }
+
+export function formatStr(str, args) {
+  for (var key in args) {
+    str = str.replace(new RegExp('\\{' + key + '\\}', 'gi'), args[key]);
+  }
+  return str;
+}
