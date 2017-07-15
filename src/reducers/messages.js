@@ -5,14 +5,14 @@ const initialState = [];
 
 export default createReducer(initialState, {
   [MessageActions.ADD_MESSAGE]: (state, payload) => {
-    return state.messages.concat([{
+    return state.concat([{
       id: createUuid4(),
       level: payload.level,
       message: payload.message
     }]);
   },
   [MessageActions.CLEAR_MESSAGE]: (state, payload) => {
-    return state.messages.filter(message => message.id !== payload.id);
+    return state.filter(message => message.id !== payload.id);
   },
   [MessageActions.LOGOUT]: () => {
     return initialState;
