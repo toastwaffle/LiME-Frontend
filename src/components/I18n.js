@@ -25,6 +25,8 @@ class I18n extends React.Component {
     maybeReplaceProp(language, props, 'placeholder');
     maybeReplaceProp(language, props, 'title');
 
+    delete props.dispatch;
+
     return (
       <Component {...props} />
     );
