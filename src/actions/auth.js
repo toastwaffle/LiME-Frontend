@@ -4,14 +4,14 @@ import {createConstants} from '../utils';
 import {push} from 'react-router-redux';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
-export const AuthActions = createConstants(
+export const AuthActions = createConstants('AUTH_ACTION_', [
   'LOGIN_REQUEST',
   'LOGIN_SUCCESS',
   'REGISTER_REQUEST',
   'REGISTER_SUCCESS',
-  'AUTH_FAILURE',
-  'LOGOUT'
-);
+  'FAILURE',
+  'LOGOUT',
+]);
 
 export const AuthActionCreators = {
   login: function(email, password, redirect='/') {
@@ -62,7 +62,7 @@ export const AuthActionCreators = {
   },
   authFailure: function() {
     return {
-      type: AuthActions.AUTH_FAILURE
+      type: AuthActions.FAILURE
     };
   },
   logout: function() {

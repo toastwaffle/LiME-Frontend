@@ -8,9 +8,9 @@ export function createReducer(initialState, reducerMap) {
   };
 }
 
-export function createConstants(...constants) {
+export function createConstants(prefix, constants) {
   return constants.reduce((acc, constant) => {
-    acc[constant] = constant;
+    acc[constant] = prefix + constant;
     return acc;
   }, {});
 }

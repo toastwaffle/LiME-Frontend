@@ -1,10 +1,10 @@
 import {createConstants} from '../utils';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
-export const SettingActions = createConstants(
+export const SettingActions = createConstants('SETTING_ACTION_', [
   'GOT_SETTINGS',
   'SET_SETTING'
-);
+]);
 
 export const SettingActionCreators = {
   getSettings: function() {

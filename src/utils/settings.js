@@ -5,11 +5,11 @@ import React from 'react';
 import TextSetting from '../components/TextSetting';
 import i18n from '../i18n';
 
-export const SettingTypes = createConstants(
+export const SettingTypes = createConstants('SETTING_TYPE_', [
   'DROPDOWN',
   'EMAIL',
   'TEXT'
-);
+]);
 
 function EmailSetting(props) {
   return <TextSetting {...props} fieldType='email' />;

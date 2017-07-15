@@ -1,9 +1,9 @@
 import {createConstants} from '../utils';
 
-export const ModalActions = createConstants(
+export const ModalActions = createConstants('MODAL_ACTION_', [
   'SHOW_MODAL',
   'CLOSE_MODAL'
-);
+]);
 
 export const ModalActionCreators = {
   showModal: function(modal, props) {

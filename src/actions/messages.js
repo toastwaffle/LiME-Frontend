@@ -1,10 +1,10 @@
 import {createConstants} from '../utils';
 
-export const MessageActions = createConstants(
+export const MessageActions = createConstants('MESSAGE_ACTION_', [
   'ADD_MESSAGE',
   'CLEAR_MESSAGE',
   'LOGOUT'
-);
+]);
 
 export const MessageActionCreators = {
   addMessageFromRequestError: function(error) {

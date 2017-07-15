@@ -1,13 +1,13 @@
 import {createConstants} from '../utils';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
-export const TaskActions = createConstants(
+export const TaskActions = createConstants('TASK_ACTION_', [
   'GOT_TASKS',
   'TASK_UPDATED',
   'TASK_DELETED',
   'CHILD_MODIFIED',
   'LOGOUT'
-);
+]);
 
 export const TaskActionCreators = {
   getTasks: function(parent_id) {
