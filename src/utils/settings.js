@@ -3,7 +3,7 @@ import DropdownSetting from '../components/DropdownSetting';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TextSetting from '../components/TextSetting';
-import i18n from '../i18n';
+import {languages} from '../i18n';
 
 export const SettingTypes = createConstants('SETTING_TYPE_', [
   'DROPDOWN',
@@ -47,7 +47,7 @@ export const Settings = [
     setting: 'language',
     label: 'Language',
     type: SettingTypes.DROPDOWN,
-    options: Object.entries(i18n).map(([lang, strings]) => ({
+    options: Object.entries(languages).map(([lang, strings]) => ({
       value: lang,
       label: strings['_LANGUAGE']
     }))
