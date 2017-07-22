@@ -3,7 +3,7 @@ import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
 export const TaskActions = createConstants('TASK_ACTION_', [
   'GOT_TASKS',
-  'TASK_UPDATED',
+  'CHILDREN_LOADED',
   'TASK_DELETED',
   'CHILD_MODIFIED',
   'LOGOUT'
@@ -15,23 +15,18 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'get_tasks', {parent_id},
         function(tasks) {
-          dispatch(TaskActionCreators.gotTasks(parent_id, tasks));
+          dispatch(TaskActionCreators.gotTasks(tasks));
+          dispatch(TaskActionCreators.childrenLoaded(parent_id));
         },
         defaultBackendErrorHandler(dispatch));
-    };
-  },
-  gotTasks: function(parent_id, tasks) {
-    return {
-      type: TaskActions.GOT_TASKS,
-      payload: {parent_id, tasks}
     };
   },
   getTask: function(task_id) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
         'get_task', {task_id},
-        function(task) {
-          dispatch(TaskActionCreators.taskUpdated(task));
+        function(tasks) {
+          dispatch(TaskActionCreators.gotTasks(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };
@@ -40,8 +35,8 @@ export const TaskActionCreators = {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
         'add_task', {parent_id, title},
-        function(task) {
-          dispatch(TaskActionCreators.taskUpdated(task));
+        function(tasks) {
+          dispatch(TaskActionCreators.gotTasks(tasks));
           dispatch(TaskActionCreators.childModified(parent_id));
           clearForm();
         },
@@ -59,26 +54,32 @@ export const TaskActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
-  taskDeleted: function(task_id, cascade) {
-    return {
-      type: TaskActions.TASK_DELETED,
-      payload: {task_id, cascade}
-    };
-  },
   setTaskCompletedState: function(task_id, completed) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
         'set_completed_state', {task_id, completed},
-        function(task) {
-          dispatch(TaskActionCreators.taskUpdated(task));
+        function(tasks) {
+          dispatch(TaskActionCreators.gotTasks(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };
   },
-  taskUpdated: function(task) {
+  gotTasks: function(tasks) {
     return {
-      type: TaskActions.TASK_UPDATED,
-      payload: {task}
+      type: TaskActions.GOT_TASKS,
+      payload: {tasks}
+    };
+  },
+  childrenLoaded: function(parent_id) {
+    return {
+      type: TaskActions.CHILDREN_LOADED,
+      payload: {parent_id}
+    };
+  },
+  taskDeleted: function(task_id, cascade) {
+    return {
+      type: TaskActions.TASK_DELETED,
+      payload: {task_id, cascade}
     };
   },
   childModified: function(parent_id) {

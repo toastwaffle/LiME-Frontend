@@ -15,15 +15,13 @@ export default createReducer(initialState, {
             acc[val.object_id] = val;
             return acc;
           }, {})),
-        'childrenLoaded': Object.assign(
-          {}, state.childrenLoaded, {[payload.parent_id]: true})
       });
   },
-  [TaskActions.TASK_UPDATED]: (state, payload) => {
+  [TaskActions.CHILDREN_LOADED]: (state, payload) => {
     return Object.assign(
       {}, state, {
-        'byID': Object.assign(
-          {}, state.byID, {[payload.task.object_id]: payload.task})
+        'childrenLoaded': Object.assign(
+          {}, state.childrenLoaded, {[payload.parent_id]: true})
       });
   },
   [TaskActions.TASK_DELETED]: (state, payload) => {
