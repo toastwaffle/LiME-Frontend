@@ -34,25 +34,6 @@ export default createReducer(initialState, {
         'childrenLoaded': filterObject(state.childrenLoaded, ...tasksToDelete)
       });
   },
-  [TaskActions.CHILD_MODIFIED]: (state, payload) => {
-    if (payload.parent_id === null) {
-      return state;
-    }
-    var hasChildren = Object.values(state.byID).filter(
-      task => task.parent_id === payload.parent_id
-    ).length > 0;
-    if (state.byID[payload.parent_id].has_children === hasChildren) {
-      return state;
-    }
-    return Object.assign(
-      {}, state, {
-        'byID': Object.assign(
-          {}, state.byID, {
-            [payload.parent_id]: Object.assign(
-              {}, state.byID[payload.parent_id], {'has_children': hasChildren})
-          })
-      });
-  },
   [TaskActions.LOGOUT]: () => {
     return initialState;
   }

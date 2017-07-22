@@ -5,7 +5,6 @@ export const TaskActions = createConstants('TASK_ACTION_', [
   'GOT_TASKS',
   'CHILDREN_LOADED',
   'TASK_DELETED',
-  'CHILD_MODIFIED',
   'LOGOUT'
 ]);
 
@@ -37,7 +36,6 @@ export const TaskActionCreators = {
         'add_task', {parent_id, title},
         function(tasks) {
           dispatch(TaskActionCreators.gotTasks(tasks));
-          dispatch(TaskActionCreators.childModified(parent_id));
           clearForm();
         },
         defaultBackendErrorHandler(dispatch));
@@ -80,12 +78,6 @@ export const TaskActionCreators = {
     return {
       type: TaskActions.TASK_DELETED,
       payload: {task_id, cascade}
-    };
-  },
-  childModified: function(parent_id) {
-    return {
-      type: TaskActions.CHILD_MODIFIED,
-      payload: {parent_id}
     };
   }
 };
