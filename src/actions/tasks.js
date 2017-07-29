@@ -62,6 +62,26 @@ export const TaskActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
+  reorderTask: function(task_id, after_id=null, before_id=null) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'reorder_task', {task_id, after_id, before_id},
+        function(tasks) {
+          dispatch(TaskActionCreators.gotTasks(tasks));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
+  reparentTask: function(task_id, parent_id) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'reparent_task', {task_id, parent_id},
+        function(tasks) {
+          dispatch(TaskActionCreators.gotTasks(tasks));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
   gotTasks: function(tasks) {
     return {
       type: TaskActions.GOT_TASKS,
