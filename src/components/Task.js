@@ -1,4 +1,5 @@
 import '../styles/Task.css';
+import {DragSource, DropTarget} from 'react-dnd';
 import {Link} from 'react-router-dom';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
@@ -48,33 +49,44 @@ class Task extends React.Component {
   }
 
   render() {
-    return (
-      <div className={this.props.task.completed ? 'Task completed' : 'Task'}>
+    const {task, alternateDepth, connectDragSource, connectDropTarget, isOver, isDragging} = this.props;
+
+    var classes = ['Task'];
+    if (task.completed) classes.push('completed');
+    if (isOver) classes.push('isOver');
+    if (isDragging) classes.push('isDragging');
+
+    return connectDragSource(connectDropTarget(
+      <div className={classes.join(' ')}>
         <div className="mainInfo">
           {
-            this.props.task.completed
+            task.completed
               ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
               : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
           }
-          <span className='title'>{this.props.task.title}</span>
-          <Link to={'/parent/' + this.props.task.object_id}>
+          <span className='title'>{task.title}</span>
+          <Link to={'/parent/' + task.object_id}>
             <ReactSVG path={rootTree} className="rootTree" />
           </Link>
-          <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
+          <MdList className={task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
           <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
         </div>
         {
           this.state.expandChildren
-            ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />
+            ? <TaskList parentID={task.object_id} alternateDepth={alternateDepth} />
             : null
         }
       </div>
-    );
+    ));
   }
 }
 Task.propTypes = {
   alternateDepth: PropTypes.bool.isRequired,
+  connectDragSource: PropTypes.func.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
+  isDragging: PropTypes.bool.isRequired,
+  isOver: PropTypes.bool.isRequired,
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
@@ -93,4 +105,46 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task);
+const dragSource = {
+  beginDrag(props) {
+    return {
+      task_id: props.task.object_id,
+    };
+  }
+};
+
+function dragCollect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  };
+}
+
+const dropTarget = {
+  canDrop(props, monitor) {
+    var task_id = monitor.getItem().task_id;
+
+    return (task_id !== props.task.object_id && task_id !== props.task.before_id);
+  },
+
+  drop(props, monitor) {
+    if (monitor.didDrop()) return;
+
+    props.taskActions.reorderTask(
+      monitor.getItem().task_id,
+      props.task.object_id);
+  },
+};
+
+function dropCollect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver({shallow: true}) && monitor.canDrop(),
+  };
+}
+
+export default (
+  connect(mapStateToProps, mapDispatchToProps)(
+    DragSource('TASK', dragSource, dragCollect)(
+      DropTarget('TASK', dropTarget, dropCollect)(
+        Task))));

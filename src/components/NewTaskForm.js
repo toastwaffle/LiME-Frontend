@@ -1,4 +1,5 @@
 import '../styles/NewTaskForm.css';
+import {DropTarget} from 'react-dnd';
 import {FormBase} from './hoc/forms';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
@@ -32,8 +33,8 @@ class NewTaskForm extends FormBase {
   }
 
   render() {
-    return (
-      <div className='NewTaskForm'>
+    return this.props.connectDropTarget(
+      <div className={this.props.isOver ? 'NewTaskForm isOver' : 'NewTaskForm'}>
         <MdAddBox className='addTaskIcon' onClick={this.focusInput.bind(this)} />
         <form>
           <I18n
@@ -51,6 +52,8 @@ class NewTaskForm extends FormBase {
 }
 NewTaskForm.propTypes = {
   parentID: PropTypes.number,
+  lastTaskID: PropTypes.number,
+  isOver: PropTypes.bool.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
@@ -59,4 +62,35 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(NewTaskForm);
+const dropTarget = {
+  canDrop(props, monitor) {
+    return (monitor.getItem().task_id !== props.lastTaskID);
+  },
+
+  drop(props, monitor) {
+    if (monitor.didDrop()) return;
+
+    if (props.lastTaskID === null) {
+      props.actions.reparentTask(
+        monitor.getItem().task_id,
+        props.parentID);
+    } else {
+      props.actions.reorderTask(
+        monitor.getItem().task_id,
+        null,
+        props.lastTaskID);
+    }
+  },
+};
+
+function dropCollect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver({shallow: true}) && monitor.canDrop(),
+  };
+}
+
+export default (
+  connect(null, mapDispatchToProps)(
+    DropTarget('TASK', dropTarget, dropCollect)(
+      NewTaskForm)));

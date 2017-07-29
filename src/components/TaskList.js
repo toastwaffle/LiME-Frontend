@@ -33,12 +33,18 @@ class TaskList extends React.Component {
     } else {
       tasks = <I18n component='div' className='tasksLoading'>LOADING</I18n>;
     }
+
+    var lastTaskID = (
+      this.props.tasks.length >0
+        ? this.props.tasks[this.props.tasks.length - 1].object_id
+        : null);
+
     return (
       <div className={this.props.alternateDepth ? 'TaskList alternateDepth' : 'TaskList'}>
         <div className='tasks'>
           {tasks}
         </div>
-        <NewTaskForm parentID={this.props.parentID} />
+        <NewTaskForm parentID={this.props.parentID} lastTaskID={lastTaskID} />
       </div>
     );
   }

@@ -2,6 +2,14 @@
   border-bottom: 1px solid #999;
 }
 
+.Task.isDragging {
+  opacity: 0.25;
+}
+
+.Task.isOver {
+  border-top: 3px solid #aaf;
+}
+
 .Task .mainInfo {
   height: 40px;
   line-height: 40px;

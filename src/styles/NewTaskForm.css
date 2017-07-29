@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.NewTaskForm.isOver {
+  border-top: 3px solid #aaf;
+}
+
 .NewTaskForm .addTaskIcon {
   color: #fff;
   height: 24px;

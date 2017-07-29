@@ -1,6 +1,8 @@
+import {DragDropContext} from 'react-dnd';
 import {SettingActionCreators} from '../actions/settings';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import HTML5Backend from 'react-dnd-html5-backend';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TaskHeader from './TaskHeader';
@@ -35,4 +37,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default (
+  connect(null, mapDispatchToProps)(
+    DragDropContext(HTML5Backend)(
+      App)));
