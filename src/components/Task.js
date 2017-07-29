@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactSVG from 'react-svg';
 import TaskList from './TaskList';
+import dragHandle from '../resources/drag-handle.svg';
 import rootTree from '../resources/root-tree.svg';
 
 class Task extends React.Component {
@@ -49,16 +50,22 @@ class Task extends React.Component {
   }
 
   render() {
-    const {task, alternateDepth, connectDragSource, connectDropTarget, isOver, isDragging} = this.props;
+    const {task, alternateDepth, connectDragSource, connectDragPreview, connectDropTarget, isOver, isDragging} = this.props;
 
     var classes = ['Task'];
     if (task.completed) classes.push('completed');
     if (isOver) classes.push('isOver');
     if (isDragging) classes.push('isDragging');
 
-    return connectDragSource(connectDropTarget(
-      <div className={classes.join(' ')}>
-        <div className="mainInfo">
+    var handle = connectDragSource(
+      <div>
+        <ReactSVG path={dragHandle} className="dragHandle" />
+      </div>
+    );
+
+    var mainInfo = connectDragPreview(
+      <div className="mainInfo">
+          {handle}
           {
             task.completed
               ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
@@ -71,18 +78,24 @@ class Task extends React.Component {
           <MdList className={task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
           <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
         </div>
+    )
+
+    return connectDropTarget(
+      <div className={classes.join(' ')}>
+        {mainInfo}
         {
           this.state.expandChildren
             ? <TaskList parentID={task.object_id} alternateDepth={alternateDepth} />
             : null
         }
       </div>
-    ));
+    );
   }
 }
 Task.propTypes = {
   alternateDepth: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
+  connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
   isDragging: PropTypes.bool.isRequired,
@@ -116,6 +129,7 @@ const dragSource = {
 function dragCollect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
     isDragging: monitor.isDragging(),
   };
 }

@@ -16,7 +16,7 @@
   background: #112;
   background: linear-gradient(to bottom, #112 0%, #113 100%);
   position: relative;
-  padding-left: 40px;
+  padding-left: 52px;
 }
 
 .Task .deleteTask,
@@ -59,7 +59,7 @@
   height: 24px;
   position: absolute;
   top: 8px;
-  left: 8px;
+  left: 20px;
 }
 
 .Task .taskCompleted:hover {
@@ -69,4 +69,13 @@
 .Task.completed .title {
   text-decoration: line-through;
   color: #aaa;
+}
+
+.Task .dragHandle {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  color: #666;
 }
