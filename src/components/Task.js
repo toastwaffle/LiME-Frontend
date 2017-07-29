@@ -84,7 +84,7 @@ class Task extends React.Component {
       <div className={classes.join(' ')}>
         {mainInfo}
         {
-          this.state.expandChildren
+          this.state.expandChildren && !isDragging
             ? <TaskList parentID={task.object_id} alternateDepth={alternateDepth} />
             : null
         }
