@@ -16,6 +16,8 @@
     "normalize.css": "",
     "query-string": "next",
     "react": "",
+    "react-dnd": "",
+    "react-dnd-html5-backend": "",
     "react-dom": "",
     "react-icons": "",
     "react-redux": "",
