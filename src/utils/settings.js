@@ -1,9 +1,9 @@
 import {createConstants} from '../utils';
+import {languages} from '../i18n';
 import DropdownSetting from '../components/DropdownSetting';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TextSetting from '../components/TextSetting';
-import {languages} from '../i18n';
 
 export const SettingTypes = createConstants('SETTING_TYPE_', [
   'DROPDOWN',
