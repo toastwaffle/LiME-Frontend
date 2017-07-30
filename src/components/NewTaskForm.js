@@ -42,7 +42,7 @@ class NewTaskForm extends FormBase {
             type='text'
             placeholder='NEW_TASK'
             value={this.state.title}
-            ref={(input) => { this.taskInput = input; }}
+            childRef={(input) => { this.taskInput = input; }}
             onChange={this.handleChange('title').bind(this)}
             onKeyPress={this.maybeSubmit.bind(this)} />
         </form>

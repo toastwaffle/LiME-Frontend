@@ -27,6 +27,11 @@ class I18n extends React.Component {
     maybeReplaceProp(language, props, 'placeholder');
     maybeReplaceProp(language, props, 'title');
 
+    if (props.childRef !== undefined) {
+      props.ref = props.childRef;
+      delete props.childRef;
+    }
+
     delete props.dispatch;
 
     return (
