@@ -6,6 +6,7 @@ import {Modals} from '../utils/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import Config from '../Config';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
@@ -21,8 +22,26 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expandChildren: false
+      expandChildren: false,
+      expandChildrenForDragging: false,
+      dragTimeout: null,
     };
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.isOver != newProps.isOver) {
+      if (this.state.dragTimeout !== null) {
+        clearTimeout(this.state.dragTimeout);
+      }
+      this.setState({
+        dragTimeout: setTimeout(function() {
+          this.setState({
+            expandChildrenForDragging: newProps.isOver,
+            dragTimeout: null,
+          });
+        }.bind(this), Config.dragExpandChildrenTimeout),
+      });
+    }
   }
 
   deleteTask (e) {
@@ -50,42 +69,40 @@ class Task extends React.Component {
   }
 
   render() {
-    const {task, alternateDepth, connectDragSource, connectDragPreview, connectDropTarget, isOver, isDragging} = this.props;
-
     var classes = ['Task'];
-    if (task.completed) classes.push('completed');
-    if (isOver) classes.push('isOver');
-    if (isDragging) classes.push('isDragging');
+    if (this.props.task.completed) classes.push('completed');
+    if (this.props.isOverSelfOnly && this.props.canDrop) classes.push('dropHere');
+    if (this.props.isDragging) classes.push('isDragging');
 
-    var handle = connectDragSource(
+    var handle = this.props.connectDragSource(
       <div>
         <ReactSVG path={dragHandle} className="dragHandle" />
       </div>
     );
 
-    var mainInfo = connectDragPreview(
+    var mainInfo = this.props.connectDragPreview(
       <div className="mainInfo">
         {handle}
         {
-          task.completed
+          this.props.task.completed
             ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
             : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
         }
-        <span className='title'>{task.title}</span>
-        <Link to={'/parent/' + task.object_id}>
+        <span className='title'>{this.props.task.title}</span>
+        <Link to={'/parent/' + this.props.task.object_id}>
           <ReactSVG path={rootTree} className="rootTree" />
         </Link>
-        <MdList className={task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
+        <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
         <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
       </div>
     )
 
-    return connectDropTarget(
+    return this.props.connectDropTarget(
       <div className={classes.join(' ')}>
         {mainInfo}
         {
-          this.state.expandChildren && !isDragging
-            ? <TaskList parentID={task.object_id} alternateDepth={alternateDepth} />
+          (this.state.expandChildren || this.state.expandChildrenForDragging) && !this.props.isDragging
+            ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />
             : null
         }
       </div>
@@ -94,12 +111,14 @@ class Task extends React.Component {
 }
 Task.propTypes = {
   alternateDepth: PropTypes.bool.isRequired,
+  canDrop: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
   isDragging: PropTypes.bool.isRequired,
   isOver: PropTypes.bool.isRequired,
+  isOverSelfOnly: PropTypes.bool.isRequired,
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
@@ -153,7 +172,9 @@ const dropTarget = {
 function dropCollect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver({shallow: true}) && monitor.canDrop(),
+    isOver: monitor.isOver(),
+    isOverSelfOnly: monitor.isOver({shallow: true}),
+    canDrop: monitor.canDrop(),
   };
 }
 

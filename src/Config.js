@@ -2,6 +2,7 @@
 
 var Config = {
   messageTimeout: 5000,
+  dragExpandChildrenTimeout: 1000,
 };
 
 /* global process */

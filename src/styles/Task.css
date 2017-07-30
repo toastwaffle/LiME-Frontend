@@ -6,7 +6,7 @@
   opacity: 0.25;
 }
 
-.Task.isOver {
+.Task.dropHere {
   border-top: 3px solid #aaf;
 }
 
