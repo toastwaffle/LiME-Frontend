@@ -65,19 +65,19 @@ class Task extends React.Component {
 
     var mainInfo = connectDragPreview(
       <div className="mainInfo">
-          {handle}
-          {
-            task.completed
-              ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
-              : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
-          }
-          <span className='title'>{task.title}</span>
-          <Link to={'/parent/' + task.object_id}>
-            <ReactSVG path={rootTree} className="rootTree" />
-          </Link>
-          <MdList className={task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
-          <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
-        </div>
+        {handle}
+        {
+          task.completed
+            ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
+            : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
+        }
+        <span className='title'>{task.title}</span>
+        <Link to={'/parent/' + task.object_id}>
+          <ReactSVG path={rootTree} className="rootTree" />
+        </Link>
+        <MdList className={task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
+        <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
+      </div>
     )
 
     return connectDropTarget(
