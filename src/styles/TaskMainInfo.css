@@ -1,0 +1,70 @@
+.TaskMainInfo {
+  height: 40px;
+  line-height: 40px;
+  background: #112;
+  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  position: relative;
+  padding-left: 52px;
+}
+
+.TaskMainInfo .deleteTask,
+.TaskMainInfo .expandChildren,
+.TaskMainInfo .rootTree {
+  color: #aaa;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+}
+
+.TaskMainInfo .deleteTask {
+  right: 5px;
+}
+
+.TaskMainInfo .deleteTask:hover {
+  color: #f00;
+}
+
+.TaskMainInfo .expandChildren {
+  right: 45px;
+}
+
+.TaskMainInfo .expandChildren.hasChildren {
+  color: #aaf;
+}
+
+.TaskMainInfo .expandChildren:hover,
+.TaskMainInfo .rootTree:hover {
+  color: #fff;
+}
+
+.TaskMainInfo .rootTree {
+  right: 85px;
+}
+
+.TaskMainInfo .taskCompleted {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 20px;
+}
+
+.TaskMainInfo .taskCompleted:hover {
+  color: #bbb;
+}
+
+.TaskMainInfo.completed .title {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.TaskMainInfo .dragHandle {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  color: #666;
+  cursor: move;
+}

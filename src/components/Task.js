@@ -1,22 +1,10 @@
 import '../styles/Task.css';
 import {DragSource, DropTarget} from 'react-dnd';
-import {Link} from 'react-router-dom';
-import {ModalActionCreators} from '../actions/modals';
-import {Modals} from '../utils/modals';
-import {TaskActionCreators} from '../actions/tasks';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import Config from '../Config';
-import MdCheckBox from 'react-icons/lib/md/check-box';
-import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
-import MdClose from 'react-icons/lib/md/close';
-import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactSVG from 'react-svg';
 import TaskList from './TaskList';
-import dragHandle from '../resources/drag-handle.svg';
-import rootTree from '../resources/root-tree.svg';
+import TaskMainInfo from './TaskMainInfo';
 
 class Task extends React.Component {
   constructor(props) {
@@ -29,7 +17,7 @@ class Task extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.isOver != newProps.isOver) {
+    if (this.props.isOver !== newProps.isOver) {
       if (this.state.dragTimeout !== null) {
         clearTimeout(this.state.dragTimeout);
       }
@@ -44,24 +32,6 @@ class Task extends React.Component {
     }
   }
 
-  deleteTask (e) {
-    if (!this.props.task.has_children || e.ctrlKey || this.props.deletionBehaviour === 'REPARENT') {
-      this.props.taskActions.deleteTask(this.props.task, false);
-    } else if (e.shiftKey || this.props.deletionBehaviour === 'CASCADE') {
-      this.props.taskActions.deleteTask(this.props.task, true);
-    } else {
-      this.props.modalActions.showModal(Modals.DELETE_TASK, {task: this.props.task});
-    }
-  }
-
-  markAsCompleted() {
-    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, true);
-  }
-
-  markAsUncompleted() {
-    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, false);
-  }
-
   toggleExpandChildren() {
     this.setState({
       expandChildren: !this.state.expandChildren
@@ -74,32 +44,16 @@ class Task extends React.Component {
     if (this.props.isOverSelfOnly && this.props.canDrop) classes.push('dropHere');
     if (this.props.isDragging) classes.push('isDragging');
 
-    var handle = this.props.connectDragSource(
-      <div>
-        <ReactSVG path={dragHandle} className="dragHandle" />
-      </div>
-    );
-
-    var mainInfo = this.props.connectDragPreview(
-      <div className="mainInfo">
-        {handle}
-        {
-          this.props.task.completed
-            ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
-            : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
-        }
-        <span className='title'>{this.props.task.title}</span>
-        <Link to={'/parent/' + this.props.task.object_id}>
-          <ReactSVG path={rootTree} className="rootTree" />
-        </Link>
-        <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.toggleExpandChildren.bind(this)} />
-        <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
-      </div>
-    )
+    var mainInfoProps = {
+      task: this.props.task,
+      toggleExpandChildren: this.toggleExpandChildren.bind(this),
+      connectDragSource: this.props.connectDragSource,
+      connectDragPreview: this.props.connectDragPreview,
+    };
 
     return this.props.connectDropTarget(
       <div className={classes.join(' ')}>
-        {mainInfo}
+        <TaskMainInfo {...mainInfoProps} />
         {
           (this.state.expandChildren || this.state.expandChildrenForDragging) && !this.props.isDragging
             ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />
@@ -115,27 +69,11 @@ Task.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
   isDragging: PropTypes.bool.isRequired,
   isOver: PropTypes.bool.isRequired,
   isOverSelfOnly: PropTypes.bool.isRequired,
-  modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
-  taskActions: PropTypes.object.isRequired,
 };
-
-function mapStateToProps(state) {
-  return {
-    deletionBehaviour: state.settings.deletion_behaviour,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    taskActions: bindActionCreators(TaskActionCreators, dispatch),
-    modalActions: bindActionCreators(ModalActionCreators, dispatch)
-  };
-}
 
 const dragSource = {
   beginDrag(props) {
@@ -179,7 +117,6 @@ function dropCollect(connect, monitor) {
 }
 
 export default (
-  connect(mapStateToProps, mapDispatchToProps)(
-    DragSource('TASK', dragSource, dragCollect)(
-      DropTarget('TASK', dropTarget, dropCollect)(
-        Task))));
+  DragSource('TASK', dragSource, dragCollect)(
+    DropTarget('TASK', dropTarget, dropCollect)(
+      Task)));
