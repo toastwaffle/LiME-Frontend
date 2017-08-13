@@ -16,7 +16,7 @@ class TaskList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (!newProps.childrenLoaded) {
+    if (this.props.parentID !== newProps.parentID && !newProps.childrenLoaded) {
       newProps.actions.getTasks(newProps.parentID);
     }
   }
