@@ -14,6 +14,12 @@ class TaskHeader extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.taskID !== newProps.taskID && newProps.task === undefined) {
+      newProps.actions.getTask(newProps.taskID);
+    }
+  }
+
   render() {
     if (this.props.task === undefined) {
       return null;
@@ -34,7 +40,7 @@ class TaskHeader extends React.Component {
 }
 TaskHeader.propTypes = {
   actions: PropTypes.object.isRequired,
-  task: PropTypes.object.isRequired,
+  task: PropTypes.object,
   taskID: PropTypes.number.isRequired,
 };
 
