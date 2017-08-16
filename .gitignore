@@ -5,5 +5,6 @@ build
 .env
 npm-debug.log
 build.tgz
+build.git
 
 # Don't add yarn.lock here - see http://stackoverflow.com/q/39990017
