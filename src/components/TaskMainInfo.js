@@ -27,11 +27,11 @@ class TaskMainInfo extends React.Component {
   }
 
   markAsCompleted() {
-    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, true);
+    this.props.taskActions.updateTask(this.props.task.object_id, {completed: true});
   }
 
   markAsUncompleted() {
-    this.props.taskActions.setTaskCompletedState(this.props.task.object_id, false);
+    this.props.taskActions.updateTask(this.props.task.object_id, {completed: false});
   }
 
   render() {

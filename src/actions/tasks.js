@@ -52,10 +52,10 @@ export const TaskActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
-  setTaskCompletedState: function(task_id, completed) {
+  updateTask: function(task_id, fields) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'set_completed_state', {task_id, completed},
+        'update_task', Object.assign({task_id}, fields),
         function(tasks) {
           dispatch(TaskActionCreators.gotTasks(tasks));
         },
