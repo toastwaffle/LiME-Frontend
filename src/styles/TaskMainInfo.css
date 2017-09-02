@@ -7,6 +7,7 @@
   padding-left: 52px;
 }
 
+.TaskMainInfo .editMode,
 .TaskMainInfo .deleteTask,
 .TaskMainInfo .expandChildren,
 .TaskMainInfo .rootTree {
@@ -15,6 +16,7 @@
   width: 30px;
   position: absolute;
   top: 5px;
+  cursor: pointer;
 }
 
 .TaskMainInfo .deleteTask {
@@ -33,6 +35,7 @@
   color: #aaf;
 }
 
+.TaskMainInfo .editMode:hover,
 .TaskMainInfo .expandChildren:hover,
 .TaskMainInfo .rootTree:hover {
   color: #fff;
@@ -40,6 +43,10 @@
 
 .TaskMainInfo .rootTree {
   right: 85px;
+}
+
+.TaskMainInfo .editMode {
+  right: 125px;
 }
 
 .TaskMainInfo .taskCompleted {

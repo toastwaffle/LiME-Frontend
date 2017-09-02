@@ -9,6 +9,7 @@ import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
 import MdList from 'react-icons/lib/md/list';
+import MdModeEdit from 'react-icons/lib/md/mode-edit';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactSVG from 'react-svg';
@@ -50,6 +51,7 @@ class TaskMainInfo extends React.Component {
             : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
         }
         <span className='title'>{this.props.task.title}</span>
+        <MdModeEdit className='editMode' onClick={this.props.toggleEditMode} />
         <Link to={'/parent/' + this.props.task.object_id}>
           <ReactSVG path={rootTree} className="rootTree" />
         </Link>
@@ -67,6 +69,7 @@ TaskMainInfo.propTypes = {
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
   toggleExpandChildren: PropTypes.func.isRequired,
+  toggleEditMode: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

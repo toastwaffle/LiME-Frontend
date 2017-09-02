@@ -14,6 +14,7 @@ class Task extends React.Component {
       expandChildren: false,
       expandChildrenForDragging: false,
       dragTimeout: null,
+      editMode: false,
     };
   }
 
@@ -42,6 +43,7 @@ class Task extends React.Component {
     var mainInfoProps = {
       task: this.props.task,
       toggleExpandChildren: toggleState('expandChildren').bind(this),
+      toggleEditMode: toggleState('editMode').bind(this),
       connectDragSource: this.props.connectDragSource,
       connectDragPreview: this.props.connectDragPreview,
     };
