@@ -51,6 +51,8 @@ class NewTaskForm extends React.Component {
   }
 }
 NewTaskForm.propTypes = {
+  actions: PropTypes.object.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
   parentID: PropTypes.number,
   lastTaskID: PropTypes.number,
   isOver: PropTypes.bool.isRequired,
