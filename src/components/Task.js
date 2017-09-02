@@ -1,5 +1,6 @@
 import '../styles/Task.css';
 import {DragSource, DropTarget} from 'react-dnd';
+import {toggleState} from '../utils';
 import Config from '../Config';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -32,12 +33,6 @@ class Task extends React.Component {
     }
   }
 
-  toggleExpandChildren() {
-    this.setState({
-      expandChildren: !this.state.expandChildren
-    });
-  }
-
   render() {
     var classes = ['Task'];
     if (this.props.task.completed) classes.push('completed');
@@ -46,7 +41,7 @@ class Task extends React.Component {
 
     var mainInfoProps = {
       task: this.props.task,
-      toggleExpandChildren: this.toggleExpandChildren.bind(this),
+      toggleExpandChildren: toggleState('expandChildren').bind(this),
       connectDragSource: this.props.connectDragSource,
       connectDragPreview: this.props.connectDragPreview,
     };
