@@ -41,3 +41,11 @@ export function formatStr(str, args) {
   }
   return str;
 }
+
+export function toggleState(key) {
+  return function() {
+    this.setState((prevState) => {
+      return {[key]: !prevState[key]};
+    });
+  };
+}
