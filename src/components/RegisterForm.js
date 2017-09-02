@@ -1,12 +1,12 @@
 import {AuthActionCreators} from '../actions/auth';
-import {FormBase} from './hoc/forms';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {handleChange} from '../utils';
 import I18n from './I18n';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class RegisterForm extends FormBase{
+class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,9 +27,9 @@ class RegisterForm extends FormBase{
       <div className='RegisterForm'>
         <I18n component='h3'>REGISTER_HEADER</I18n>
         <form>
-          <I18n component='input' type='email' placeholder='EMAIL' value={this.state.email} onChange={this.handleChange('email').bind(this)} />
-          <I18n component='input' type='password' placeholder='PASSWORD' value={this.state.password} onChange={this.handleChange('password').bind(this)} />
-          <I18n component='input' type='text' placeholder='NAME' value={this.state.name} onChange={this.handleChange('name').bind(this)} />
+          <I18n component='input' type='email' placeholder='EMAIL' value={this.state.email} onChange={handleChange('email').bind(this)} />
+          <I18n component='input' type='password' placeholder='PASSWORD' value={this.state.password} onChange={handleChange('password').bind(this)} />
+          <I18n component='input' type='text' placeholder='NAME' value={this.state.name} onChange={handleChange('name').bind(this)} />
           <I18n component='button' type='submit' disabled={this.props.isAuthenticating} onClick={this.register.bind(this)}>REGISTER_BUTTON</I18n>
         </form>
       </div>

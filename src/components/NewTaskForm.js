@@ -1,15 +1,15 @@
 import '../styles/NewTaskForm.css';
 import {DropTarget} from 'react-dnd';
-import {FormBase} from './hoc/forms';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {handleChange} from '../utils';
 import I18n from './I18n';
 import MdAddBox from 'react-icons/lib/md/add-box';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class NewTaskForm extends FormBase {
+class NewTaskForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +43,7 @@ class NewTaskForm extends FormBase {
             placeholder='NEW_TASK'
             value={this.state.title}
             childRef={(input) => { this.taskInput = input; }}
-            onChange={this.handleChange('title').bind(this)}
+            onChange={handleChange('title').bind(this)}
             onKeyPress={this.maybeSubmit.bind(this)} />
         </form>
       </div>

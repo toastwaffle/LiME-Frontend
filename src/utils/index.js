@@ -49,3 +49,9 @@ export function toggleState(key) {
     });
   };
 }
+
+export function handleChange(field) {
+  return function(event) {
+    this.setState({[field]: event.target.value});
+  };
+}
