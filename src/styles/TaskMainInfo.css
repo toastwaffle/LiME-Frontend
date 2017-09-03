@@ -7,6 +7,10 @@
   padding-left: 52px;
 }
 
+.editMode .TaskMainInfo {
+    box-shadow: inset 0px -3px 5px -1px #99f;
+}
+
 .TaskMainInfo .editMode,
 .TaskMainInfo .deleteTask,
 .TaskMainInfo .expandChildren,

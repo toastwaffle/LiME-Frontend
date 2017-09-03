@@ -39,6 +39,8 @@ class Task extends React.Component {
     if (this.props.task.completed) classes.push('completed');
     if (this.props.isOverSelfOnly && this.props.canDrop) classes.push('dropHere');
     if (this.props.isDragging) classes.push('isDragging');
+    if (this.state.editMode) classes.push('editMode');
+    if (this.state.expandChildren) classes.push('expandChildren');
 
     var mainInfoProps = {
       childrenExpanded: this.state.expandChildren,
