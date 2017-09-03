@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {curry, loadSVG, withTitle} from '../utils';
 import {push} from 'react-router-redux';
+import EditTaskTitle from './EditTaskTitle';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
@@ -60,7 +61,11 @@ class TaskMainInfo extends React.Component {
             ? <TaskCompleted onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' title='MARK_UNCOMPLETED' />
             : <TaskUnCompleted onClick={this.markAsCompleted.bind(this)} className='taskCompleted' title='MARK_COMPLETED' />
         }
-        <span className='title'>{this.props.task.title}</span>
+        {
+          this.props.editMode
+            ? <EditTaskTitle task_id={this.props.task.object_id} value={this.props.task.title} />
+            : <span className='title'>{this.props.task.title}</span>
+        }
         {
           this.props.editMode
             ? <Done className='editMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
