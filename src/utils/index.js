@@ -1,3 +1,6 @@
+import I18n from '../components/I18n';
+import React from 'react';
+
 export function createReducer(initialState, reducerMap) {
   return (state = initialState, action) => {
     const reducer = reducerMap[action.type];
@@ -54,4 +57,17 @@ export function handleChange(field) {
   return function(event) {
     this.setState({[field]: event.target.value});
   };
+}
+
+export function withTitle(Icon) {
+  var style = {
+    verticalAlign: 'initial',
+    width: '100%',
+    height: '100%',
+  };
+  return props => (
+    <I18n component='span' {...props}>
+      <Icon style={style} />
+    </I18n>
+  );
 }
