@@ -52,12 +52,15 @@ export const TaskActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
-  updateTask: function(task_id, fields) {
+  updateTask: function(task_id, fields, markSaved) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
         'update_task', Object.assign({task_id}, fields),
         function(tasks) {
           dispatch(TaskActionCreators.gotTasks(tasks));
+          if (typeof(markSaved) === 'function') {
+            markSaved();
+          }
         },
         defaultBackendErrorHandler(dispatch));
     };
