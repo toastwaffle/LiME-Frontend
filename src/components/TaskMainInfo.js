@@ -1,11 +1,11 @@
 import '../styles/TaskMainInfo.css';
-import {Link} from 'react-router-dom';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {withTitle} from '../utils';
+import {curry, loadSVG, withTitle} from '../utils';
+import {push} from 'react-router-redux';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
@@ -46,6 +46,7 @@ class TaskMainInfo extends React.Component {
 
     var Done = withTitle(MdDone);
     var Edit = withTitle(MdEdit);
+    var RootHere = loadSVG(rootTree);
 
     return this.props.connectDragPreview(
       <div className="TaskMainInfo">
@@ -61,9 +62,7 @@ class TaskMainInfo extends React.Component {
             ? <Done className='editMode' onClick={this.props.toggleEditMode} title="DONE_EDITING" />
             : <Edit className='editMode' onClick={this.props.toggleEditMode} title="EDIT_TASK" />
         }
-        <Link to={'/parent/' + this.props.task.object_id}>
-          <ReactSVG path={rootTree} className="rootTree" />
-        </Link>
+        <RootHere className="rootTree" onClick={curry(this.props.goTo, '/parent/' + this.props.task.object_id)} />
         <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.props.toggleExpandChildren} />
         <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
       </div>
@@ -75,6 +74,7 @@ TaskMainInfo.propTypes = {
   connectDragPreview: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
   editMode: PropTypes.bool.isRequired,
+  goTo: PropTypes.func.isRequired,
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
@@ -91,7 +91,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     taskActions: bindActionCreators(TaskActionCreators, dispatch),
-    modalActions: bindActionCreators(ModalActionCreators, dispatch)
+    modalActions: bindActionCreators(ModalActionCreators, dispatch),
+    goTo: bindActionCreators(push, dispatch),
   };
 }
 

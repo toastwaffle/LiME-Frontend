@@ -1,5 +1,7 @@
 import I18n from '../components/I18n';
+import PropTypes from 'prop-types';
 import React from 'react';
+import ReactSVG from 'react-svg';
 
 export function createReducer(initialState, reducerMap) {
   return (state = initialState, action) => {
@@ -70,4 +72,29 @@ export function withTitle(Icon) {
       <Icon style={style} />
     </I18n>
   );
+}
+
+export function curry(func, ...args) {
+  return function() {
+    func(...args);
+  };
+}
+
+export function loadSVG(path) {
+  var component = function(props) {
+    var callback = null;
+    if (props.onClick !== undefined) {
+      callback = function(element) {
+        element.onclick = props.onClick;
+      };
+    }
+    return (
+      <ReactSVG path={path} callback={callback} {...props} />
+    );
+  };
+  component.displayName = 'SVG(' + path + ')';
+  component.propTypes = {
+    onClick: PropTypes.func,
+  };
+  return component;
 }
