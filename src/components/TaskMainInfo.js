@@ -14,7 +14,6 @@ import MdEdit from 'react-icons/lib/md/edit';
 import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactSVG from 'react-svg';
 import dragHandle from '../resources/drag-handle.svg';
 import rootTree from '../resources/root-tree.svg';
 
@@ -38,15 +37,16 @@ class TaskMainInfo extends React.Component {
   }
 
   render() {
-    var handle = this.props.connectDragSource(
-      <div>
-        <ReactSVG path={dragHandle} className="dragHandle" />
-      </div>
-    );
-
     var Done = withTitle(MdDone);
     var Edit = withTitle(MdEdit);
     var RootHere = loadSVG(rootTree);
+    var DragHandle = loadSVG(dragHandle);
+
+    var handle = this.props.connectDragSource(
+      <div>
+        <DragHandle className="dragHandle" />
+      </div>
+    );
 
     return this.props.connectDragPreview(
       <div className="TaskMainInfo">
