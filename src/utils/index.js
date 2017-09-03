@@ -67,11 +67,13 @@ export function withTitle(Icon) {
     width: '100%',
     height: '100%',
   };
-  return props => (
+  var component = props => (
     <I18n component='span' {...props}>
       <Icon style={style} />
     </I18n>
   );
+  component.displayName = 'withTitle(' + Icon.displayName + ')';
+  return component;
 }
 
 export function curry(func, ...args) {
