@@ -37,39 +37,48 @@ class TaskMainInfo extends React.Component {
   }
 
   render() {
+    var DeleteTask = withTitle(MdClose);
     var Done = withTitle(MdDone);
+    var DragHandle = withTitle(loadSVG(dragHandle));
     var Edit = withTitle(MdEdit);
-    var RootHere = loadSVG(rootTree);
-    var DragHandle = loadSVG(dragHandle);
+    var ExpandChildren = withTitle(MdList);
+    var RootHere = withTitle(loadSVG(rootTree));
+    var TaskCompleted = withTitle(MdCheckBox);
+    var TaskUnCompleted = withTitle(MdCheckBoxOutlineBlank);
 
     var handle = this.props.connectDragSource(
       <div>
-        <DragHandle className="dragHandle" />
+        <DragHandle className='dragHandle' title='MOVE_TASK' />
       </div>
     );
 
     return this.props.connectDragPreview(
-      <div className="TaskMainInfo">
+      <div className='TaskMainInfo'>
         {handle}
         {
           this.props.task.completed
-            ? <MdCheckBox onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' />
-            : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
+            ? <TaskCompleted onClick={this.markAsUncompleted.bind(this)} className='taskCompleted' title='MARK_UNCOMPLETED' />
+            : <TaskUnCompleted onClick={this.markAsCompleted.bind(this)} className='taskCompleted' title='MARK_COMPLETED' />
         }
         <span className='title'>{this.props.task.title}</span>
         {
           this.props.editMode
-            ? <Done className='editMode' onClick={this.props.toggleEditMode} title="DONE_EDITING" />
-            : <Edit className='editMode' onClick={this.props.toggleEditMode} title="EDIT_TASK" />
+            ? <Done className='editMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
+            : <Edit className='editMode' onClick={this.props.toggleEditMode} title='EDIT_TASK' />
         }
-        <RootHere className="rootTree" onClick={curry(this.props.goTo, '/parent/' + this.props.task.object_id)} />
-        <MdList className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'} onClick={this.props.toggleExpandChildren} />
-        <MdClose className='deleteTask' onClick={this.deleteTask.bind(this)} />
+        <RootHere className='rootTree' onClick={curry(this.props.goTo, '/parent/' + this.props.task.object_id)} title='ROOT_HERE' />
+        <ExpandChildren
+          className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'}
+          onClick={this.props.toggleExpandChildren}
+          title={this.props.childrenExpanded ? 'COLLAPSE_CHILDREN' : 'EXPAND_CHILDREN'}
+        />
+        <DeleteTask className='deleteTask' onClick={this.deleteTask.bind(this)} title='DELETE_TASK' />
       </div>
     );
   }
 }
 TaskMainInfo.propTypes = {
+  childrenExpanded: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.

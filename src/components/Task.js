@@ -41,6 +41,7 @@ class Task extends React.Component {
     if (this.props.isDragging) classes.push('isDragging');
 
     var mainInfoProps = {
+      childrenExpanded: this.state.expandChildren,
       editMode: this.state.editMode,
       task: this.props.task,
       toggleExpandChildren: toggleState('expandChildren').bind(this),
