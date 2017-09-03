@@ -1,9 +1,10 @@
-import {Setting, connectSetting} from './hoc/settings';
+import FormState from './hoc/FormState';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SettingWrapper from './SettingWrapper';
+import connectSetting from '../utils/connectSetting';
 
-class TextSetting extends Setting {
+class TextSetting extends FormState {
   constructor(props) {
     super(props);
     this.fieldType = props.fieldType || 'text';
@@ -17,7 +18,7 @@ class TextSetting extends Setting {
           type={this.fieldType}
           value={this.state.value}
           onChange={this.handleChange('value').bind(this)}
-          onBlur={this.setSetting.bind(this)}
+          onBlur={this.saveChanges.bind(this)}
         />
       </SettingWrapper>
     );
