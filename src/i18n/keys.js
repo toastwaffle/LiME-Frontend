@@ -4,6 +4,8 @@ export default [
   'DELETE_CHILDREN',
   'DELETE_MODAL',
   'DELETE_MODAL_SHORTCUT_HINT',
+  'DONE_EDITING',
+  'EDIT_TASK',
   'EMAIL',
   'HELLO_USER',
   'LIME',

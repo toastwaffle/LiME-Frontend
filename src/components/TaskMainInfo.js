@@ -5,11 +5,13 @@ import {Modals} from '../utils/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {withTitle} from '../utils';
 import MdCheckBox from 'react-icons/lib/md/check-box';
 import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
+import MdDone from 'react-icons/lib/md/done';
+import MdEdit from 'react-icons/lib/md/edit';
 import MdList from 'react-icons/lib/md/list';
-import MdModeEdit from 'react-icons/lib/md/mode-edit';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactSVG from 'react-svg';
@@ -42,6 +44,9 @@ class TaskMainInfo extends React.Component {
       </div>
     );
 
+    var Done = withTitle(MdDone);
+    var Edit = withTitle(MdEdit);
+
     return this.props.connectDragPreview(
       <div className="TaskMainInfo">
         {handle}
@@ -51,7 +56,11 @@ class TaskMainInfo extends React.Component {
             : <MdCheckBoxOutlineBlank onClick={this.markAsCompleted.bind(this)} className='taskCompleted' />
         }
         <span className='title'>{this.props.task.title}</span>
-        <MdModeEdit className='editMode' onClick={this.props.toggleEditMode} />
+        {
+          this.props.editMode
+            ? <Done className='editMode' onClick={this.props.toggleEditMode} title="DONE_EDITING" />
+            : <Edit className='editMode' onClick={this.props.toggleEditMode} title="EDIT_TASK" />
+        }
         <Link to={'/parent/' + this.props.task.object_id}>
           <ReactSVG path={rootTree} className="rootTree" />
         </Link>
@@ -65,6 +74,7 @@ TaskMainInfo.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
+  editMode: PropTypes.bool.isRequired,
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,

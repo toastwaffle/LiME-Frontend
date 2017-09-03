@@ -4,6 +4,8 @@ export default {
   'DELETE_CHILDREN': 'Delete Children',
   'DELETE_MODAL': 'You are trying to delete a task which has children. You can either move the children to the parent task, or delete all of the children as well.',
   'DELETE_MODAL_SHORTCUT_HINT': 'P.S. To skip this dialog in future, hold ctrl while pressing the delete button to move the children to the parent, or hold shift to delete the children.',
+  'DONE_EDITING': 'Done editing',
+  'EDIT_TASK': 'Edit task',
   'EMAIL': 'Email',
   'HELLO_USER': 'Hello, {name}',
   'LIME': 'LiME',
