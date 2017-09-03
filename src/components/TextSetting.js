@@ -17,7 +17,7 @@ class TextSetting extends FormState {
           id={this.props.setting}
           type={this.fieldType}
           value={this.state.value}
-          onChange={this.handleChange('value').bind(this)}
+          onChange={this.handleChange().bind(this)}
           onBlur={this.saveChanges.bind(this)}
         />
       </SettingWrapper>

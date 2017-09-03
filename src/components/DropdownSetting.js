@@ -11,7 +11,7 @@ class DropdownSetting extends FormState {
         <select
           id={this.props.setting}
           type={this.fieldType}
-          onChange={this.handleChange('value').bind(this)}
+          onChange={this.handleChange().bind(this)}
           onBlur={this.saveChanges.bind(this)}
           value={this.state.value}
         >
