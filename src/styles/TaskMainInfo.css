@@ -65,7 +65,7 @@
   color: #bbb;
 }
 
-.TaskMainInfo.completed .title {
+.completed .TaskMainInfo .title {
   text-decoration: line-through;
   color: #aaa;
 }
