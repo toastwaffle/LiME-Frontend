@@ -1,10 +1,10 @@
+import '../styles/EditTaskTitle.css';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import FormState from './hoc/FormState';
 import PropTypes from 'prop-types';
 import React from 'react';
-import '../styles/EditTaskTitle.css';
 
 class EditTaskTitle extends FormState {
   render() {
