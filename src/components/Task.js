@@ -1,5 +1,8 @@
 import '../styles/Task.css';
 import {DragSource, DropTarget} from 'react-dnd';
+import {TaskActionCreators} from '../actions/tasks';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import {toggleState} from '../utils';
 import Config from '../Config';
 import PropTypes from 'prop-types';
@@ -65,6 +68,7 @@ class Task extends React.Component {
   }
 }
 Task.propTypes = {
+  actions: PropTypes.object.isRequired,
   alternateDepth: PropTypes.bool.isRequired,
   canDrop: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
@@ -84,6 +88,12 @@ const dragSource = {
   }
 };
 
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(TaskActionCreators, dispatch)
+  };
+}
+
 function dragCollect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -102,7 +112,7 @@ const dropTarget = {
   drop(props, monitor) {
     if (monitor.didDrop()) return;
 
-    props.taskActions.reorderTask(
+    props.actions.reorderTask(
       monitor.getItem().task_id,
       props.task.object_id);
   },
@@ -118,6 +128,7 @@ function dropCollect(connect, monitor) {
 }
 
 export default (
-  DragSource('TASK', dragSource, dragCollect)(
-    DropTarget('TASK', dropTarget, dropCollect)(
-      Task)));
+  connect(null, mapDispatchToProps)(
+    DragSource('TASK', dragSource, dragCollect)(
+      DropTarget('TASK', dropTarget, dropCollect)(
+        Task))));
