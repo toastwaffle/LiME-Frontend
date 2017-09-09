@@ -1,7 +1,6 @@
 import {SettingActionCreators} from '../actions/settings';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {curry} from '../utils';
 
 function mapStateToProps(state, props) {
   return {
@@ -10,8 +9,9 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch, props) {
+  const setSetting = bindActionCreators(SettingActionCreators.setSetting, dispatch);
   return {
-    saveValue: curry(bindActionCreators(SettingActionCreators.setSetting, dispatch), props.setting)
+    saveValue: function (value) { setSetting(props.setting, value); }
   };
 }
 

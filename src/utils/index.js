@@ -76,9 +76,9 @@ export function withTitle(Icon) {
   return component;
 }
 
-export function curry(func, ...args1) {
-  return function(...args2) {
-    func(...(args1.concat(args2)));
+export function withArgs(func, ...args) {
+  return function() {
+    func(...args);
   };
 }
 
