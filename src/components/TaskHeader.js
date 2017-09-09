@@ -1,4 +1,4 @@
-import '../styles/TaskHeader.css';
+import '../css/TaskHeader.css';
 import {Link} from 'react-router-dom';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';

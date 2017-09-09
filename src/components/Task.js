@@ -1,4 +1,4 @@
-import '../styles/Task.css';
+import '../css/Task.css';
 import {DragSource, DropTarget} from 'react-dnd';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';

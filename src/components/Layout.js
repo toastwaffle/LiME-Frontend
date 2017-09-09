@@ -1,4 +1,4 @@
-import '../styles/Layout.css';
+import '../css/Layout.css';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Header from './Header';

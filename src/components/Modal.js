@@ -1,4 +1,4 @@
-import '../styles/Modal.css';
+import '../css/Modal.css';
 import {ModalActionCreators} from '../actions/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

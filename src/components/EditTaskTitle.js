@@ -1,4 +1,4 @@
-import '../styles/EditTaskTitle.css';
+import '../css/EditTaskTitle.css';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

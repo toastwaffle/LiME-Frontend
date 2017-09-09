@@ -1,4 +1,4 @@
-import '../styles/Message.css';
+import '../css/Message.css';
 import {MessageActionCreators} from '../actions/messages';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

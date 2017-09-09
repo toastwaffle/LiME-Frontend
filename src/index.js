@@ -1,5 +1,5 @@
 import 'normalize.css';
-import './styles/global.css';
+import './css/global.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/Root';

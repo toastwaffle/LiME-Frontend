@@ -1,4 +1,4 @@
-import '../styles/SettingWrapper.css';
+import '../css/SettingWrapper.css';
 import I18n from './I18n';
 import PropTypes from 'prop-types';
 import React from 'react';

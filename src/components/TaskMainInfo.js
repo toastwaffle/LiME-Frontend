@@ -1,4 +1,4 @@
-import '../styles/TaskMainInfo.css';
+import '../css/TaskMainInfo.css';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
 import {TaskActionCreators} from '../actions/tasks';

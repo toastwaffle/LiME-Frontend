@@ -1,4 +1,4 @@
-import '../styles/Messages.css';
+import '../css/Messages.css';
 import {connect} from 'react-redux';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Message from './Message';

@@ -1,4 +1,4 @@
-import '../styles/UserHeader.css';
+import '../css/UserHeader.css';
 import {AuthActionCreators} from '../actions/auth';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';

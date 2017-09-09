@@ -1,4 +1,4 @@
-import '../styles/NewTaskForm.css';
+import '../css/NewTaskForm.css';
 import {DropTarget} from 'react-dnd';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';

@@ -1,4 +1,4 @@
-import '../styles/DeleteTaskModal.css';
+import '../css/DeleteTaskModal.css';
 import {ModalActionCreators} from '../actions/modals';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';

@@ -1,4 +1,4 @@
-import '../styles/TaskList.css';
+import '../css/TaskList.css';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
