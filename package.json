@@ -9,6 +9,8 @@
     "eslint-plugin-react": "*",
     "eslint-plugin-sort-imports-es6-autofix": "",
     "eslint-plugin-standard": "",
+    "node-sass-chokidar": "",
+    "npm-run-all": "",
     "react-scripts": "*"
   },
   "dependencies": {
