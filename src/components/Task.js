@@ -7,6 +7,7 @@ import {toggleState} from '../utils';
 import Config from '../Config';
 import PropTypes from 'prop-types';
 import React from 'react';
+import TaskDetails from './TaskDetails';
 import TaskList from './TaskList';
 import TaskMainInfo from './TaskMainInfo';
 
@@ -56,10 +57,20 @@ class Task extends React.Component {
       connectDragPreview: this.props.connectDragPreview,
     };
 
+    var taskDetailsProps = {
+      editMode: this.state.editMode,
+      task: this.props.task,
+    };
+
     return this.props.connectDropTarget(
       <div className={classes.join(' ')}>
         <div className='taskInfo'>
           <TaskMainInfo {...mainInfoProps} />
+          {
+            (this.state.showDetails || this.state.editMode) && !this.props.isDragging
+              ? <TaskDetails {...taskDetailsProps} />
+              : null
+          }
         </div>
         {
           (this.state.expandChildren || this.state.expandChildrenForDragging) && !this.props.isDragging

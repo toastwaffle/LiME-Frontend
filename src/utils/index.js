@@ -100,3 +100,17 @@ export function loadSVG(path) {
   };
   return component;
 }
+
+export function preventParentScroll(target) {
+  if (target === null) return;
+
+  target.onwheel = function(event) {
+    if (
+      (event.deltaY < 0 && target.scrollTop === 0) ||
+      (event.deltaY > 0 && target.scrollTop === (target.scrollHeight - target.offsetHeight))
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
+}
