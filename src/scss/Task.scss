@@ -11,3 +11,8 @@
 .Task.dropHere {
   border-top: 3px solid $light-blue;
 }
+
+.Task .taskInfo {
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
+}

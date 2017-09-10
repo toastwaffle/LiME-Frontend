@@ -58,7 +58,9 @@ class Task extends React.Component {
 
     return this.props.connectDropTarget(
       <div className={classes.join(' ')}>
-        <TaskMainInfo {...mainInfoProps} />
+        <div className='taskInfo'>
+          <TaskMainInfo {...mainInfoProps} />
+        </div>
         {
           (this.state.expandChildren || this.state.expandChildrenForDragging) && !this.props.isDragging
             ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />
