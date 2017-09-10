@@ -43,3 +43,7 @@
 .NewTaskForm input:focus::placeholder {
   color: $light-grey;
 }
+
+.TaskList .TaskList .NewTaskForm {
+  border-bottom: none;
+}
