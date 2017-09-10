@@ -4,13 +4,14 @@
   background: #112;
   background: linear-gradient(to bottom, #112 0%, #113 100%);
   position: relative;
-  padding-left: 52px;
+  padding-left: 82px;
 }
 
 .editMode .TaskMainInfo {
     box-shadow: inset 0px -3px 5px -1px #99f;
 }
 
+.TaskMainInfo .toggleDetails,
 .TaskMainInfo .editMode,
 .TaskMainInfo .deleteTask,
 .TaskMainInfo .expandChildren,
@@ -39,6 +40,7 @@
   color: #aaf;
 }
 
+.TaskMainInfo .toggleDetails:hover,
 .TaskMainInfo .editMode:hover,
 .TaskMainInfo .expandChildren:hover,
 .TaskMainInfo .rootTree:hover {
@@ -53,12 +55,16 @@
   right: 125px;
 }
 
+.TaskMainInfo .toggleDetails {
+  left: 20px;
+}
+
 .TaskMainInfo .taskCompleted {
   width: 24px;
   height: 24px;
   position: absolute;
   top: 8px;
-  left: 20px;
+  left: 50px;
 }
 
 .TaskMainInfo .taskCompleted:hover {

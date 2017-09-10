@@ -12,6 +12,8 @@ import MdCheckBoxOutlineBlank from 'react-icons/lib/md/check-box-outline-blank';
 import MdClose from 'react-icons/lib/md/close';
 import MdDone from 'react-icons/lib/md/done';
 import MdEdit from 'react-icons/lib/md/edit';
+import MdExpandLess from 'react-icons/lib/md/expand-less';
+import MdExpandMore from 'react-icons/lib/md/expand-more';
 import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -38,11 +40,13 @@ class TaskMainInfo extends React.Component {
   }
 
   render() {
+    var CollapseDetails = withTitle(MdExpandLess);
     var DeleteTask = withTitle(MdClose);
     var Done = withTitle(MdDone);
     var DragHandle = withTitle(loadSVG(dragHandle));
     var Edit = withTitle(MdEdit);
     var ExpandChildren = withTitle(MdList);
+    var ExpandDetails = withTitle(MdExpandMore);
     var RootHere = withTitle(loadSVG(rootTree));
     var TaskCompleted = withTitle(MdCheckBox);
     var TaskUnCompleted = withTitle(MdCheckBoxOutlineBlank);
@@ -67,6 +71,11 @@ class TaskMainInfo extends React.Component {
             : <span className='title'>{this.props.task.title}</span>
         }
         {
+          this.props.detailsShown
+            ? <CollapseDetails className='toggleDetails' onClick={this.props.toggleDetails} title='COLLAPSE_DETAILS' />
+            : <ExpandDetails className='toggleDetails' onClick={this.props.toggleDetails} title='EXPAND_DETAILS' />
+        }
+        {
           this.props.editMode
             ? <Done className='editMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
             : <Edit className='editMode' onClick={this.props.toggleEditMode} title='EDIT_TASK' />
@@ -87,11 +96,13 @@ TaskMainInfo.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   deletionBehaviour: PropTypes.string, // Will be undefined while settings are loaded asynchronously.
+  detailsShown: PropTypes.bool.isRequired,
   editMode: PropTypes.bool.isRequired,
   goTo: PropTypes.func.isRequired,
   modalActions: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
   taskActions: PropTypes.object.isRequired,
+  toggleDetails: PropTypes.func.isRequired,
   toggleExpandChildren: PropTypes.func.isRequired,
   toggleEditMode: PropTypes.func.isRequired,
 };
