@@ -1,7 +1,9 @@
+@import "_colors";
+
 .TaskHeader {
-  border-left: 3px solid #fff;
+  border-left: 3px solid $white;
   padding-left: 40px;
-  border-bottom: 2px solid #999;
+  border-bottom: 2px solid $mid-grey;
   position: relative;
 }
 
@@ -11,7 +13,7 @@
 }
 
 .TaskHeader .goUp {
-  color: #aaa;
+  color: $light-grey;
   height: 30px;
   width: 30px;
   position: absolute;
@@ -20,5 +22,5 @@
 }
 
 .TaskHeader .goUp:hover {
-  color: #fff;
+  color: $white;
 }

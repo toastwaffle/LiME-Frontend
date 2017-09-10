@@ -1,3 +1,5 @@
+@import "_colors";
+
 .EditTaskTitle {
   margin-right: 165px;
 }
@@ -14,7 +16,7 @@
 }
 
 .EditTaskTitle.saved input {
-  color: #cfc;
+  color: $light-green;
 }
 
 .EditTaskTitle input:focus {

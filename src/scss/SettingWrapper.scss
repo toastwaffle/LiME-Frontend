@@ -1,3 +1,5 @@
+@import "_colors";
+
 .SettingWrapper {
   margin-bottom: 1em;
 }
@@ -16,5 +18,5 @@
 
 .SettingWrapper .saved {
   float: right;
-  color: #afa;
+  color: $light-green;
 }

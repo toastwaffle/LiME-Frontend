@@ -1,9 +1,12 @@
+@import "_colors";
+
 .UserHeader {
   position: absolute;
   top: 0;
   right: 0;
-  height: 60px;
+  height: 62px;
   width: 100%;
+  border-bottom: 2px solid $light-grey;
 }
 
 .UserHeader p {
@@ -20,15 +23,13 @@
   line-height: 56px;
   padding: 0 1rem;
   font-size: 2em;
-  border-left: 1px solid #fff;
-  color: #fff;
-  background: #335;
-  background: linear-gradient(to bottom, #222 0%, #335 100%);
+  border-left: 1px solid $white;
+  color: $white;
 }
 
 .UserHeader .settings:hover,
 .UserHeader .settings:active {
-  color: #99f;
+  color: $light-blue;
 }
 
 .UserHeader .logoutButton {
@@ -37,15 +38,13 @@
   float: right;
   height: 60px;
   border: none;
-  border-left: 1px solid #fff;
-  color: #fff;
-  background: #335;
-  background: linear-gradient(to bottom, #222 0%, #335 100%);
+  border-left: 1px solid $white;
+  color: $white;
+  background-color: $dark-grey;
 }
 
 .UserHeader .logoutButton:hover,
 .UserHeader .logoutButton:active {
-  background: #d22;
-  background: linear-gradient(to bottom, #d22 0%, #a22 100%);
+  color: $red;
 }
 

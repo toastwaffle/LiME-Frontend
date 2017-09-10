@@ -1,18 +1,20 @@
+@import "_colors";
+
 .reparentChildren {
-    color: #11c;
+    color: $blue;
 }
 
 .reparentChildren:hover {
-    background-color: #11c;
-    color: #fff;
+    background-color: $blue;
+    color: $white;
 }
 
 .deleteChildren {
-    color: #c11;
+    color: $red;
     float: right;
 }
 
 .deleteChildren:hover {
-    background-color: #c11;
-    color: #fff;
+    background-color: $red;
+    color: $white;
 }

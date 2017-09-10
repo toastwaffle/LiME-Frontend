@@ -1,9 +1,11 @@
+@import "_colors";
+
 .Modal {
     width: 500px;
     max-width: 90%;
     margin: auto;
-    background-color: #222;
-    border: 2px solid #444;
+    background-color: $dark-grey;
+    border: 2px solid $mid-grey;
     border-top: none;
     padding: 40px 10px 10px;
     position: relative;
@@ -19,12 +21,12 @@
 }
 
 .Modal .closeModal:hover {
-    color: #99f;
+    color: $red;
 }
 
 .Modal button {
     border: none;
-    background-color: #ccc;
+    background-color: $light-grey;
     padding: 0.5em;
     margin: 0.5em 0;
     cursor: pointer;

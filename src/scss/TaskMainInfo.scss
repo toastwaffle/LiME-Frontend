@@ -1,14 +1,16 @@
+@import "_colors";
+
 .TaskMainInfo {
   height: 40px;
   line-height: 40px;
-  background: #112;
-  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
   position: relative;
   padding-left: 82px;
 }
 
 .TaskMainInfo.editMode {
-    box-shadow: inset 0px -3px 5px -1px #99f;
+    box-shadow: inset 0px -3px 5px -1px $light-blue;
 }
 
 .TaskMainInfo .toggleDetails,
@@ -16,7 +18,7 @@
 .TaskMainInfo .deleteTask,
 .TaskMainInfo .expandChildren,
 .TaskMainInfo .rootTree {
-  color: #aaa;
+  color: $mid-grey;
   height: 30px;
   width: 30px;
   position: absolute;
@@ -29,7 +31,7 @@
 }
 
 .TaskMainInfo .deleteTask:hover {
-  color: #f00;
+  color: $red;
 }
 
 .TaskMainInfo .expandChildren {
@@ -37,14 +39,14 @@
 }
 
 .TaskMainInfo .expandChildren.hasChildren {
-  color: #aaf;
+  color: $light-blue;
 }
 
 .TaskMainInfo .toggleDetails:hover,
 .TaskMainInfo .toggleEditMode:hover,
 .TaskMainInfo .expandChildren:hover,
 .TaskMainInfo .rootTree:hover {
-  color: #fff;
+  color: $white;
 }
 
 .TaskMainInfo .rootTree {
@@ -65,15 +67,16 @@
   position: absolute;
   top: 8px;
   left: 50px;
+  color: $mid-grey;
 }
 
 .TaskMainInfo .taskCompleted:hover {
-  color: #bbb;
+  color: $white;
 }
 
 .TaskMainInfo.completed .title {
   text-decoration: line-through;
-  color: #aaa;
+  color: $mid-grey;
 }
 
 .TaskMainInfo .dragHandle {
@@ -82,6 +85,10 @@
   position: absolute;
   top: 8px;
   left: 0px;
-  color: #666;
+  color: $mid-grey;
   cursor: move;
+}
+
+.TaskMainInfo .dragHandle:hover {
+  color: $white;
 }

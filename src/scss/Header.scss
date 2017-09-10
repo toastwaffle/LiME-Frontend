@@ -1,7 +1,9 @@
+@import "_colors";
+
 .Header {
-  background-color: #222;
-  height: 60px;
-  color: white;
+  background-color: $dark-grey;
+  height: 62px;
+  color: $white;
   position: relative;
 }
 

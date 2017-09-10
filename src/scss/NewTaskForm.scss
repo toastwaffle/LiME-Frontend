@@ -1,19 +1,21 @@
+@import "_colors";
+
 .NewTaskForm {
   height: 40px;
   line-height: 40px;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid $mid-grey;
   padding-left: 40px;
-  background: #112;
-  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
   position: relative;
 }
 
 .NewTaskForm.isOver {
-  border-top: 3px solid #aaf;
+  border-top: 3px solid $light-blue;
 }
 
 .NewTaskForm .addTaskIcon {
-  color: #fff;
+  color: $white;
   height: 24px;
   width: 24px;
   position: absolute;
@@ -24,20 +26,20 @@
 .NewTaskForm input {
   background-color: transparent;
   border: none;
-  color: #666;
+  color: $mid-grey;
   width: 100%;
 }
 
 .NewTaskForm input:focus {
   border: none;
-  color: #fff;
+  color: $white;
   outline: none;
 }
 
 .NewTaskForm input::placeholder {
-  color: #666;
+  color: $mid-grey;
 }
 
 .NewTaskForm input:focus::placeholder {
-  color: #999;
+  color: $light-grey;
 }

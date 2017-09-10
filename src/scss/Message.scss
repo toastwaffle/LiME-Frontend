@@ -1,3 +1,5 @@
+@import "_colors";
+
 .Message {
     width: 800px;
     max-width: 90%;
@@ -6,8 +8,8 @@
     padding-left: 40px;
     border: 2px solid #000;
     border-radius: 10px;
-    background-color: #fff;
-    color: #000;
+    background-color: $white;
+    color: $black;
     z-index: 10;
     pointer-events: visible;
     position: relative;
@@ -15,27 +17,27 @@
 }
 
 .Message.error {
-    border-color: #f00;
-    color: #f00;
-    background-color: #fcc;
+    border-color: $red;
+    color: $red;
+    background-color: $light-red;
 }
 
 .Message.warning {
-    border-color: #f60;
-    color: #f60;
-    background-color: #fe9;
+    border-color: $orange;
+    color: $orange;
+    background-color: $light-orange;
 }
 
 .Message.info {
-    border-color: #00f;
-    color: #00f;
-    background-color: #ccf;
+    border-color: $blue;
+    color: $blue;
+    background-color: $light-blue;
 }
 
 .Message.success {
-    border-color: #0a0;
-    color: #0a0;
-    background-color: #dfd;
+    border-color: $green;
+    color: $green;
+    background-color: $light-green;
 }
 
 .messageIcon {

@@ -1,5 +1,7 @@
+@import "_colors";
+
 .Task {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid $mid-grey;
 }
 
 .Task.isDragging {
@@ -7,5 +9,5 @@
 }
 
 .Task.dropHere {
-  border-top: 3px solid #aaf;
+  border-top: 3px solid $light-blue;
 }

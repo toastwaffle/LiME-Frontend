@@ -1,20 +1,22 @@
+@import "_colors";
+
 .TaskList {
-  border-left: 3px solid #fff;
+  border-left: 3px solid $white;
   min-height: 100%;
 }
 
 .TaskList.alternateDepth {
-  border-left-color: #66f;
+  border-left-color: $mid-blue;
 }
 
 .TaskList .noTasks,
 .TaskList .tasksLoading {
   height: 40px;
   line-height: 40px;
-  border-bottom: 1px solid #999;
-  background: #112;
-  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  border-bottom: 1px solid $mid-grey;
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
   position: relative;
-  color: #fdd;
+  color: $light-red;
   padding-left: 40px;
 }
