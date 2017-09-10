@@ -40,6 +40,10 @@ class TaskMainInfo extends React.Component {
   }
 
   render() {
+    var classes = ['TaskMainInfo'];
+    if (this.props.task.completed) classes.push('completed');
+    if (this.props.editMode) classes.push('editMode');
+
     var CollapseDetails = withTitle(MdExpandLess);
     var DeleteTask = withTitle(MdClose);
     var Done = withTitle(MdDone);
@@ -58,7 +62,7 @@ class TaskMainInfo extends React.Component {
     );
 
     return this.props.connectDragPreview(
-      <div className='TaskMainInfo'>
+      <div className={classes.join(' ')}>
         {handle}
         {
           this.props.task.completed
@@ -77,8 +81,8 @@ class TaskMainInfo extends React.Component {
         }
         {
           this.props.editMode
-            ? <Done className='editMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
-            : <Edit className='editMode' onClick={this.props.toggleEditMode} title='EDIT_TASK' />
+            ? <Done className='toggleEditMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
+            : <Edit className='toggleEditMode' onClick={this.props.toggleEditMode} title='EDIT_TASK' />
         }
         <RootHere className='rootTree' onClick={withArgs(this.props.goTo, 'parent/' + this.props.task.object_id)} title='ROOT_HERE' />
         <ExpandChildren
