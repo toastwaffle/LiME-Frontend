@@ -34,7 +34,7 @@ class Message extends React.Component {
     return (
       <I18n component='div' className={'Message ' + this.props.level} onClick={this.disappear.bind(this)} title='CLICK_TO_DISMISS'>
         {icons[this.props.level]}
-        {this.props.message}
+        <I18n>{this.props.message}</I18n>
       </I18n>
     );
   }
