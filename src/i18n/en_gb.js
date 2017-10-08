@@ -19,6 +19,7 @@ export default {
   'LOG_IN_HEADER': 'Log in...',
   'MARK_COMPLETED': 'Mark task completed',
   'MARK_UNCOMPLETED': 'Mark task uncompleted',
+  'MESSAGE_TOKEN_EXPIRED': 'Your session has expired; please log in again',
   'MOVE_CHILDREN': 'Move Children',
   'MOVE_TASK': 'Click and drag here to move task',
   'NAME': 'Name',
