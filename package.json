@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "history": "*",
+    "jsonwebtoken": "",
     "normalize.css": "",
     "query-string": "",
     "react": "",
