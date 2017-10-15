@@ -1,3 +1,5 @@
+@import "_colors";
+
 .TaskNotes {
   height: 200px;
   overflow-y: auto;
@@ -9,5 +11,5 @@
 
 .TaskNotes::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #ccc;
+  background-color: $light-grey;
 }
