@@ -25,6 +25,7 @@ export default [
   'NAME',
   'NEW_TASK',
   'NO_TASKS_YET',
+  'NOTES',
   'PASSWORD',
   'REGISTER_BUTTON',
   'REGISTER_HEADER',

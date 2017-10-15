@@ -1,22 +1,25 @@
 import '../css/TaskDetails.css';
-import {preventParentScroll} from '../utils';
+import EditTaskNotes from './EditTaskNotes';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import TaskNotes from './TaskNotes';
 
 export default class TaskDetails extends React.Component {
-  render () {
+  render() {
     return (
       <div className='TaskDetails'>
         <div className='notesWrapper'>
-          <div className='notes' ref={preventParentScroll}>
-            <ReactMarkdown source={this.props.task.notes} skipHtml={true} />
-          </div>
+          {
+            this.props.editMode
+              ? <EditTaskNotes task_id={this.props.task.object_id} value={this.props.task.notes} />
+              : <TaskNotes task={this.props.task} />
+          }
         </div>
       </div>
     );
   }
 }
 TaskDetails.propTypes = {
-  task: PropTypes.object.isRequired
+  editMode: PropTypes.bool.isRequired,
+  task: PropTypes.object.isRequired,
 };

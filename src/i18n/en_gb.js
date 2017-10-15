@@ -25,6 +25,7 @@ export default {
   'NAME': 'Name',
   'NEW_TASK': 'New Task...',
   'NO_TASKS_YET': 'No tasks here yet. Add one below...',
+  'NOTES': 'Notes (supports Markdown)',
   'PASSWORD': 'Password',
   'REGISTER_BUTTON': 'Register',
   'REGISTER_HEADER': 'Register...',
