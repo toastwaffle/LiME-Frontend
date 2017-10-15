@@ -12,13 +12,14 @@
   line-height: inherit;
   padding: 0;
   width: 100%;
-  transition: color .2s ease-in;
+  transition: box-shadow .2s ease-in;
 }
 
 .EditTaskTitle.saved input {
-  color: $light-green;
+  box-shadow: inset 0px -3px 5px -3px $light-green;
 }
 
 .EditTaskTitle input:focus {
   outline: none;
+  box-shadow: inset 0px -3px 5px -3px $light-blue;
 }
