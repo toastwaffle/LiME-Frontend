@@ -16,3 +16,7 @@
   background: $blue-grey;
   background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
 }
+
+.Task.editMode > .taskInfo {
+    box-shadow: inset 0px -3px 5px -1px $light-blue;
+}

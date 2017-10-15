@@ -42,7 +42,6 @@ class TaskMainInfo extends React.Component {
   render() {
     var classes = ['TaskMainInfo'];
     if (this.props.task.completed) classes.push('completed');
-    if (this.props.editMode) classes.push('editMode');
 
     var CollapseDetails = withTitle(MdExpandLess);
     var DeleteTask = withTitle(MdClose);
