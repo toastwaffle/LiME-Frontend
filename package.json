@@ -34,7 +34,7 @@
     "redux-thunk": ""
   },
   "scripts": {
-    "build": "node-sass-chokidar src/scss -o src/css && react-scripts build && git --git-dir=build.git/ --work-tree=build/ add -A && git --git-dir=build.git/ --work-tree=build/ commit -am Build && git --git-dir=build.git/ --work-tree=build/ push deploy master",
+    "build": "node-sass-chokidar src/scss -o src/css && react-scripts build && git --git-dir=build.git/ --work-tree=build/ add -A && git --git-dir=build.git/ --work-tree=build/ commit -am Build && git --git-dir=build.git/ --work-tree=build/ push deploy master && git --git-dir=build.git/ --work-tree=build/ push github master:built",
     "eject": "react-scripts eject",
     "eslint": "eslint src",
     "eslintf": "eslint src --fix",
