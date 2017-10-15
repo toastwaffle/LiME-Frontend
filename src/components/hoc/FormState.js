@@ -1,3 +1,4 @@
+import Config from '../../Config';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,6 +8,7 @@ export default class FormState extends React.Component {
     this.state = {
       saved: false,
       value: props.value,
+      savedTimeout: null,
     };
   }
 
@@ -24,7 +26,16 @@ export default class FormState extends React.Component {
   }
 
   markSaved() {
-    this.setState({saved: true});
+    if (this.state.savedTimeout !== null) {
+      clearTimeout(this.state.savedTimeout);
+    }
+
+    this.setState({
+      saved: true,
+      savedTimeout: setTimeout(
+        () => this.setState({saved: false}),
+        Config.savedTimeout)
+    });
   }
 
   saveChanges() {

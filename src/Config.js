@@ -1,6 +1,7 @@
 // Config values for the app.
 
 var Config = {
+  savedTimeout: 2500,
   messageTimeout: 5000,
   dragExpandChildrenTimeout: 1000,
 };
