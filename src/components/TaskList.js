@@ -61,18 +61,18 @@ TaskList.propTypes = {
 function mapStateToProps(state, props) {
   var orderedTasks = [];
   // Find the first child
-  var child = Object.values(state.tasks.byID).find((task) => {
+  var child = Object.values(state.tasks).find((task) => {
     return task.parent_id === props.parentID && task.before_id === null;
   });
   // Append children to the list by following the links.
   while (child !== undefined) {
     orderedTasks.push(child);
-    child = state.tasks.byID[child.after_id];
+    child = state.tasks[child.after_id];
   }
 
   return {
     tasks: orderedTasks,
-    childrenLoaded: state.tasks.childrenLoaded[props.parentID] !== undefined
+    childrenLoaded: state.childrenLoaded[props.parentID] !== undefined
   };
 }
 

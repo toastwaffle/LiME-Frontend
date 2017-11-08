@@ -1,5 +1,5 @@
+import {DbObjectActions} from './dbobjects';
 import {MessageActions} from './messages';
-import {TaskActions} from './tasks';
 import {createConstants} from '../utils';
 import {push} from 'react-router-redux';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
@@ -70,7 +70,7 @@ export const AuthActionCreators = {
       localStorage.clear('token');
 
       dispatch({type: AuthActions.LOGOUT});
-      dispatch({type: TaskActions.LOGOUT});
+      dispatch({type: DbObjectActions.LOGOUT});
 
       if (getState().auth.backend.isAuthenticated()) {
         dispatch({type: MessageActions.LOGOUT});

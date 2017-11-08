@@ -46,7 +46,7 @@ TaskHeader.propTypes = {
 
 function mapStateToProps(state, props) {
   return {
-    task: state.tasks.byID[props.taskID],
+    task: state.tasks[props.taskID],
   };
 }
 
