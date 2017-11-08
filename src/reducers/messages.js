@@ -3,7 +3,7 @@ import {createReducer,createUuid4} from '../utils';
 
 const initialState = [];
 
-export default createReducer(initialState, {
+export default createReducer(initialState, false, {
   [MessageActions.ADD_MESSAGE]: (state, payload) => {
     return state.concat([{
       id: createUuid4(),

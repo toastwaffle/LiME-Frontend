@@ -9,7 +9,7 @@ const initialState = {
   isAuthenticating: false
 };
 
-export default createReducer(initialState, {
+export default createReducer(initialState, true, {
   [AuthActions.LOGIN_REQUEST]: (state) => {
     return Object.assign({}, state, {
       'isAuthenticating': true
@@ -37,9 +37,4 @@ export default createReducer(initialState, {
       'isAuthenticating': false
     });
   },
-  [AuthActions.LOGOUT]: (state) => {
-    return Object.assign({}, state, {
-      'backend': unauthenticatedBackend
-    });
-  }
 });

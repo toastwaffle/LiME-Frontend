@@ -4,7 +4,7 @@ import {createReducer,createUuid4} from '../utils';
 
 const initialState = [];
 
-export default createReducer(initialState, {
+export default createReducer(initialState, true, {
   [ModalActions.SHOW_MODAL]: (state, payload) => {
     var id = createUuid4();
     return state.concat([

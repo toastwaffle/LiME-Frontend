@@ -3,7 +3,6 @@ import {createConstants} from '../utils';
 export const DbObjectActions = createConstants('DB_OBJECT_ACTION_', [
   'LOAD',
   'DELETE',
-  'LOGOUT',
 ]);
 
 export const DbObjectTypes = createConstants('DB_OBJECT_TYPE_', [

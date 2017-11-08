@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactSVG from 'react-svg';
 
-export function createReducer(initialState, reducerMap) {
+export const logoutAction = '__LOGOUT';
+
+export function createReducer(initialState, clearOnLogout, reducerMap) {
   return (state = initialState, action) => {
+    if (action.type === logoutAction) {
+      return clearOnLogout ? initialState : state;
+    }
+
     const reducer = reducerMap[action.type];
 
     return reducer

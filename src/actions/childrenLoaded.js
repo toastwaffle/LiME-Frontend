@@ -3,7 +3,6 @@ import {createConstants} from '../utils';
 export const ChildrenLoadedActions = createConstants('CHILDREN_LOADED_ACTION_', [
   'LOADED',
   'DELETE',
-  'LOGOUT',
 ]);
 
 export const ChildrenLoadedActionCreators = {

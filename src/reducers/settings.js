@@ -3,7 +3,7 @@ import {createReducer} from '../utils';
 
 const initialState = {};
 
-export default createReducer(initialState, {
+export default createReducer(initialState, true, {
   [SettingActions.GOT_SETTINGS]: (state, payload) => {
     return payload.settings;
   },

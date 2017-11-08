@@ -1,6 +1,5 @@
-import {DbObjectActions} from './dbobjects';
 import {MessageActions} from './messages';
-import {createConstants} from '../utils';
+import {createConstants, logoutAction} from '../utils';
 import {push} from 'react-router-redux';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
@@ -10,7 +9,6 @@ export const AuthActions = createConstants('AUTH_ACTION_', [
   'REGISTER_REQUEST',
   'REGISTER_SUCCESS',
   'FAILURE',
-  'LOGOUT',
 ]);
 
 export const AuthActionCreators = {
@@ -69,8 +67,9 @@ export const AuthActionCreators = {
     return function(dispatch, getState) {
       localStorage.clear('token');
 
-      dispatch({type: AuthActions.LOGOUT});
-      dispatch({type: DbObjectActions.LOGOUT});
+      // Common logout action which restores many state partitions to their
+      // initial state.
+      dispatch({type: logoutAction});
 
       if (getState().auth.backend.isAuthenticated()) {
         dispatch({type: MessageActions.LOGOUT});
