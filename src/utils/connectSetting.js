@@ -11,7 +11,7 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
   const setSetting = bindActionCreators(SettingActionCreators.setSetting, dispatch);
   return {
-    saveValue: function (value) { setSetting(props.setting, value); }
+    saveValue: function (value, markSaved) { setSetting(props.setting, value, markSaved); }
   };
 }
 
