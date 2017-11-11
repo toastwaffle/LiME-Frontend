@@ -29,7 +29,9 @@ export const SettingActionCreators = {
         'set_setting', {key, value},
         function() {
           dispatch(SettingActionCreators.setSetting_(key, value));
-          markSaved();
+          if (typeof(markSaved) === 'function') {
+            markSaved();
+          }
         },
         defaultBackendErrorHandler(dispatch));
     };
