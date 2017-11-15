@@ -10,6 +10,7 @@
   "dependencies": {
     "history": "*",
     "jsonwebtoken": "*",
+    "lime-lib": "^0.1.0",
     "normalize.css": "",
     "query-string": "*",
     "react": "*",

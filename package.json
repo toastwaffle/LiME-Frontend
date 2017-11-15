@@ -1,5 +1,6 @@
 {
   "license": "MIT",
+  "private": true,
 	"devDependencies": {
     "eslint": "*",
     "eslint-config-standard": "",
@@ -7,10 +8,14 @@
     "eslint-plugin-react": "*",
     "eslint-plugin-sort-imports-es6-autofix": "",
     "eslint-plugin-standard": "",
-		"lerna": "^2.4.0"
+		"lerna": "^2.5.1"
 	},
   "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
     "eslint": "eslint --ignore-path .gitignore packages",
     "eslintf": "eslint --ignore-path .gitignore packages --fix"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
