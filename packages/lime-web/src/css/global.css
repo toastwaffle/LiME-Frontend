@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box; }
+
+html,
+body,
+#root,
+.Layout {
+  height: 100%; }
+
+.container {
+  height: 100%;
+  padding-top: 60px;
+  margin-top: -60px; }
+
+body {
+  background-color: #112;
+  color: #fff; }
+
+a, a:active, a:hover, a:visited {
+  color: inherit;
+  text-decoration: none; }
+
+p {
+  margin: 0.25rem 0; }
+
+p.small {
+  font-size: 0.75em; }

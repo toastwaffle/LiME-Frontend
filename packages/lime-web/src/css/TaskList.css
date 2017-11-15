@@ -1,0 +1,18 @@
+.TaskList {
+  border-top: 1px solid #888;
+  border-left: 3px solid #fff;
+  min-height: 100%; }
+
+.TaskList.alternateDepth {
+  border-left-color: #66f; }
+
+.TaskList .noTasks,
+.TaskList .tasksLoading {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #888;
+  background: #112;
+  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  position: relative;
+  color: #fcc;
+  padding-left: 40px; }

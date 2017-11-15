@@ -1,0 +1,38 @@
+{
+  "name": "lime-web",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "node-sass-chokidar": "",
+    "npm-run-all": "*",
+    "react-scripts": "*"
+  },
+  "dependencies": {
+    "history": "*",
+    "jsonwebtoken": "*",
+    "normalize.css": "",
+    "query-string": "*",
+    "react": "*",
+    "react-dnd": "*",
+    "react-dnd-html5-backend": "*",
+    "react-dom": "*",
+    "react-icons": "*",
+    "react-markdown": "*",
+    "react-redux": "*",
+    "react-router-dom": "*",
+    "react-router-redux": "next",
+    "react-svg": "*",
+    "react-transition-group": "*",
+    "redux": "",
+    "redux-devtools-extension": "",
+    "redux-thunk": ""
+  },
+  "scripts": {
+    "build": "node-sass-chokidar src/scss -o src/css && react-scripts build && git --git-dir=build.git/ --work-tree=build/ add -A && git --git-dir=build.git/ --work-tree=build/ commit -am Build && git --git-dir=build.git/ --work-tree=build/ push deploy master && git --git-dir=build.git/ --work-tree=build/ push github master:built",
+    "eject": "react-scripts eject",
+    "start": "npm-run-all -p watch-css start-js",
+    "start-js": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "watch-css": "node-sass-chokidar src/scss -o src/css && node-sass-chokidar src/scss -o src/css --watch"
+  }
+}

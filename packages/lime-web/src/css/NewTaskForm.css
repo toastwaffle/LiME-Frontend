@@ -1,0 +1,39 @@
+.NewTaskForm {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #888;
+  padding-left: 40px;
+  background: #112;
+  background: linear-gradient(to bottom, #112 0%, #113 100%);
+  position: relative; }
+
+.NewTaskForm.isOver {
+  border-top: 3px solid #ccf; }
+
+.NewTaskForm .addTaskIcon {
+  color: #fff;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 8px;
+  left: 8px; }
+
+.NewTaskForm input {
+  background-color: transparent;
+  border: none;
+  color: #888;
+  width: 100%; }
+
+.NewTaskForm input:focus {
+  border: none;
+  color: #fff;
+  outline: none; }
+
+.NewTaskForm input::placeholder {
+  color: #888; }
+
+.NewTaskForm input:focus::placeholder {
+  color: #ccc; }
+
+.TaskList .TaskList .NewTaskForm {
+  border-bottom: none; }

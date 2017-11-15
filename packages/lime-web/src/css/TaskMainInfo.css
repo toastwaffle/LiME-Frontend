@@ -1,0 +1,71 @@
+.TaskMainInfo {
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  padding-left: 82px; }
+
+.TaskMainInfo .toggleDetails,
+.TaskMainInfo .toggleEditMode,
+.TaskMainInfo .deleteTask,
+.TaskMainInfo .expandChildren,
+.TaskMainInfo .rootTree {
+  color: #888;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+  cursor: pointer; }
+
+.TaskMainInfo .deleteTask {
+  right: 5px; }
+
+.TaskMainInfo .deleteTask:hover {
+  color: #c11; }
+
+.TaskMainInfo .expandChildren {
+  right: 45px; }
+
+.TaskMainInfo .expandChildren.hasChildren {
+  color: #ccf; }
+
+.TaskMainInfo .toggleDetails:hover,
+.TaskMainInfo .toggleEditMode:hover,
+.TaskMainInfo .expandChildren:hover,
+.TaskMainInfo .rootTree:hover {
+  color: #fff; }
+
+.TaskMainInfo .rootTree {
+  right: 85px; }
+
+.TaskMainInfo .toggleEditMode {
+  right: 125px; }
+
+.TaskMainInfo .toggleDetails {
+  left: 20px; }
+
+.TaskMainInfo .taskCompleted {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 50px;
+  color: #888; }
+
+.TaskMainInfo .taskCompleted:hover {
+  color: #fff; }
+
+.TaskMainInfo.completed .title {
+  text-decoration: line-through;
+  color: #888; }
+
+.TaskMainInfo .dragHandle {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  color: #888;
+  cursor: move; }
+
+.TaskMainInfo .dragHandle:hover {
+  color: #fff; }

@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+.Layout {
+  position: relative; }
+
+.Layout.modalOpen {
+  overflow: hidden; }
+
+.Layout.modalOpen .content {
+  filter: blur(3px); }
