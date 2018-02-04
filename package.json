@@ -11,11 +11,8 @@
     "lerna": "^2.5.1"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap --use-workspaces",
+    "bootstrap": "lerna bootstrap",
     "eslint": "eslint --ignore-path .gitignore packages",
     "eslintf": "eslint --ignore-path .gitignore packages --fix"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
