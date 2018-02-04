@@ -1,11 +1,12 @@
-node_modules
-coverage
-build
 .DS_Store
 .env
-npm-debug.log
-build.tgz
+.expo
+build
 build.git
+build.tgz
+coverage
+node_modules
+npm-debug.*
 src/css
 
 # Don't add yarn.lock here - see http://stackoverflow.com/q/39990017
