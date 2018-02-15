@@ -8,7 +8,7 @@
     "eslint-plugin-react": "*",
     "eslint-plugin-sort-imports-es6-autofix": "*",
     "eslint-plugin-standard": "",
-    "lerna": "^2.5.1"
+    "lerna": "^2.9.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
