@@ -11,7 +11,7 @@
     "lerna": "^2.9.0"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap && lerna exec -- linklocal",
     "eslint": "eslint --ignore-path .gitignore packages",
     "eslintf": "eslint --ignore-path .gitignore packages --fix"
   }

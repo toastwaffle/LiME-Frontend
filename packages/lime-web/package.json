@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "linklocal": "^2.8.1",
     "node-sass-chokidar": "",
     "npm-run-all": "*",
     "react-scripts": "*"
@@ -10,7 +11,7 @@
   "dependencies": {
     "history": "*",
     "jsonwebtoken": "*",
-    "lime-lib": "^0.1.0",
+    "lime-lib": "file:../lime-lib",
     "normalize.css": "",
     "query-string": "*",
     "react": "*",
