@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "linklocal": "^2.8.1",
-    "node-sass-chokidar": "^0.0.3",
+    "node-sass-chokidar": "^1.3.3",
     "npm-run-all": "^4.1.2",
     "react-scripts": "^1.1.1"
   },
