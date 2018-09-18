@@ -7,6 +7,6 @@ build.tgz
 coverage
 node_modules
 npm-debug.*
-src/css
+css/
 
 # Don't add yarn.lock here - see http://stackoverflow.com/q/39990017
