@@ -23,6 +23,11 @@ export default class FormState extends React.Component {
 
   componentWillUnmount() {
     this.saveChanges();
+
+    // Avoid calling setState after unmount;
+    if (this.state.savedTimeout !== null) {
+      clearTimeout(this.state.savedTimeout);
+    }
   }
 
   markSaved() {
