@@ -44,7 +44,7 @@ export default class Backend {
         // Network error
         var err = new Error('Network failure');
         err.statusCode = null;
-        err.response = {error: 'Could not connect to backend.'};
+        err.response = {error: 'Could not connect to backend: ' + e.message};
         onError(err);
       } else {
         e.response.json().then(function(json) {
