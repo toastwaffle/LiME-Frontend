@@ -17,6 +17,7 @@ import MdExpandMore from 'react-icons/lib/md/expand-more';
 import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import dragHandle from '../resources/drag-handle.svg';
 import rootTree from '../resources/root-tree.svg';
 
@@ -60,6 +61,15 @@ class TaskMainInfo extends React.Component {
       </div>
     );
 
+    let titleMarkdownTypes = [
+      'root',
+      'emphasis',
+      'strong',
+      'delete',
+      'link',
+      'inlineCode',
+    ];
+
     return this.props.connectDragPreview(
       <div className={classes.join(' ')}>
         {handle}
@@ -71,7 +81,7 @@ class TaskMainInfo extends React.Component {
         {
           this.props.editMode
             ? <EditTaskTitle task_id={this.props.task.object_id} value={this.props.task.title} />
-            : <span className='title'>{this.props.task.title}</span>
+            : <ReactMarkdown className='title' allowedTypes={titleMarkdownTypes} source={this.props.task.title} skipHtml={true} unwrapDisallowed={true} linkTarget='_blank' />
         }
         {
           this.props.detailsShown
