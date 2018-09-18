@@ -88,7 +88,7 @@ export function withArgs(func, ...args) {
   };
 }
 
-export function loadSVG(path) {
+export function loadSVG(src) {
   var component = function(props) {
     var callback = null;
     if (props.onClick !== undefined) {
@@ -97,10 +97,10 @@ export function loadSVG(path) {
       };
     }
     return (
-      <ReactSVG path={path} callback={callback} {...props} />
+      <ReactSVG src={src} callback={callback} className='reactSVG' {...props} />
     );
   };
-  component.displayName = 'SVG(' + path + ')';
+  component.displayName = 'SVG(' + src + ')';
   component.propTypes = {
     onClick: PropTypes.func,
   };
