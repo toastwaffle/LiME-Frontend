@@ -25,7 +25,7 @@ export default class Backend {
   requestNoAuth (endpoint, data, onSuccess, onError) {
     return fetch(Config.apiHost + endpoint, {
       method: 'post',
-      credentials: 'no-cors',
+      mode: 'cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
