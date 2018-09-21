@@ -1,5 +1,6 @@
 import {DragDropContext} from 'react-dnd';
 import {SettingActionCreators} from '../actions/settings';
+import {TagActionCreators} from '../actions/tags';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -14,7 +15,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.getSettings();
+    this.props.settingActions.getSettings();
+    this.props.tagActions.getTagsAndGroups();
   }
 
   render() {
@@ -27,13 +29,15 @@ class App extends React.Component {
   }
 }
 App.propTypes = {
-  actions: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
+  settingActions: PropTypes.object.isRequired,
+  tagActions: PropTypes.object.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(SettingActionCreators, dispatch)
+    settingActions: bindActionCreators(SettingActionCreators, dispatch),
+    tagActions: bindActionCreators(TagActionCreators, dispatch),
   };
 }
 
