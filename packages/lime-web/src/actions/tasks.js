@@ -1,5 +1,5 @@
 import {ChildrenLoadedActionCreators} from './childrenLoaded';
-import {DbObjectActionCreators, DbObjectTypes} from './dbobjects';
+import {DbObjectActionCreators} from './dbobjects';
 import {maybeCascadeDelete} from '../utils/tasks';
 import defaultBackendErrorHandler from '../utils/defaultBackendErrorHandler';
 
@@ -9,7 +9,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'get_tasks', {parent_id},
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
           dispatch(ChildrenLoadedActionCreators.loaded(parent_id));
         },
         defaultBackendErrorHandler(dispatch));
@@ -20,7 +20,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'get_task', {task_id},
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };
@@ -30,7 +30,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'add_task', {parent_id, title},
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
           clearForm();
         },
         defaultBackendErrorHandler(dispatch));
@@ -43,9 +43,9 @@ export const TaskActionCreators = {
         function(tasks) {
           var tasksToDelete = maybeCascadeDelete(getState().tasks, task.object_id, cascade);
 
-          dispatch(DbObjectActionCreators.delete(DbObjectTypes.TASK, tasksToDelete));
+          dispatch(DbObjectActionCreators.delete('Task', tasksToDelete));
           dispatch(ChildrenLoadedActionCreators.delete(tasksToDelete));
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };
@@ -55,7 +55,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'update_task', Object.assign({task_id}, fields),
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
           if (typeof(markSaved) === 'function') {
             markSaved();
           }
@@ -68,7 +68,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'reorder_task', {task_id, after_id, before_id},
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };
@@ -78,7 +78,7 @@ export const TaskActionCreators = {
       return getState().auth.backend.request(
         'reparent_task', {task_id, parent_id},
         function(tasks) {
-          dispatch(DbObjectActionCreators.load(DbObjectTypes.TASK, tasks));
+          dispatch(DbObjectActionCreators.load(tasks));
         },
         defaultBackendErrorHandler(dispatch));
     };

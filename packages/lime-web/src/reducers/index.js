@@ -1,4 +1,3 @@
-import {DbObjectTypes} from '../actions/dbobjects';
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
 import auth from './auth';
@@ -15,5 +14,5 @@ export default combineReducers({
   modals,
   routing: routerReducer,
   settings,
-  tasks: dbObjectReducer(DbObjectTypes.TASK),
+  tasks: dbObjectReducer('Task'),
 });

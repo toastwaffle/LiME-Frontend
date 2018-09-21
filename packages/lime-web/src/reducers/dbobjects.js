@@ -3,20 +3,21 @@ import {createReducer, filterObject} from '../utils';
 
 const initialState = {};
 
-export default function dbObjectReducer(object_type) {
+export default function dbObjectReducer(identifier) {
   return createReducer(initialState, true, {
     [DbObjectActions.LOAD]: (state, payload) => {
-      if (payload.object_type !== object_type) return state;
-      if (payload.objects.length === 0) return state;
+      var objects = payload.objects.filter(
+        (object) => object.__identifier === identifier);
+      if (objects.length === 0) return state;
 
       return Object.assign(
-        {}, state, payload.objects.reduce((acc, val) => {
+        {}, state, objects.reduce((acc, val) => {
           acc[val.object_id] = val;
           return acc;
         }, {}));
     },
     [DbObjectActions.DELETE]: (state, payload) => {
-      if (payload.object_type !== object_type) return state;
+      if (payload.identifier !== identifier) return state;
 
       return filterObject(state, ...payload.object_ids);
     },
