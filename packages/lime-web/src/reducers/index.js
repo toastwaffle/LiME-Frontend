@@ -15,4 +15,6 @@ export default combineReducers({
   routing: routerReducer,
   settings,
   tasks: dbObjectReducer('Task'),
+  tags: dbObjectReducer('Tag'),
+  tag_groups: dbObjectReducer('TagGroup'),
 });
