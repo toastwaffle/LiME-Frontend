@@ -5,6 +5,18 @@
   line-height: 40px;
   position: relative;
   padding-left: 82px;
+  padding-right: 160px;
+}
+
+.TaskMainInfo .title {
+  height: 40px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.TaskMainInfo .title::-webkit-scrollbar {
+  display: none;
 }
 
 .TaskMainInfo .toggleDetails,
