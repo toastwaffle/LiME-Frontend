@@ -14,13 +14,15 @@ class TaskTagList extends React.Component {
           ? <TaskTag
             tag={tag}
             task_id={task_id}
-            key={task_id + '-' + tag.object_id} />
+            key={task_id + '-' + tag.object_id}
+            editMode={this.props.editMode} />
           : null;});
 
     return <ul className='TaskTagList' ref={preventParentScroll}>{tags}</ul>;
   }
 }
 TaskTagList.propTypes = {
+  editMode: PropTypes.bool.isRequired,
   tags: PropTypes.array.isRequired,
   task: PropTypes.object.isRequired,
 };

@@ -16,7 +16,7 @@ export default class TaskDetails extends React.Component {
               : <TaskNotes task={this.props.task} />
           }
         </div>
-        <TaskTagList task={this.props.task} />
+        <TaskTagList task={this.props.task} editMode={this.props.editMode} />
         <div className="clearfix"></div>
       </div>
     );

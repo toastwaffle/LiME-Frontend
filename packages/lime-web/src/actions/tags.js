@@ -36,4 +36,14 @@ export const TagActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
+  removeTagFromTasks: function(tag_id, task_ids) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'remove_tag_from_tasks', {tag_id, task_ids},
+        function(mutated) {
+          dispatch(DbObjectActionCreators.load(mutated));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
 };

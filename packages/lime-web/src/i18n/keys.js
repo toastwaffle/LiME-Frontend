@@ -29,6 +29,7 @@ export default [
   'PASSWORD',
   'REGISTER_BUTTON',
   'REGISTER_HEADER',
+  'REMOVE_TAG',
   'ROOT_HERE',
   'SETTING_SAVED',
   'SETTINGS',

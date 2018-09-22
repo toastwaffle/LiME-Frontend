@@ -29,6 +29,7 @@ export default {
   'PASSWORD': 'Password',
   'REGISTER_BUTTON': 'Register',
   'REGISTER_HEADER': 'Register...',
+  'REMOVE_TAG': 'Remove tag',
   'ROOT_HERE': 'Root task list here',
   'SETTING_SAVED': '✓ Saved!',
   'SETTINGS': 'Settings',
