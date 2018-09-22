@@ -18,6 +18,7 @@ import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import TaskTagList from './TaskTagList';
 import dragHandle from '../resources/drag-handle.svg';
 import rootTree from '../resources/root-tree.svg';
 
@@ -83,6 +84,7 @@ class TaskMainInfo extends React.Component {
             ? <EditTaskTitle task_id={this.props.task.object_id} value={this.props.task.title} />
             : <ReactMarkdown className='title' allowedTypes={titleMarkdownTypes} source={this.props.task.title} skipHtml={true} unwrapDisallowed={true} linkTarget='_blank' />
         }
+        {this.props.editMode || this.props.detailsShown ? null : <TaskTagList task={this.props.task} />}
         {
           this.props.detailsShown
             ? <CollapseDetails className='toggleDetails' onClick={this.props.toggleDetails} title='COLLAPSE_DETAILS' />

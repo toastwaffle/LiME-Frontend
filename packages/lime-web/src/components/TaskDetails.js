@@ -3,6 +3,7 @@ import EditTaskNotes from './EditTaskNotes';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TaskNotes from './TaskNotes';
+import TaskTagList from './TaskTagList';
 
 export default class TaskDetails extends React.Component {
   render() {
@@ -15,6 +16,8 @@ export default class TaskDetails extends React.Component {
               : <TaskNotes task={this.props.task} />
           }
         </div>
+        <TaskTagList task={this.props.task} />
+        <div className="clearfix"></div>
       </div>
     );
   }

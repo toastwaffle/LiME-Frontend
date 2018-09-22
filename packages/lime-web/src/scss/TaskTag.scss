@@ -1,0 +1,14 @@
+@import "_colors";
+
+.TaskTag {
+  list-style: none;
+  display: inline-block;
+  height: 30px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  background-color: $black;
+  border: 1px solid $white;
+  border-radius: 5px;
+}

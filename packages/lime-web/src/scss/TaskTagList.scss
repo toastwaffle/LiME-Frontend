@@ -1,0 +1,34 @@
+@import "_colors";
+
+.TaskTagList {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.TaskMainInfo .TaskTagList {
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 5px;
+  position:  absolute;
+  top: 0;
+  right: 155px;
+  max-width: 40%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $blue-grey 0%, $bluer-grey 100%);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0, 0,0) 0px, rgba(1,1,1,1) 10px);
+}
+
+.TaskMainInfo .TaskTagList::-webkit-scrollbar {
+  display: none;
+}
+
+.TaskDetails .TaskTagList {
+  width: 50%;
+  float: left;
+  padding: 5px 5px 10px 10px;
+  text-align: right;
+}
