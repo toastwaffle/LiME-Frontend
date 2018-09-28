@@ -14,9 +14,9 @@ class TaskHeader extends React.Component {
     }
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.taskID !== newProps.taskID && newProps.task === undefined) {
-      newProps.actions.getTask(newProps.taskID);
+  componentDidUpdate(prevProps) {
+    if (prevProps.taskID !== this.props.taskID && this.props.task === undefined) {
+      this.props.actions.getTask(this.props.taskID);
     }
   }
 

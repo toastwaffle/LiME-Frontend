@@ -5,15 +5,15 @@ import React from 'react';
 
 export default function requireAuth(Component) {
   class AuthenticatedComponent extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       this.checkAuth(this.props.isAuthenticated);
     }
 
-    componentWillReceiveProps (nextProps) {
-      this.checkAuth(nextProps.isAuthenticated);
+    componentDidUpdate() {
+      this.checkAuth(this.props.isAuthenticated);
     }
 
-    checkAuth (isAuthenticated) {
+    checkAuth(isAuthenticated) {
       if (!isAuthenticated) {
         let redirectAfterLogin = this.props.location.pathname;
         this.props.dispatch(push(`/home?next=${redirectAfterLogin}`));

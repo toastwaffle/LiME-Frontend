@@ -19,7 +19,7 @@ const icons = {
 };
 
 class Message extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     setTimeout(
       () => this.props.actions.clearMessage(this.props.id),
       Config.messageTimeout);

@@ -23,15 +23,15 @@ class Task extends React.Component {
     };
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.isOver !== newProps.isOver) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.isOver !== this.props.isOver) {
       if (this.state.dragTimeout !== null) {
         clearTimeout(this.state.dragTimeout);
       }
       this.setState({
         dragTimeout: setTimeout(function() {
           this.setState({
-            expandChildrenForDragging: newProps.isOver,
+            expandChildrenForDragging: this.props.isOver,
             dragTimeout: null,
           });
         }.bind(this), Config.dragExpandChildrenTimeout),
