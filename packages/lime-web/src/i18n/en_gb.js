@@ -25,6 +25,7 @@ export default {
   'MOVE_TASK': 'Click and drag here to move task',
   'NAME': 'Name',
   'NEW_TASK': 'New Task...',
+  'NO_TAGS_FOUND': 'No matching tags found',
   'NO_TASKS_YET': 'No tasks here yet. Add one below...',
   'NOTES': 'Notes (supports Markdown)',
   'PASSWORD': 'Password',

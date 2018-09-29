@@ -1,0 +1,45 @@
+@import "_colors";
+
+.TagMenuTagList {
+  margin: 0;
+  padding-left: 5px;
+  max-height: 250px;
+  overflow: auto;
+}
+
+.TagMenuTagList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.TagMenuTagList::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $light-grey;
+}
+
+.TagMenuTagList li {
+  list-style-type: none;
+}
+
+.TagMenuTagList li.tag {
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+
+.TagMenuTagList li.tag:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.TagMenuTagList li.tag.inGroup {
+  padding-left: 1rem;
+}
+
+.TagMenuTagList li.group {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+.TagMenuTagList li.notFound {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: $light-red;
+}

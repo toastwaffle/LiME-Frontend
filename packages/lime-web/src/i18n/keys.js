@@ -25,6 +25,7 @@ export default [
   'MOVE_TASK',
   'NAME',
   'NEW_TASK',
+  'NO_TAGS_FOUND',
   'NO_TASKS_YET',
   'NOTES',
   'PASSWORD',

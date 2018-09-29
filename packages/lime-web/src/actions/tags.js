@@ -36,6 +36,18 @@ export const TagActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
+  applyTagToTasks: function(tag_id, task_ids, hideMenu) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'apply_tag_to_tasks', {tag_id, task_ids},
+        function(mutated) {
+          dispatch(
+            DbObjectActionCreators.load(mutated));
+          hideMenu();
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
   removeTagFromTasks: function(tag_id, task_ids) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(

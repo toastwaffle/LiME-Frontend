@@ -3,7 +3,7 @@ import {DragSource, DropTarget} from 'react-dnd';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {toggleState} from '../utils';
+import {forceState, toggleState} from '../utils';
 import Config from '../Config';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -78,7 +78,7 @@ class Task extends React.Component {
         </div>
         {
           this.state.showTagMenu
-            ? <TaskTagMenu />
+            ? <TaskTagMenu task={this.props.task} hideMenu={forceState('showTagMenu', false).bind(this)} />
             : null
         }
         {

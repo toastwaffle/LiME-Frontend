@@ -61,6 +61,12 @@ export function toggleState(key) {
   };
 }
 
+export function forceState(key, value) {
+  return function() {
+    this.setState({[key]: value});
+  };
+}
+
 export function handleChange(field) {
   return function(event) {
     this.setState({[field]: event.target.value});
