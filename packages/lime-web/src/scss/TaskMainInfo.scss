@@ -5,7 +5,7 @@
   line-height: 40px;
   position: relative;
   padding-left: 82px;
-  padding-right: 160px;
+  padding-right: 200px;
 }
 
 .TaskMainInfo .title {
@@ -24,6 +24,7 @@
 
 .TaskMainInfo .toggleDetails,
 .TaskMainInfo .toggleEditMode,
+.TaskMainInfo .applyTag,
 .TaskMainInfo .deleteTask,
 .TaskMainInfo .expandChildren,
 .TaskMainInfo .rootTree {
@@ -54,6 +55,7 @@
 .TaskMainInfo .toggleDetails:hover,
 .TaskMainInfo .toggleEditMode:hover,
 .TaskMainInfo .expandChildren:hover,
+.TaskMainInfo .applyTag:hover,
 .TaskMainInfo .rootTree:hover {
   color: $white;
 }
@@ -62,8 +64,12 @@
   right: 85px;
 }
 
-.TaskMainInfo .toggleEditMode {
+.TaskMainInfo .applyTag {
   right: 125px;
+}
+
+.TaskMainInfo .toggleEditMode {
+  right: 165px;
 }
 
 .TaskMainInfo .toggleDetails {

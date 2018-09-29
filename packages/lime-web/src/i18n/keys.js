@@ -1,5 +1,6 @@
 export default [
   '_LANGUAGE',
+  'APPLY_TAG',
   'CLICK_TO_DISMISS',
   'COLLAPSE_CHILDREN',
   'COLLAPSE_DETAILS',
@@ -31,6 +32,7 @@ export default [
   'REGISTER_HEADER',
   'REMOVE_TAG',
   'ROOT_HERE',
+  'SEARCH_TAGS',
   'SETTING_SAVED',
   'SETTINGS',
 ];

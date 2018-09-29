@@ -1,0 +1,42 @@
+@import "_colors";
+
+.TaskTagMenu {
+  position: absolute;
+  z-index: 1;
+  top: 35px;
+  right: 140px;
+}
+
+.TaskTagMenu .rightShift {
+  background-color: $bluer-grey;
+  border: 2px solid $mid-grey;
+  border-radius: 3px;
+  position: relative;
+  left: 50%;
+  height: 100px;
+}
+
+.TaskTagMenu input {
+  background: $blue-grey;
+  background: linear-gradient(to bottom, $bluer-grey 0%, $blue-grey 100%);
+  border: none;
+  border-bottom: 2px solid $mid-grey;
+  color: $mid-grey;
+  line-height: 25px;
+  padding: 0px 5px;
+}
+
+.TaskTagMenu input:focus {
+  border: none;
+  border-bottom: 2px solid $mid-grey;
+  color: $white;
+  outline: none;
+}
+
+.TaskTagMenu input::placeholder {
+  color: $mid-grey;
+}
+
+.TaskTagMenu input:focus::placeholder {
+  color: $light-grey;
+}

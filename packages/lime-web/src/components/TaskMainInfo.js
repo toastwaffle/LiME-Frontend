@@ -14,6 +14,7 @@ import MdDone from 'react-icons/lib/md/done';
 import MdEdit from 'react-icons/lib/md/edit';
 import MdExpandLess from 'react-icons/lib/md/expand-less';
 import MdExpandMore from 'react-icons/lib/md/expand-more';
+import MdLabel from 'react-icons/lib/md/label';
 import MdList from 'react-icons/lib/md/list';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -45,6 +46,7 @@ class TaskMainInfo extends React.Component {
     var classes = ['TaskMainInfo'];
     if (this.props.task.completed) classes.push('completed');
 
+    var ApplyTag = withTitle(MdLabel);
     var CollapseDetails = withTitle(MdExpandLess);
     var DeleteTask = withTitle(MdClose);
     var Done = withTitle(MdDone);
@@ -95,6 +97,7 @@ class TaskMainInfo extends React.Component {
             ? <Done className='toggleEditMode' onClick={this.props.toggleEditMode} title='DONE_EDITING' />
             : <Edit className='toggleEditMode' onClick={this.props.toggleEditMode} title='EDIT_TASK' />
         }
+        <ApplyTag className='applyTag' onClick={this.props.toggleTagMenu} title='APPLY_TAG' />
         <RootHere className='rootTree' onClick={withArgs(this.props.goTo, '/parent/' + this.props.task.object_id)} title='ROOT_HERE' />
         <ExpandChildren
           className={this.props.task.has_children ? 'expandChildren hasChildren' : 'expandChildren'}
@@ -120,6 +123,7 @@ TaskMainInfo.propTypes = {
   toggleDetails: PropTypes.func.isRequired,
   toggleExpandChildren: PropTypes.func.isRequired,
   toggleEditMode: PropTypes.func.isRequired,
+  toggleTagMenu: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

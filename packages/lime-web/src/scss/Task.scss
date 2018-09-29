@@ -2,6 +2,7 @@
 
 .Task {
   border-bottom: 1px solid $mid-grey;
+  position: relative;
 }
 
 .Task.isDragging {

@@ -10,6 +10,7 @@ import React from 'react';
 import TaskDetails from './TaskDetails';
 import TaskList from './TaskList';
 import TaskMainInfo from './TaskMainInfo';
+import TaskTagMenu from './TaskTagMenu';
 
 class Task extends React.Component {
   constructor(props) {
@@ -50,10 +51,12 @@ class Task extends React.Component {
       childrenExpanded: this.state.expandChildren,
       editMode: this.state.editMode,
       detailsShown: this.state.showDetails,
+      showTagMenu: this.state.showTagMenu,
       task: this.props.task,
       toggleExpandChildren: toggleState('expandChildren').bind(this),
       toggleEditMode: toggleState('editMode').bind(this),
       toggleDetails: toggleState('showDetails').bind(this),
+      toggleTagMenu: toggleState('showTagMenu').bind(this),
       connectDragSource: this.props.connectDragSource,
       connectDragPreview: this.props.connectDragPreview,
     };
@@ -73,6 +76,11 @@ class Task extends React.Component {
               : null
           }
         </div>
+        {
+          this.state.showTagMenu
+            ? <TaskTagMenu />
+            : null
+        }
         {
           (this.state.expandChildren || this.state.expandChildrenForDragging) && !this.props.isDragging
             ? <TaskList parentID={this.props.task.object_id} alternateDepth={this.props.alternateDepth} />

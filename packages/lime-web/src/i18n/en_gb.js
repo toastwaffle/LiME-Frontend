@@ -1,5 +1,6 @@
 export default {
   '_LANGUAGE': 'British English',
+  'APPLY_TAG': 'Apply tag',
   'CLICK_TO_DISMISS': 'Click to dismiss...',
   'COLLAPSE_CHILDREN': 'Collapse children',
   'COLLAPSE_DETAILS': 'Collapse task detail',
@@ -31,6 +32,7 @@ export default {
   'REGISTER_HEADER': 'Register...',
   'REMOVE_TAG': 'Remove tag',
   'ROOT_HERE': 'Root task list here',
+  'SEARCH_TAGS': 'Search tags...',
   'SETTING_SAVED': '✓ Saved!',
   'SETTINGS': 'Settings',
 };
