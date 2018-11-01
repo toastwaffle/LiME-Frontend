@@ -4019,6 +4019,9 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+"lime-lib@file:../lime-lib":
+  version "0.1.0"
+
 linklocal@^2.8.1:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/linklocal/-/linklocal-2.8.2.tgz#c69e8864daac79369029892b17d5a8089275dca7"
