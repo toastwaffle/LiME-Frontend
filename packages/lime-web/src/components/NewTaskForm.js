@@ -1,11 +1,11 @@
 import '../css/NewTaskForm.css';
 import {DropTarget} from 'react-dnd';
+import {MdAddBox} from 'react-icons/md';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {handleChange} from '../utils';
 import I18n from './I18n';
-import MdAddBox from 'react-icons/lib/md/add-box';
 import PropTypes from 'prop-types';
 import React from 'react';
 

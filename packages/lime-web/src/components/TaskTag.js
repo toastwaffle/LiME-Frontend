@@ -1,9 +1,9 @@
 import '../css/TaskTag.css';
+import {MdClose} from 'react-icons/md';
 import {TagActionCreators} from '../actions/tags';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {withTitle} from '../utils';
-import MdClose from 'react-icons/lib/md/close';
 import PropTypes from 'prop-types';
 import React from 'react';
 

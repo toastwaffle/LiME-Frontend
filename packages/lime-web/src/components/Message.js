@@ -1,13 +1,10 @@
 import '../css/Message.css';
+import {MdDone,MdError,MdInfo,MdWarning} from 'react-icons/md';
 import {MessageActionCreators} from '../actions/messages';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Config from '../Config';
 import I18n from './I18n';
-import MdDone from 'react-icons/lib/md/done';
-import MdError from 'react-icons/lib/md/error';
-import MdInfo from 'react-icons/lib/md/info';
-import MdWarning from 'react-icons/lib/md/warning';
 import PropTypes from 'prop-types';
 import React from 'react';
 

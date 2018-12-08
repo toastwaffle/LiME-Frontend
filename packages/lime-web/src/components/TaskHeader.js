@@ -1,9 +1,9 @@
 import '../css/TaskHeader.css';
 import {Link} from 'react-router-dom';
+import {MdFileUpload} from 'react-icons/md';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import MdFileUpload from 'react-icons/lib/md/file-upload';
 import PropTypes from 'prop-types';
 import React from 'react';
 

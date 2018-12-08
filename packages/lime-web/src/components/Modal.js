@@ -1,8 +1,8 @@
 import '../css/Modal.css';
+import {MdClose} from 'react-icons/md';
 import {ModalActionCreators} from '../actions/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import MdClose from 'react-icons/lib/md/close';
 import PropTypes from 'prop-types';
 import React from 'react';
 

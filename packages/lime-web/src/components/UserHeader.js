@@ -1,11 +1,11 @@
 import '../css/UserHeader.css';
 import {AuthActionCreators} from '../actions/auth';
+import {MdSettings} from 'react-icons/md';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import I18n from './I18n';
-import MdSettings from 'react-icons/lib/md/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 
