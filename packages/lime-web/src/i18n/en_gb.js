@@ -10,6 +10,7 @@ export default {
   'DELETE_TASK': 'Delete task',
   'DONE_EDITING': 'Done editing',
   'EDIT_TASK': 'Edit task',
+  'EDIT_TAGS': 'Edit tags',
   'EMAIL': 'Email',
   'EXPAND_CHILDREN': 'Expand children',
   'EXPAND_DETAILS': 'Expand task detail',

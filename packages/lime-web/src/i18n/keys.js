@@ -10,6 +10,7 @@ export default [
   'DELETE_TASK',
   'DONE_EDITING',
   'EDIT_TASK',
+  'EDIT_TAGS',
   'EMAIL',
   'EXPAND_CHILDREN',
   'EXPAND_DETAILS',
