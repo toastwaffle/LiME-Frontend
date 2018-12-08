@@ -16,8 +16,8 @@ class ModalContainer extends React.Component {
             /* eslint-disable indent */
             this.props.modal !== null
               ? <CSSTransition classNames='modal' timeout={250} in={this.props.modal !== null}>
-                  <div className='modalOverlay' onClick={this.props.actions.closeTopModal}>
-                    {this.props.modal.component}
+                  <div className='modalOverlay' onClick={this.props.actions.closeAllModals}>
+                    {this.props.modal}
                   </div>
                 </CSSTransition>
               : null
@@ -30,7 +30,7 @@ class ModalContainer extends React.Component {
 }
 ModalContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  modal: PropTypes.object,
+  modal: PropTypes.element,
 };
 
 function mapStateToProps(state) {

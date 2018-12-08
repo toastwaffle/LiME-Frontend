@@ -24,6 +24,19 @@
     color: $red;
 }
 
+.Modal .previousModal {
+    position: absolute;
+    top:  10px;
+    left:  10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.Modal .previousModal:hover {
+    color: $light-blue;
+}
+
 .Modal button {
     border: none;
     background-color: $light-grey;
