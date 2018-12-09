@@ -38,6 +38,13 @@ export function createUuid4() {
   );
 }
 
+export function objectArrayToObject(objs) {
+  return objs.reduce((acc, val) => {
+    acc[val.object_id] = val;
+    return acc;
+  }, {});
+}
+
 export function filterObject(obj, ...keysToRemove) {
   var copy = Object.assign({}, obj);
   for (var i = keysToRemove.length - 1; i >= 0; i--) {
