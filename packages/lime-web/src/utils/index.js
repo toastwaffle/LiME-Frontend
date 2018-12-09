@@ -133,3 +133,11 @@ export function preventParentScroll(target) {
     }
   };
 }
+
+export function propertyComparator(key) {
+  if (key[0] === '-') {
+    key = key.substr(1);
+    return (a, b) => b[key].localeCompare(a[key]);
+  }
+  return (a, b) => a[key].localeCompare(b[key]);
+}

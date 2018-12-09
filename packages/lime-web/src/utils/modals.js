@@ -7,12 +7,16 @@ import SettingsModal from '../components/SettingsModal';
 export const Modals = createConstants('MODAL_', [
   'DELETE_TASK',
   'EDIT_TAGS',
+  'EDIT_TAG',
+  'EDIT_TAG_GROUP',
   'SETTINGS',
 ]);
 
 const ModalComponents = {
   [Modals.DELETE_TASK]: DeleteTaskModal,
   [Modals.EDIT_TAGS]: EditTagsModal,
+  [Modals.EDIT_TAG]: EditTagsModal, // TODO
+  [Modals.EDIT_TAG_GROUP]: EditTagsModal, // TODO
   [Modals.SETTINGS]: SettingsModal,
 };
 
