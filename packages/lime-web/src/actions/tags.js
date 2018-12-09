@@ -58,4 +58,41 @@ export const TagActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
+  deleteTagGroup: function(tag_group) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'delete_tag_group', {group_id: tag_group.object_id},
+        function() {
+          dispatch(DbObjectActionCreators.delete(
+            'TagGroup', [tag_group.object_id]));
+          dispatch(DbObjectActionCreators.filter(
+            'Tag', (tag) => tag.group_id !== tag_group.object_id));
+          let group_tag_ids = new Set(tag_group.tag_ids);
+          dispatch(DbObjectActionCreators.map(
+            'Task', (task) => {
+              let new_tag_ids = task.tag_ids.filter(id => !group_tag_ids.has(id));
+              if (new_tag_ids.length === task.tag_ids.length) return task;
+              return Object.assign({}, task, {tag_ids: new_tag_ids});
+            }));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
+  deleteTag: function(tag_id) {
+    return function(dispatch, getState) {
+      return getState().auth.backend.request(
+        'delete_tag', {tag_id},
+        function() {
+          dispatch(DbObjectActionCreators.delete(
+            'Tag', [tag_id]));
+          dispatch(DbObjectActionCreators.map(
+            'Task', (task) => {
+              if (!task.tag_ids.includes(tag_id)) return task;
+              return Object.assign(
+                {}, task, {tag_ids: task.tag_ids.filter(id => id !== tag_id)});
+            }));
+        },
+        defaultBackendErrorHandler(dispatch));
+    };
+  },
 };
