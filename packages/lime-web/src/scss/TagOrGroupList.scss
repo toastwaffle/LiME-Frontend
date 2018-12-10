@@ -1,0 +1,57 @@
+@import "_colors";
+
+.TagOrGroupList li {
+    list-style: none;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.TagOrGroupList input {
+  background-color: transparent;
+  border: none;
+  color: $mid-grey;
+  width: 100%;
+}
+
+.TagOrGroupList input:focus {
+  border: none;
+  color: $white;
+  outline: none;
+}
+
+.TagOrGroupList input::placeholder {
+  color: $mid-grey;
+}
+
+.TagOrGroupList input:focus::placeholder {
+  color: $light-grey;
+}
+
+.TagOrGroupList {
+    padding: 0;
+    border: 2px solid $mid-grey;
+    height: 204px;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.TagOrGroupList::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+.TagOrGroupList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $light-blue;
+}
+
+.TagOrGroupList li:nth-child(2n) {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.TagOrGroupList li:nth-child(2n+1) {
+    background-color: rgba(255,255,255,0.1);
+}

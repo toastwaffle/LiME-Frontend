@@ -1,0 +1,30 @@
+@import "_colors";
+
+.TagOrGroupListItem .deleteTagOrGroup {
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.TagOrGroupListItem .deleteTagOrGroup:hover {
+    color: $red;
+}
+
+.TagOrGroupListItem .editTagOrGroup {
+    height: 40px;
+    width: 40px;
+    padding: 4px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    cursor: pointer;
+}
+
+.TagOrGroupListItem .editTagOrGroup:hover {
+    color: $light-blue;
+}

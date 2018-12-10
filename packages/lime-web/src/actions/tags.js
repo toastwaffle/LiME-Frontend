@@ -78,18 +78,18 @@ export const TagActionCreators = {
         defaultBackendErrorHandler(dispatch));
     };
   },
-  deleteTag: function(tag_id) {
+  deleteTag: function(tag) {
     return function(dispatch, getState) {
       return getState().auth.backend.request(
-        'delete_tag', {tag_id},
+        'delete_tag', {tag_id: tag.object_id},
         function() {
           dispatch(DbObjectActionCreators.delete(
-            'Tag', [tag_id]));
+            'Tag', [tag.object_id]));
           dispatch(DbObjectActionCreators.map(
             'Task', (task) => {
-              if (!task.tag_ids.includes(tag_id)) return task;
+              if (!task.tag_ids.includes(tag.object_id)) return task;
               return Object.assign(
-                {}, task, {tag_ids: task.tag_ids.filter(id => id !== tag_id)});
+                {}, task, {tag_ids: task.tag_ids.filter(id => id !== tag.object_id)});
             }));
         },
         defaultBackendErrorHandler(dispatch));
