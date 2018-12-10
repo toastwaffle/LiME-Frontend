@@ -25,11 +25,11 @@ class TagListItem extends React.Component {
       <li className='TagListItem'>
         {this.props.tag.title}
         <DeleteTagGroup
-          className='deleteTag'
+          className='deleteTagOrGroup'
           onClick={this.delete.bind(this)}
           title='DELETE' />
         <EditTagGroup
-          className='editTag'
+          className='editTagOrGroup'
           onClick={this.edit.bind(this)}
           title='EDIT' />
       </li>

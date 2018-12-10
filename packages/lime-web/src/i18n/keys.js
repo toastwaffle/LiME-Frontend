@@ -27,6 +27,8 @@ export default [
   'MOVE_CHILDREN',
   'MOVE_TASK',
   'NAME',
+  'NEW_TAG',
+  'NEW_TAG_GROUP',
   'NEW_TASK',
   'NO_TAGS_FOUND',
   'NO_TASKS_YET',

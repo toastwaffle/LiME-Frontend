@@ -27,6 +27,8 @@ export default {
   'MOVE_CHILDREN': 'Move Children',
   'MOVE_TASK': 'Click and drag here to move task',
   'NAME': 'Name',
+  'NEW_TAG': 'New Tag...',
+  'NEW_TAG_GROUP': 'New Tag Group...',
   'NEW_TASK': 'New Task...',
   'NO_TAGS_FOUND': 'No matching tags found',
   'NO_TASKS_YET': 'No tasks here yet. Add one below...',

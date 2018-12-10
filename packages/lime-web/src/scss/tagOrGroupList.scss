@@ -1,7 +1,6 @@
 @import "_colors";
 
-.deleteTagGroup,
-.deleteTag {
+.deleteTagOrGroup {
     height: 40px;
     width: 40px;
     display: block;
@@ -11,13 +10,11 @@
     cursor: pointer;
 }
 
-.deleteTagGroup:hover,
-.deleteTag:hover {
+.deleteTagOrGroup:hover {
     color: $red;
 }
 
-.editTagGroup,
-.editTag {
+.editTagOrGroup {
     height: 40px;
     width: 40px;
     padding: 4px;
@@ -28,13 +25,11 @@
     cursor: pointer;
 }
 
-.editTagGroup:hover,
-.editTag:hover {
+.editTagOrGroup:hover {
     color: $light-blue;
 }
 
-.TagGroupListItem,
-.TagListItem {
+.tagOrGroupList li {
     list-style: none;
     height: 40px;
     line-height: 40px;
@@ -43,8 +38,28 @@
     overflow: hidden;
 }
 
-#tagGroupList,
-#tagList {
+.tagOrGroupList input {
+  background-color: transparent;
+  border: none;
+  color: $mid-grey;
+  width: 100%;
+}
+
+.tagOrGroupList input:focus {
+  border: none;
+  color: $white;
+  outline: none;
+}
+
+.tagOrGroupList input::placeholder {
+  color: $mid-grey;
+}
+
+.tagOrGroupList input:focus::placeholder {
+  color: $light-grey;
+}
+
+.tagOrGroupList {
     padding: 0;
     border: 2px solid $mid-grey;
     height: 204px;
@@ -52,24 +67,20 @@
     margin: 0;
 }
 
-#tagGroupList::-webkit-scrollbar,
-#tagList::-webkit-scrollbar {
+.tagOrGroupList::-webkit-scrollbar {
     width: 5px;
     background: transparent;
 }
 
-#tagGroupList::-webkit-scrollbar-thumb,
-#tagList::-webkit-scrollbar-thumb {
+.tagOrGroupList::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: $light-blue;
 }
 
-#tagGroupList li:nth-child(2n),
-#tagList li:nth-child(2n) {
+.tagOrGroupList li:nth-child(2n) {
     background-color: rgba(255,255,255,0.05);
 }
 
-#tagGroupList li:nth-child(2n+1),
-#tagList li:nth-child(2n+1) {
+.tagOrGroupList li:nth-child(2n+1) {
     background-color: rgba(255,255,255,0.1);
 }
