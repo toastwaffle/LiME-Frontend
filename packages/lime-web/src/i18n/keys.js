@@ -11,6 +11,7 @@ export default [
   'DELETE_TASK',
   'DONE_EDITING',
   'EDIT',
+  'EDIT_TAG_GROUP',
   'EDIT_TAGS',
   'EDIT_TASK',
   'EMAIL',

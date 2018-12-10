@@ -11,6 +11,7 @@ export default {
   'DELETE_TASK': 'Delete task',
   'DONE_EDITING': 'Done editing',
   'EDIT': 'Edit',
+  'EDIT_TAG_GROUP': 'Edit tag group',
   'EDIT_TAGS': 'Edit tags',
   'EDIT_TASK': 'Edit task',
   'EMAIL': 'Email',
