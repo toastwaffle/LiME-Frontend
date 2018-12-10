@@ -9,6 +9,18 @@
     border-top: none;
     padding: 40px 10px 10px;
     position: relative;
+    max-height: 95%;
+    overflow-y: auto;
+}
+
+.Modal::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+.Modal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $light-blue;
 }
 
 .Modal .closeModal {
