@@ -1,0 +1,75 @@
+@import "_colors";
+
+.deleteTagGroup,
+.deleteTag {
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.deleteTagGroup:hover,
+.deleteTag:hover {
+    color: $red;
+}
+
+.editTagGroup,
+.editTag {
+    height: 40px;
+    width: 40px;
+    padding: 4px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    cursor: pointer;
+}
+
+.editTagGroup:hover,
+.editTag:hover {
+    color: $light-blue;
+}
+
+.TagGroupListItem,
+.TagListItem {
+    list-style: none;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#tagGroupList,
+#tagList {
+    padding: 0;
+    border: 2px solid $mid-grey;
+    height: 204px;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+#tagGroupList::-webkit-scrollbar,
+#tagList::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+#tagGroupList::-webkit-scrollbar-thumb,
+#tagList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $light-blue;
+}
+
+#tagGroupList li:nth-child(2n),
+#tagList li:nth-child(2n) {
+    background-color: rgba(255,255,255,0.05);
+}
+
+#tagGroupList li:nth-child(2n+1),
+#tagList li:nth-child(2n+1) {
+    background-color: rgba(255,255,255,0.1);
+}
