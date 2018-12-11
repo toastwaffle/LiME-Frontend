@@ -1,4 +1,3 @@
-import '../css/tagOrGroupList.css';
 import {ModalActionCreators} from '../actions/modals';
 import {Modals} from '../utils/modals';
 import {TagActionCreators} from '../actions/tags';
