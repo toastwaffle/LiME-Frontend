@@ -141,3 +141,17 @@ export function propertyComparator(key) {
   }
   return (a, b) => a[key].localeCompare(b[key]);
 }
+
+export function extractOrdered(objs, parentProperty, parentID) {
+  var ordered = [];
+  // Find the first child
+  var child = Object.values(objs).find((tag) => {
+    return tag[parentProperty] === parentID && tag.before_id === null;
+  });
+  // Append children to the list by following the links.
+  while (child !== undefined) {
+    ordered.push(child);
+    child = objs[child.after_id];
+  }
+  return ordered;
+}

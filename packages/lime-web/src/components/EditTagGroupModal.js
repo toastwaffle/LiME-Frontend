@@ -3,7 +3,7 @@ import {Modals} from '../utils/modals';
 import {TagActionCreators} from '../actions/tags';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {propertyComparator} from '../utils';
+import {extractOrdered} from '../utils';
 import I18n from './I18n';
 import Modal from './Modal';
 import PropTypes from 'prop-types';
@@ -34,9 +34,7 @@ EditTagGroupModal.propTypes = {
 };
 
 function mapStateToProps(state, props) {
-  return {
-    tags: Object.values(state.tags).filter(tag => tag.group_id === props.tagGroup.object_id).sort(propertyComparator('title')),
-  };
+  return {tags: extractOrdered(state.tags, 'group_id', props.tagGroup.object_id)};
 }
 
 function mapDispatchToProps(dispatch) {

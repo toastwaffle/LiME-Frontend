@@ -2,6 +2,7 @@ import '../css/TaskList.css';
 import {TaskActionCreators} from '../actions/tasks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {extractOrdered} from '../utils';
 import I18n from './I18n';
 import NewTaskForm from './NewTaskForm';
 import PropTypes from 'prop-types';
@@ -59,19 +60,8 @@ TaskList.propTypes = {
 };
 
 function mapStateToProps(state, props) {
-  var orderedTasks = [];
-  // Find the first child
-  var child = Object.values(state.tasks).find((task) => {
-    return task.parent_id === props.parentID && task.before_id === null;
-  });
-  // Append children to the list by following the links.
-  while (child !== undefined) {
-    orderedTasks.push(child);
-    child = state.tasks[child.after_id];
-  }
-
   return {
-    tasks: orderedTasks,
+    tasks: extractOrdered(state.tasks, 'parent_id', props.parentID),
     childrenLoaded: state.childrenLoaded[props.parentID] !== undefined
   };
 }
