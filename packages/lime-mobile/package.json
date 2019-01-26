@@ -23,6 +23,6 @@
     "expo": "^25.0.0",
     "lime-lib": "file:../lime-lib",
     "react": "^16.2.0",
-    "react-native": "^0.57.1"
+    "react-native": "^0.58.1"
   }
 }
