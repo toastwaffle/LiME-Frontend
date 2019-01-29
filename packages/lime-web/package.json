@@ -32,11 +32,18 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "build": "node-sass-chokidar src/scss -o src/css && react-scripts build && git --git-dir=build.git/ --work-tree=build/ add -A && git --git-dir=build.git/ --work-tree=build/ commit -am Build && git --git-dir=build.git/ --work-tree=build/ push deploy master && git --git-dir=build.git/ --work-tree=build/ push github master:built",
+    "build": "node-sass-chokidar src/scss -o src/css && react-scripts build",
+    "build_and_deploy": "node-sass-chokidar src/scss -o src/css && react-scripts build && git --git-dir=build.git/ --work-tree=build/ add -A && git --git-dir=build.git/ --work-tree=build/ commit -am Build && git --git-dir=build.git/ --work-tree=build/ push deploy master && git --git-dir=build.git/ --work-tree=build/ push github master:built",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
     "start-js": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "watch-css": "node-sass-chokidar src/scss -o src/css && node-sass-chokidar src/scss -o src/css --watch"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
