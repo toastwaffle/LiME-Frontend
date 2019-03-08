@@ -8730,9 +8730,9 @@ react-scripts@^2.1.3:
     fsevents "1.2.4"
 
 react-svg@^7.2.4:
-  version "7.2.7"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-7.2.7.tgz#9d263357a676810521d4cca96d767ede9ee5e7dc"
-  integrity sha512-WMPjg/AlTsKmpVUVxBc6tJ01q4qVoAC45AHMXDgfUhaXP/t81TTlwxCq5AUzWDULtTa4AkM+l0Z8IVuFlM32uw==
+  version "7.2.8"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-7.2.8.tgz#acfb99cac3c3deb627f98f828e6fce0660d515c6"
+  integrity sha512-A4MoTRezvmpWReReUcJz7l4GT0DzKfEtFCKz5SB3dgqcqEfRY2eS5np8FWFAmi4Nh5M4XSs2kCpz33Otu+1gxg==
   dependencies:
     "@babel/runtime" "^7.3.1"
     "@tanem/svg-injector" "^2.1.4"
