@@ -1,0 +1,28 @@
+{
+  "steps": [
+    {
+      "name": "gcr.io/cloud-builders/yarn",
+      "args": ["install"]
+    },
+    {
+      "name": "gcr.io/cloud-builders/yarn",
+      "args": ["bootstrap"]
+    },
+    {
+      "name": "gcr.io/cloud-builders/yarn",
+      "args": ["test"],
+      "dir": "packages/lime-web",
+      "env": [
+        "CI=true"
+      ]
+    },
+    {
+      "name": "gcr.io/cloud-builders/yarn",
+      "args": ["build"],
+      "dir": "packages/lime-web",
+      "env": [
+        "CI=true"
+      ]
+    }
+  ]
+}
