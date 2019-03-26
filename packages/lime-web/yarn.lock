@@ -8722,9 +8722,9 @@ react-dnd-html5-backend@^7.0.2:
     lodash "^4.17.11"
 
 react-dnd@^7.0.2:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-7.4.0.tgz#c576fdabac3aa8cee044d6544ca590798cc1b3df"
-  integrity sha512-bnp5GNf+2Oaak73oBtmi7BOx0+XT/whBLcnyhSdMJWkKjWP3nsI0AI8I0OBU3xxmoyBoF3rVnEt7ZmChB5fv4A==
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-7.4.1.tgz#be8e9108cc2744d76aecc411117ce03a7b99f80d"
+  integrity sha512-SS5DyruDDzTuqMYxHdzyBO6WdxexYPOfQuK/fxVDd2ew+VaGVQpr5G2T3aH27yST8S5jQBemtc0qxgou100LoQ==
   dependencies:
     dnd-core "^7.4.0"
     hoist-non-react-statics "^3.3.0"
