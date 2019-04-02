@@ -8887,9 +8887,9 @@ react-scripts@^2.1.3:
     fsevents "1.2.4"
 
 react-svg@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.1.tgz#7d9cbcfb3d12588e9cf3d54a2bda3cdec8bfce82"
-  integrity sha512-3NjPSkls3RXblLW1UAzCZvhOLtgwbmCzB0MqVVnFATXfxNQzax1NrxeEHcJowQjrGMRP4XwWKwwWwKrdgIDc6w==
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.2.tgz#63b983d77f2dd69694401c25cfc0842de809387f"
+  integrity sha512-qvlzmHATcW1yhK+u750IlYXY4BVm/puhCgktD5rDyXm1ZfneFuZYx/v1yE2/NdMFlpdi2eQiml1o+o6aGNV4/Q==
   dependencies:
     "@babel/runtime" "^7.4.2"
     "@tanem/svg-injector" "^7.0.8"
