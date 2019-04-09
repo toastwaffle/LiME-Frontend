@@ -8764,9 +8764,9 @@ react-markdown@^4.0.6:
     xtend "^4.0.1"
 
 react-redux@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.0.tgz#36984e772c7c0b30d777cd158ead882d09d8754e"
-  integrity sha512-ZVXD/uOLlrr21p57bPHcXyEJ8TLUEiHn50GjnzEmEFDL4J/Yta48B/L4iYMM+Bs525uy9HK6Bc3qPmolibgFXA==
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.1.tgz#321285e6c85c3586d11cc066ab33dc580da599fb"
+  integrity sha512-orSiI/QXtGiiJmf8lN/zVTx4hysFo/kGOsce28IUu/mu98AGemBwPTDzf64P4Vf/miRmevO8/w2RSw2awDd21w==
   dependencies:
     "@babel/runtime" "^7.4.3"
     hoist-non-react-statics "^3.3.0"
