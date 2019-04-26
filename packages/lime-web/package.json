@@ -25,7 +25,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-svg": "^8.0.0",
+    "react-svg": "^9.0.3",
     "react-transition-group": "^4.0.0",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
