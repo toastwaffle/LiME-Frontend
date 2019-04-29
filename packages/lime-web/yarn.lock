@@ -887,10 +887,10 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.3":
-  version "7.4.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
-  integrity sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
+  integrity sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -1074,12 +1074,12 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
-"@tanem/svg-injector@^7.0.14":
-  version "7.0.14"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.14.tgz#c64aa85333229a510a88018c30e529112e136a6e"
-  integrity sha512-ZchZHozkCRYjj6foDjUvgQid6nv4BXn22jL7pIAQ93MvWNfQ13jd5OgLDkzqVlQra73gGvYP+C3xMmYPbm68mg==
+"@tanem/svg-injector@^7.0.17":
+  version "7.0.17"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.17.tgz#f7433ec5e1cbaa4ad4d2a3c13cfca7149a3a3b2d"
+  integrity sha512-UfFFkaX3M3bNOVzK+fdFyvlZbFwYtf5OucXpUSfmi1aQdE93H/PeTGNbaodB17PihlMEQNMiPHn59n+k4prB0w==
   dependencies:
-    "@babel/runtime" "^7.4.3"
+    "@babel/runtime" "^7.4.4"
 
 "@types/node@*":
   version "11.11.0"
@@ -8878,13 +8878,13 @@ react-scripts@^2.1.3:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-svg@^8.0.0:
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.6.tgz#d4992c5b22fd10e8ae5529efab42935b385bcc24"
-  integrity sha512-x4j3/k6745TeOpRWntT5WLiuFlcQoSBCmW1w/z2NsKhUQ6emlQ3BqZSuwynxDkpKEvtq4t+4DWmPWgxbTUuPWA==
+react-svg@^9.0.4:
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-9.0.4.tgz#a2d0cb10ea8d57a0bf0843b77a23b49bd1993e95"
+  integrity sha512-w5YaEO8hUa0WMQ9AR+404Qcc4fBHzQsW2Qh+nFS7tQVT7OOuFGJBhvNRQGu71LkQvPAg5cZbLI5q9Rzbps8zqg==
   dependencies:
-    "@babel/runtime" "^7.4.3"
-    "@tanem/svg-injector" "^7.0.14"
+    "@babel/runtime" "^7.4.4"
+    "@tanem/svg-injector" "^7.0.17"
     prop-types "^15.7.2"
 
 react-transition-group@^4.0.0:
