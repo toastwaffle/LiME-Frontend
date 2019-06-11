@@ -20,7 +20,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^32.0.2",
+    "expo": "^33.0.5",
     "lime-lib": "file:../lime-lib",
     "react": "^16.2.0",
     "react-native": "^0.59.0"
